@@ -8,9 +8,10 @@ import { LanguageService } from "src/app/core/services/language.service";
 import { FooterComponent } from "./footer/footer.component";
 import { HorizontalTopbarComponent } from "./horizontal-topbar/horizontal-topbar.component";
 import { TopbarComponent } from "./topbar/topbar.component";
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
-  declarations: [FooterComponent, HorizontalTopbarComponent, TopbarComponent],
+  declarations: [FooterComponent, HorizontalTopbarComponent, TopbarComponent, SidebarComponent],
   imports: [
     CommonModule,
     RouterModule,
