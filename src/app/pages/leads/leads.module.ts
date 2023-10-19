@@ -35,6 +35,7 @@ import { ListleadsComponent } from "./listleads/listleads.component";
 import { DatePipe } from "@angular/common";
 import { LeadsListComponent } from "./leads-list/leads-list.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { PageSharedModule } from "../shared/shared.module";
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   url: "https://httpbin.org/post",
@@ -62,6 +63,7 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
+    PageSharedModule,
   ],
   providers: [
     provideNgxMask(),
