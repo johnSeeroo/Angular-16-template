@@ -27,7 +27,6 @@ import { FlatpickrModule } from "angularx-flatpickr";
 //Module
 import { DashboardsRoutingModule } from "./dashboards-routing.module";
 import { SharedModule } from "../../shared/shared.module";
-import { WidgetModule } from "../../shared/widget/widget.module";
 
 // Component
 
@@ -47,7 +46,6 @@ import { WidgetModule } from "../../shared/widget/widget.module";
     FlatpickrModule.forRoot(),
     DashboardsRoutingModule,
     SharedModule,
-    WidgetModule,
     NgbPaginationModule,
     NgbTypeaheadModule,
     FormsModule,
