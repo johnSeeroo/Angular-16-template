@@ -14,13 +14,18 @@
       </div>
     </div>
 
-    <!-- <div class="filter-choices-input">
-        <ng-select [items]="Default" [multiple]="true" bindLabel="name" [(ngModel)]="multiDefaultOption">
-          <ng-template ng-optgroup-tmp let-item="item">
-            {{item.country || 'Unnamed group'}}
-          </ng-template>
-        </ng-select>
-      </div> -->
+    <div class="filter-choices-input">
+      <ng-select
+        [items]="Default"
+        [multiple]="true"
+        bindLabel="name"
+        [(ngModel)]="multiDefaultOption"
+      >
+        <ng-template ng-optgroup-tmp let-item="item">
+          {{ item.country || "Unnamed group" }}
+        </ng-template>
+      </ng-select>
+    </div>
   </div>
 
   <div class="accordion accordion-flush">

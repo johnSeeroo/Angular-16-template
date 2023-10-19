@@ -10,7 +10,7 @@
           <div class="row g-4">
             <div class="col-sm-auto">
               <div>
-                <a routerLink="/ecommerce/add-product" class="btn btn-success"
+                <a (click)="openEnd(filtetcontent)" class="btn btn-success"
                   ><i class="ri-add-line align-bottom me-1"></i> Add Product</a
                 >
               </div>
@@ -1071,9 +1071,9 @@
   </div>
 </div>
 
-<!-- add leads start -->
+<!-- add leads start plus icon-->
 
-<div class="customizer-setting d-none d-md-block">
+<!-- <div class="customizer-setting d-none d-md-block">
   <div
     class="btn-info rounded-pill shadow-lg btn btn-icon btn-lg p-2"
     data-bs-toggle="offcanvas"
@@ -1083,7 +1083,7 @@
   >
     <i class="mdi mdi-plus mdi-cog-outline fs-22"></i>
   </div>
-</div>
+</div> -->
 
 <!-- Add Leads -->
 <ng-template #filtetcontent let-offcanvas>
