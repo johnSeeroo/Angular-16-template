@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { Options } from "ngx-slider-v2";
 import { Observable } from "rxjs";
 import { AdvancedService } from "src/app/pages/ecommerce/products/products.service";
+import { FILTERDATA } from "./filterData";
 
 @Component({
   selector: "app-table-filter",
@@ -60,6 +61,7 @@ export class TableFilterComponent {
   multiDefaultOption = "Watches";
   selectedAccount = "This is a placeholder";
   Default = [{ name: "Watches" }, { name: "Headset" }, { name: "Sweatshirt" }];
+  filterContent = FILTERDATA;
 
   // Check Box Checked Value Get
   checkedValGet: any[] = [];
@@ -131,14 +133,12 @@ export class TableFilterComponent {
   changeRating(e: any, rate: any) {
     if (e.target.checked) {
       this.Rating.push(e.target.defaultValue);
-      // this.service.productRate = rate;
     } else {
       for (var i = 0; i < this.Rating.length; i++) {
         if (this.Rating[i] === e.target.defaultValue) {
           this.Rating.splice(i, 1);
         }
       }
-      // this.service.productRate = rate;
     }
     this.totalrate = this.Rating.length;
   }
@@ -159,8 +159,6 @@ export class TableFilterComponent {
         }
       });
     });
-
-    // this.service.ProductFilter = name;
   }
 
   /**
@@ -218,7 +216,6 @@ export class TableFilterComponent {
     for (var i = 0; i < checkboxes.length; i++) {
       checkboxes[i].checked = false;
     }
-    // this.service.searchTerm = ''
     this.totalbrand = 0;
     this.totaldiscount = 0;
     this.totalrate = 0;
@@ -232,9 +229,5 @@ export class TableFilterComponent {
         item.classList.remove("active");
       });
     });
-    // this.service.searchTerm = "";
-    // this.service.ProductFilter = "";
-    // this.service.productRate = 0;
-    // this.service.productPrice = 0;
   }
 }

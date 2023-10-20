@@ -1,18 +1,21 @@
 <div class="row">
-  <div class="col-xl-3 col-lg-6">
+  <div *ngIf="showFilter" class="col-xl-3 col-lg-6">
     <app-table-filter></app-table-filter>
   </div>
 
-  <div class="col-xl-9 col-lg-8">
+  <div [ngClass]="showFilter ? 'col-xl-9 col-lg-8' : 'col-xl-12 col-lg-12'">
     <div>
       <div class="card">
         <div class="card-header border-0">
           <div class="row g-4">
             <div class="col-sm-auto">
               <div>
-                <a routerLink="/ecommerce/add-product" class="btn btn-success"
+                <a (click)="openEnd(filtetcontent)" class="btn btn-success"
                   ><i class="ri-add-line align-bottom me-1"></i> Add Product</a
                 >
+                <a (click)="showFilter = !showFilter" style="margin-left: 10px">
+                  <i class="mdi mdi-filter-outline mdi-cog-outline fs-22"></i>
+                </a>
               </div>
             </div>
             <div class="col-sm">
@@ -1071,9 +1074,9 @@
   </div>
 </div>
 
-<!-- add leads start -->
+<!-- add leads start plus icon-->
 
-<div class="customizer-setting d-none d-md-block">
+<!-- <div class="customizer-setting d-none d-md-block">
   <div
     class="btn-info rounded-pill shadow-lg btn btn-icon btn-lg p-2"
     data-bs-toggle="offcanvas"
@@ -1083,7 +1086,7 @@
   >
     <i class="mdi mdi-plus mdi-cog-outline fs-22"></i>
   </div>
-</div>
+</div> -->
 
 <!-- Add Leads -->
 <ng-template #filtetcontent let-offcanvas>

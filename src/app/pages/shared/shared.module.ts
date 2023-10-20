@@ -15,6 +15,7 @@ import { TopbarComponent } from "./topbar/topbar.component";
 import { TableFilterComponent } from "./table-filter/table-filter.component";
 import { NgSelectModule } from "@ng-select/ng-select";
 import { NgxSliderModule } from "ngx-slider-v2";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { NgxSliderModule } from "ngx-slider-v2";
     NgSelectModule,
     NgxSliderModule,
     NgbAccordionModule,
+    FormsModule,
   ],
   exports: [
     TopbarComponent,
