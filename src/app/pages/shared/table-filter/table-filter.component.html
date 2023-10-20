@@ -16,7 +16,7 @@
 
     <div class="filter-choices-input">
       <ng-select
-        [items]="Default"
+        [items]="filterContent.dropDownItems"
         [multiple]="true"
         bindLabel="name"
         [(ngModel)]="multiDefaultOption"
@@ -29,147 +29,40 @@
   </div>
 
   <div class="accordion accordion-flush">
-    <div class="card-body border-bottom">
+    <div class="card-body border-bottom" *ngIf="filterContent.showList">
       <div>
-        <p class="text-muted text-uppercase fs-12 fw-medium mb-2">Products</p>
+        <p class="text-muted text-uppercase fs-12 fw-medium mb-2">
+          {{ filterContent.listItems.listTitle }}
+        </p>
         <ul class="list-unstyled mb-0 filter-list">
-          <li class="filter-list-option">
+          <li
+            *ngFor="let item of filterContent.listItems.listItemsDataList"
+            class="filter-list-option"
+          >
             <a
               href="javascript:void(0);"
               class="d-flex py-1 align-items-center"
-              (click)="
-                changeProducts(
-                  $event,
-                  'Kitchen Storage & Containers',
-                  'Grocery'
-                )
-              "
+              (click)="changeProducts($event, item.category, item.name)"
             >
               <div class="flex-grow-1">
-                <h5 class="fs-13 mb-0 listname">Grocery</h5>
+                <h5 class="fs-13 mb-0 listname">{{ item.name }}</h5>
               </div>
               <div class="flex-shrink-0 ms-2" *ngIf="grocery > 0">
                 <span class="badge bg-light text-muted">{{ grocery }}</span>
               </div>
             </a>
           </li>
-          <li class="filter-list-option">
-            <a
-              href="javascript:void(0);"
-              class="d-flex py-1 align-items-center"
-              (click)="changeProducts($event, 'Clothes', 'Fashion')"
-            >
-              <div class="flex-grow-1">
-                <h5 class="fs-13 mb-0 listname">Fashion</h5>
-              </div>
-              <div class="flex-shrink-0 ms-2" *ngIf="fashion > 0">
-                <span class="badge bg-light text-muted">{{ fashion }}</span>
-              </div>
-            </a>
-          </li>
-          <li class="filter-list-option">
-            <a
-              href="javascript:void(0);"
-              class="d-flex py-1 align-items-center"
-              (click)="changeProducts($event, 'Watches', 'Watches')"
-            >
-              <div class="flex-grow-1">
-                <h5 class="fs-13 mb-0 listname">Watches</h5>
-              </div>
-              <div class="flex-shrink-0 ms-2" *ngIf="watches > 0">
-                <span class="badge bg-light text-muted">{{ watches }}</span>
-              </div>
-            </a>
-          </li>
-          <li class="filter-list-option">
-            <a
-              href="javascript:void(0);"
-              class="d-flex py-1 align-items-center"
-              (click)="changeProducts($event, 'Electronics', 'Electronics')"
-            >
-              <div class="flex-grow-1">
-                <h5 class="fs-13 mb-0 listname">Electronics</h5>
-              </div>
-              <div class="flex-shrink-0 ms-2" *ngIf="electronics > 0">
-                <span class="badge bg-light text-muted">{{ electronics }}</span>
-              </div>
-            </a>
-          </li>
-          <li class="filter-list-option">
-            <a
-              href="javascript:void(0);"
-              class="d-flex py-1 align-items-center"
-              (click)="changeProducts($event, 'Furniture', 'Furniture')"
-            >
-              <div class="flex-grow-1">
-                <h5 class="fs-13 mb-0 listname">Furniture</h5>
-              </div>
-              <div class="flex-shrink-0 ms-2" *ngIf="furniture > 0">
-                <span class="badge bg-light text-muted">{{ furniture }}</span>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a
-              href="javascript:void(0);"
-              class="d-flex py-1 align-items-center"
-              (click)="
-                changeProducts(
-                  $event,
-                  'Bike Accessories',
-                  'Automotive Accessories'
-                )
-              "
-            >
-              <div class="flex-grow-1">
-                <h5 class="fs-13 mb-0 listname">Automotive Accessories</h5>
-              </div>
-              <div class="flex-shrink-0 ms-2" *ngIf="accessories > 0">
-                <span class="badge bg-light text-muted">{{ accessories }}</span>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a
-              href="javascript:void(0);"
-              class="d-flex py-1 align-items-center"
-              (click)="
-                changeProducts($event, 'Tableware & Dinnerware', 'Appliances')
-              "
-            >
-              <div class="flex-grow-1">
-                <h5 class="fs-13 mb-0 listname">Appliances</h5>
-              </div>
-              <div class="flex-shrink-0 ms-2" *ngIf="appliance > 0">
-                <span class="badge bg-light text-muted">{{ appliance }}</span>
-              </div>
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="javascript:void(0);"
-              class="d-flex py-1 align-items-center"
-              (click)="
-                changeProducts($event, 'Bags, Wallets and Luggage', 'Kids')
-              "
-            >
-              <div class="flex-grow-1">
-                <h5 class="fs-13 mb-0 listname">Kids</h5>
-              </div>
-              <div class="flex-shrink-0 ms-2" *ngIf="kids > 0">
-                <span class="badge bg-light text-muted">{{ kids }}</span>
-              </div>
-            </a>
-          </li>
         </ul>
       </div>
     </div>
-    <div class="card-body border-bottom">
-      <p class="text-muted text-uppercase fs-12 fw-medium mb-4">Price</p>
+
+    <div class="card-body border-bottom" *ngIf="filterContent.showSlider">
+      <p class="text-muted text-uppercase fs-12 fw-medium mb-4">
+        {{ filterContent.sliderData.sliderTitle }}
+      </p>
       <ngx-slider
-        [(value)]="minValue"
-        [(highValue)]="maxValue"
+        [(value)]="filterContent.sliderData.minValue"
+        [(highValue)]="filterContent.sliderData.maxValue"
         [options]="options"
         id="product-price-range"
         (valueChange)="valueChange($event, true)"
@@ -196,6 +89,7 @@
       #acc="ngbAccordion"
       activeIds="static-1"
       [closeOthers]="true"
+      *ngIf="filterContent.showAccordianWithSearch"
     >
       <ngb-panel id="static-1">
         <ng-template
@@ -211,9 +105,9 @@
             aria-expanded="false"
             aria-controls="gen-ques-collapseOne"
           >
-            <span class="text-muted text-uppercase fs-12 fw-medium"
-              >Brands</span
-            >
+            <span class="text-muted text-uppercase fs-12 fw-medium">{{
+              filterContent.accordianWithSearchData.title
+            }}</span>
             <span
               class="badge bg-success rounded-pill align-middle ms-1"
               *ngIf="totalbrand > 0"
@@ -232,78 +126,30 @@
               <i class="ri-search-line search-icon"></i>
             </div>
             <div class="d-flex flex-column gap-2 mt-3">
-              <div class="form-check">
+              <div
+                *ngFor="
+                  let item of filterContent.accordianWithSearchData
+                    .accordianItems
+                "
+                class="form-check"
+              >
                 <input
                   class="form-check-input"
                   name="checkAll"
                   type="checkbox"
-                  value="Boat"
-                  id="productBrandRadio5"
+                  value="{{ item.name }}"
+                  id="{{ item.id }}"
                   (change)="changeBrand($event)"
                 />
-                <label class="form-check-label" for="productBrandRadio5"
-                  >Boat</label
-                >
-              </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  name="checkAll"
-                  type="checkbox"
-                  value="OnePlus"
-                  id="productBrandRadio4"
-                  (change)="changeBrand($event)"
-                />
-                <label class="form-check-label" for="productBrandRadio4"
-                  >OnePlus</label
-                >
-              </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  name="checkAll"
-                  type="checkbox"
-                  value="Realme"
-                  id="productBrandRadio3"
-                  (change)="changeBrand($event)"
-                />
-                <label class="form-check-label" for="productBrandRadio3"
-                  >Realme</label
-                >
-              </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  name="checkAll"
-                  type="checkbox"
-                  value="Sony"
-                  id="productBrandRadio2"
-                  (change)="changeBrand($event)"
-                />
-                <label class="form-check-label" for="productBrandRadio2"
-                  >Sony</label
-                >
-              </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  name="checkAll"
-                  type="checkbox"
-                  value="JBL"
-                  id="productBrandRadio1"
-                  (change)="changeBrand($event)"
-                />
-                <label class="form-check-label" for="productBrandRadio1"
-                  >JBL</label
-                >
+                <label class="form-check-label" for="{{ item.id }}">{{
+                  item.name
+                }}</label>
               </div>
               <div>
                 <button
                   type="button"
                   class="btn btn-link text-decoration-none text-uppercase fw-medium p-0"
-                >
-                  1 More
-                </button>
+                ></button>
               </div>
             </div>
           </div>
@@ -312,7 +158,10 @@
     </ngb-accordion>
     <!-- end accordion-item -->
 
-    <ngb-accordion #acc="ngbAccordion">
+    <ngb-accordion
+      #acc="ngbAccordion"
+      *ngIf="filterContent.showAccordianWithCheckbox"
+    >
       <ngb-panel id="static-2">
         <ng-template
           ngbPanelTitle
@@ -327,9 +176,9 @@
             aria-expanded="true"
             aria-controls="flush-collapseDiscount"
           >
-            <span class="text-muted text-uppercase fs-12 fw-medium"
-              >Discount</span
-            >
+            <span class="text-muted text-uppercase fs-12 fw-medium">{{
+              filterContent.AccordianWithCheckboxData.title
+            }}</span>
             <span
               class="badge bg-success rounded-pill align-middle ms-1"
               *ngIf="totaldiscount > 0"
@@ -339,82 +188,23 @@
         </ng-template>
         <ng-template ngbPanelContent>
           <div class="d-flex flex-column gap-2">
-            <div class="form-check">
+            <div
+              *ngFor="
+                let item of filterContent.AccordianWithCheckboxData
+                  .accordianItems
+              "
+              class="form-check"
+            >
               <input
                 class="form-check-input"
                 name="checkAll"
                 type="checkbox"
-                value="50%"
-                id="productdiscountRadio6"
+                value="{{ item.value }}"
+                id="{{ item.id }}"
                 (change)="changeDiscount($event)"
               />
-              <label class="form-check-label" for="productdiscountRadio6">
-                50% or more
-              </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                name="checkAll"
-                type="checkbox"
-                value="40%"
-                id="productdiscountRadio5"
-                (change)="changeDiscount($event)"
-              />
-              <label class="form-check-label" for="productdiscountRadio5">
-                40% or more
-              </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                name="checkAll"
-                type="checkbox"
-                value="30%"
-                id="productdiscountRadio4"
-                (change)="changeDiscount($event)"
-              />
-              <label class="form-check-label" for="productdiscountRadio4">
-                30% or more
-              </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                name="checkAll"
-                type="checkbox"
-                value="20%"
-                id="productdiscountRadio3"
-                (change)="changeDiscount($event)"
-              />
-              <label class="form-check-label" for="productdiscountRadio3">
-                20% or more
-              </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                name="checkAll"
-                type="checkbox"
-                value="10%"
-                id="productdiscountRadio2"
-                (change)="changeDiscount($event)"
-              />
-              <label class="form-check-label" for="productdiscountRadio2">
-                10% or more
-              </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                name="checkAll"
-                type="checkbox"
-                value="less10%"
-                id="productdiscountRadio1"
-                (change)="changeDiscount($event)"
-              />
-              <label class="form-check-label" for="productdiscountRadio1">
-                Less than 10%
+              <label class="form-check-label" for="{{ item.id }}">
+                {{ item.name }}
               </label>
             </div>
           </div>
@@ -423,7 +213,10 @@
     </ngb-accordion>
     <!-- end accordion-item -->
 
-    <ngb-accordion #acc="ngbAccordion">
+    <ngb-accordion
+      #acc="ngbAccordion"
+      *ngIf="filterContent.showAccordianWithRating"
+    >
       <ngb-panel id="static-3">
         <ng-template
           ngbPanelTitle
@@ -438,9 +231,9 @@
             aria-expanded="false"
             aria-controls="flush-collapseRating"
           >
-            <span class="text-muted text-uppercase fs-12 fw-medium"
-              >Rating</span
-            >
+            <span class="text-muted text-uppercase fs-12 fw-medium">{{
+              filterContent.AccordianWithRatingData.title
+            }}</span>
             <span
               class="badge bg-success rounded-pill align-middle ms-1"
               *ngIf="totalrate > 0"
@@ -450,16 +243,21 @@
         </ng-template>
         <ng-template ngbPanelContent>
           <div class="d-flex flex-column gap-2">
-            <div class="form-check">
+            <div
+              *ngFor="
+                let item of filterContent.AccordianWithRatingData.accordianItems
+              "
+              class="form-check"
+            >
               <input
                 class="form-check-input"
                 name="checkAll"
                 type="checkbox"
-                value="4"
-                id="productratingRadio4"
-                (change)="changeRating($event, 4)"
+                value="{{ item.value }}"
+                id="{{ item.id }}"
+                (change)="changeRating($event, item.value)"
               />
-              <label class="form-check-label" for="productratingRadio4">
+              <label class="form-check-label" for="{{ item.id }}">
                 <span class="text-muted">
                   <i class="mdi mdi-star text-warning"></i>
                   <i class="mdi mdi-star text-warning"></i>
@@ -467,67 +265,7 @@
                   <i class="mdi mdi-star text-warning"></i>
                   <i class="mdi mdi-star"></i>
                 </span>
-                4 & Above
-              </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                name="checkAll"
-                type="checkbox"
-                value="3"
-                id="productratingRadio3"
-                (change)="changeRating($event, 3)"
-              />
-              <label class="form-check-label" for="productratingRadio3">
-                <span class="text-muted">
-                  <i class="mdi mdi-star text-warning"></i>
-                  <i class="mdi mdi-star text-warning"></i>
-                  <i class="mdi mdi-star text-warning"></i>
-                  <i class="mdi mdi-star"></i>
-                  <i class="mdi mdi-star"></i>
-                </span>
-                3 & Above
-              </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                name="checkAll"
-                type="checkbox"
-                value="2"
-                id="productratingRadio2"
-                (change)="changeRating($event, 2)"
-              />
-              <label class="form-check-label" for="productratingRadio2">
-                <span class="text-muted">
-                  <i class="mdi mdi-star text-warning"></i>
-                  <i class="mdi mdi-star text-warning"></i>
-                  <i class="mdi mdi-star"></i>
-                  <i class="mdi mdi-star"></i>
-                  <i class="mdi mdi-star"></i>
-                </span>
-                2 & Above
-              </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                name="checkAll"
-                type="checkbox"
-                value="1"
-                id="productratingRadio1"
-                (change)="changeRating($event, 1)"
-              />
-              <label class="form-check-label" for="productratingRadio1">
-                <span class="text-muted">
-                  <i class="mdi mdi-star text-warning"></i>
-                  <i class="mdi mdi-star"></i>
-                  <i class="mdi mdi-star"></i>
-                  <i class="mdi mdi-star"></i>
-                  <i class="mdi mdi-star"></i>
-                </span>
-                1
+                {{ item.name }}
               </label>
             </div>
           </div>

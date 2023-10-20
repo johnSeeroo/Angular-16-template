@@ -7,6 +7,7 @@ import { NgbOffcanvas } from "@ng-bootstrap/ng-bootstrap";
   styleUrls: ["./leads-list.component.scss"],
 })
 export class LeadsListComponent {
+  showFilter = false;
   constructor(private offcanvasService: NgbOffcanvas) {}
   openEnd(content: TemplateRef<any>) {
     this.offcanvasService.open(content, { position: "end" });
