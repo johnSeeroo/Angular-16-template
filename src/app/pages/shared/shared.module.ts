@@ -16,6 +16,7 @@ import { TableFilterComponent } from "./table-filter/table-filter.component";
 import { NgSelectModule } from "@ng-select/ng-select";
 import { NgxSliderModule } from "ngx-slider-v2";
 import { FormsModule } from "@angular/forms";
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FormsModule } from "@angular/forms";
     HorizontalTopbarComponent,
     TopbarComponent,
     TableFilterComponent,
+    SidebarComponent
   ],
   imports: [
     CommonModule,
@@ -35,12 +37,14 @@ import { FormsModule } from "@angular/forms";
     NgxSliderModule,
     NgbAccordionModule,
     FormsModule,
+    
   ],
   exports: [
     TopbarComponent,
     FooterComponent,
     HorizontalTopbarComponent,
     TableFilterComponent,
+    SidebarComponent
   ],
   providers: [LanguageService],
 })
