@@ -3,8 +3,13 @@ import { RouterModule, Routes } from "@angular/router";
 
 import { ListleadsComponent } from "./listleads/listleads.component";
 import { LeadsListComponent } from "./leads-list/leads-list.component";
+import { LeadsComponent } from "./leads/leads.component";
 
 const routes: Routes = [
+  {
+    path: "",
+    component: LeadsComponent,
+  },
   {
     path: "list",
     component: ListleadsComponent,

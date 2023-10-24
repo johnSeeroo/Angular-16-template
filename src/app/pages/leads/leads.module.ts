@@ -36,6 +36,11 @@ import { DatePipe } from "@angular/common";
 import { LeadsListComponent } from "./leads-list/leads-list.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { PageSharedModule } from "../shared/shared.module";
+import { LeadsComponent } from "./leads/leads.component";
+import { SharedModule } from "src/app/shared/shared.module";
+import { FlatpickrModule } from "angularx-flatpickr";
+import { NgSelectModule } from "@ng-select/ng-select";
+import { NgbdLeadsSortableHeader } from "./leads/leads-sortable.directive";
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   url: "https://httpbin.org/post",
@@ -44,7 +49,13 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
 };
 
 @NgModule({
-  declarations: [AddleadsComponent, ListleadsComponent, LeadsListComponent],
+  declarations: [
+    AddleadsComponent,
+    ListleadsComponent,
+    LeadsListComponent,
+    LeadsComponent,
+    NgbdLeadsSortableHeader,
+  ],
   imports: [
     CommonModule,
     LeadsRoutingModule,
@@ -64,6 +75,9 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     FormsModule,
     ReactiveFormsModule,
     PageSharedModule,
+    SharedModule,
+    FlatpickrModule,
+    NgSelectModule,
   ],
   providers: [
     provideNgxMask(),
