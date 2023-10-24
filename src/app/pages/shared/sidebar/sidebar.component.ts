@@ -212,7 +212,7 @@ export class SidebarComponent implements OnInit{
    * Returns true or false if given menu item has child or not
    * @param item menuItem
    */
-  hasItems(item: MenuItem) {
+  hasItems(item: MenuItem) {debugger
     return item.subItems !== undefined ? item.subItems.length > 0 : false;
   }
 

@@ -40,6 +40,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     TopbarComponent,
     FooterComponent,
     HorizontalTopbarComponent,
+    SidebarComponent,
     TableFilterComponent,
   ],
   providers: [LanguageService],

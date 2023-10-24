@@ -14,8 +14,14 @@ import {
   styleUrls: ["./pages.component.scss"],
 })
 export class PagesComponent {
+  isSidebarActive = false;
+
+  toggleSidebar() {
+    this.isSidebarActive = !this.isSidebarActive;
+  }
   ngOnInit(): void {
     document.documentElement.setAttribute("data-layout", "horizontal");
+    // document.documentElement.setAttribute("data-layout", "");
     document.documentElement.setAttribute("data-topbar", TOPBAR);
     document.documentElement.setAttribute("data-layout-style", SIDEBAR_VIEW);
     document.documentElement.setAttribute("data-bs-theme", LAYOUT_MODE);

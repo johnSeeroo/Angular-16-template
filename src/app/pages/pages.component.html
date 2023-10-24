@@ -1,15 +1,29 @@
 <!-- <app-horizontal></app-horizontal> -->
 <div class="row"></div>
 <div id="layout-wrapper">
-  <app-sidebar></app-sidebar>
+  
   <!-- Top Bar -->
   <app-topbar (mobileMenuButtonClicked)="onToggleMobileMenu()"></app-topbar>
+
   <app-horizontal-topbar></app-horizontal-topbar>
+  <div class="content-wrapper">
+    <div [ngClass]="{'sidebar': true, 'active': isSidebarActive}" (click)="toggleSidebar()">
+      <app-sidebar></app-sidebar>
+      
+    </div>
+
   
+
+  
+   
+  
+   
   <div class="main-content">
     <div class="page-content">
       <div class="container-fluid">
-        <!-- Main Content -->
+        <!-- Main Content -->     
+        
+       
         <router-outlet></router-outlet>
       </div>
     </div>
