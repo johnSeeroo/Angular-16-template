@@ -5,7 +5,7 @@
 ></app-breadcrumbs>
 <!-- End Breadcrumbs -->
 
-<div class="row" *ngIf="leads.length > 0">
+<div class="row">
   <div class="col-lg-12">
     <div class="card" id="leadsList">
       <div class="card-header border-0">
@@ -167,139 +167,155 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let data of leads" id="l_{{ data._id }}">
-                  <th scope="row">
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        name="checkAll"
-                        value="{{ data._id }}"
-                        [(ngModel)]="data.state"
-                        (change)="onCheckboxChange($event)"
-                      />
-                    </div>
-                  </th>
-                  <td>
-                    <div class="d-flex align-items-center">
-                      <div class="flex-shrink-0">
-                        <img
-                          src="assets/images/users/{{ data.image_src }}"
-                          alt=""
-                          class="avatar-xxs rounded-circle image_src object-fit-cover"
+                <ng-container *ngIf="leads?.length > 0">
+                  <tr *ngFor="let data of leads" id="l_{{ data._id }}">
+                    <th scope="row">
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          name="checkAll"
+                          value="{{ data._id }}"
+                          [(ngModel)]="data.state"
+                          (change)="onCheckboxChange($event)"
                         />
                       </div>
-                      <div class="flex-grow-1 ms-2 name">{{ data.name }}</div>
-                    </div>
-                  </td>
-                  <td>
-                    <ngb-highlight
-                      [result]="data.company"
-                      [term]="service.searchTerm"
-                    >
-                    </ngb-highlight>
-                  </td>
-                  <td>
-                    <ngb-highlight
-                      [result]="data.score"
-                      [term]="service.searchTerm"
-                    >
-                    </ngb-highlight>
-                  </td>
-                  <td>
-                    <ngb-highlight
-                      [result]="data.phone"
-                      [term]="service.searchTerm"
-                    >
-                    </ngb-highlight>
-                  </td>
-                  <td>
-                    <ngb-highlight
-                      [result]="data.location"
-                      [term]="service.searchTerm"
-                    >
-                    </ngb-highlight>
-                  </td>
-                  <td class="tags">
-                    <div class="d-flex gap-1">
-                      <span
-                        class="badge bg-primary-subtle text-primary"
-                        *ngFor="let tag of data.tags"
-                        >{{ tag }}</span
+                    </th>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0">
+                          <img
+                            src="assets/images/users/{{ data.image_src }}"
+                            alt=""
+                            class="avatar-xxs rounded-circle image_src object-fit-cover"
+                          />
+                        </div>
+                        <div class="flex-grow-1 ms-2 name">{{ data.name }}</div>
+                      </div>
+                    </td>
+                    <td>
+                      <ngb-highlight
+                        [result]="data.company"
+                        [term]="service.searchTerm"
                       >
-                    </div>
-                  </td>
-                  <td>
-                    <ngb-highlight
-                      [result]="data.date | date : 'longDate'"
-                      [term]="service.searchTerm"
-                    ></ngb-highlight>
-                  </td>
-                  <td>
-                    <ul class="list-inline hstack gap-2 mb-0">
-                      <li
-                        class="list-inline-item edit"
-                        ngbTooltip="Call"
-                        placement="top"
+                      </ngb-highlight>
+                    </td>
+                    <td>
+                      <ngb-highlight
+                        [result]="data.score"
+                        [term]="service.searchTerm"
                       >
-                        <a
-                          href="javascript:void(0);"
-                          class="text-muted d-inline-block"
+                      </ngb-highlight>
+                    </td>
+                    <td>
+                      <ngb-highlight
+                        [result]="data.phone"
+                        [term]="service.searchTerm"
+                      >
+                      </ngb-highlight>
+                    </td>
+                    <td>
+                      <ngb-highlight
+                        [result]="data.location"
+                        [term]="service.searchTerm"
+                      >
+                      </ngb-highlight>
+                    </td>
+                    <td class="tags">
+                      <div class="d-flex gap-1">
+                        <span
+                          class="badge bg-primary-subtle text-primary"
+                          *ngFor="let tag of data.tags"
+                          >{{ tag }}</span
                         >
-                          <i class="ri-phone-line fs-16"></i>
-                        </a>
-                      </li>
-                      <li
-                        class="list-inline-item edit"
-                        ngbTooltip="Message"
-                        placement="top"
-                      >
-                        <a
-                          href="javascript:void(0);"
-                          class="text-muted d-inline-block"
+                      </div>
+                    </td>
+                    <td>
+                      <ngb-highlight
+                        [result]="data.date | date : 'longDate'"
+                        [term]="service.searchTerm"
+                      ></ngb-highlight>
+                    </td>
+                    <td>
+                      <ul class="list-inline hstack gap-2 mb-0">
+                        <li
+                          class="list-inline-item edit"
+                          ngbTooltip="Call"
+                          placement="top"
                         >
-                          <i class="ri-question-answer-line fs-16"></i>
-                        </a>
-                      </li>
-                      <li
-                        class="list-inline-item"
-                        ngbTooltip="View"
-                        placement="top"
-                      >
-                        <a href="javascript:void(0);"
-                          ><i class="ri-eye-fill align-bottom text-muted"></i
-                        ></a>
-                      </li>
-                      <li
-                        class="list-inline-item"
-                        ngbTooltip="Edit"
-                        placement="top"
-                      >
-                        <a
-                          class="edit-item-btn"
-                          data-bs-toggle="modal"
-                          (click)="editDataGet(data._id, content)"
-                          ><i class="ri-pencil-fill align-bottom text-muted"></i
-                        ></a>
-                      </li>
-                      <li
-                        class="list-inline-item me-0"
-                        ngbTooltip="Delete"
-                        placement="top"
-                      >
-                        <a
-                          class="remove-item-btn"
-                          data-bs-toggle="modal"
-                          (click)="confirm(deleteModel, data._id)"
+                          <a
+                            href="javascript:void(0);"
+                            class="text-muted d-inline-block"
+                          >
+                            <i class="ri-phone-line fs-16"></i>
+                          </a>
+                        </li>
+                        <li
+                          class="list-inline-item edit"
+                          ngbTooltip="Message"
+                          placement="top"
                         >
-                          <i
-                            class="ri-delete-bin-fill align-bottom text-muted"
-                          ></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
+                          <a
+                            href="javascript:void(0);"
+                            class="text-muted d-inline-block"
+                          >
+                            <i class="ri-question-answer-line fs-16"></i>
+                          </a>
+                        </li>
+                        <li
+                          class="list-inline-item"
+                          ngbTooltip="View"
+                          placement="top"
+                        >
+                          <a href="javascript:void(0);"
+                            ><i class="ri-eye-fill align-bottom text-muted"></i
+                          ></a>
+                        </li>
+                        <li
+                          class="list-inline-item"
+                          ngbTooltip="Edit"
+                          placement="top"
+                        >
+                          <a
+                            class="edit-item-btn"
+                            data-bs-toggle="modal"
+                            (click)="editDataGet(data._id, content)"
+                            ><i
+                              class="ri-pencil-fill align-bottom text-muted"
+                            ></i
+                          ></a>
+                        </li>
+                        <li
+                          class="list-inline-item me-0"
+                          ngbTooltip="Delete"
+                          placement="top"
+                        >
+                          <a
+                            class="remove-item-btn"
+                            data-bs-toggle="modal"
+                            (click)="confirm(deleteModel, data._id)"
+                          >
+                            <i
+                              class="ri-delete-bin-fill align-bottom text-muted"
+                            ></i>
+                          </a>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </ng-container>
+                <ng-container *ngIf="leads?.length === 0">
+                  <tr>
+                    <td colspan="9">
+                      <ngx-skeleton-loader
+                        count="10"
+                        appearance="line"
+                        animation="pulse"
+                      >
+                      </ngx-skeleton-loader>
+                    </td>
+                  </tr>
+                </ng-container>
               </tbody>
             </table>
           </div>
