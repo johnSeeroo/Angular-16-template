@@ -1,11 +1,18 @@
 <div id="layout-wrapper">
   <!-- Top Bar -->
-  <!-- <app-topbar (mobileMenuButtonClicked)="onToggleMobileMenu()"></app-topbar> -->
+  <app-topbar (mobileMenuButtonClicked)="onToggleMobileMenu()"></app-topbar>
   <app-horizontal-topbar></app-horizontal-topbar>
   <div class="main-content">
     <div class="page-content">
       <div class="container-fluid">
         <!-- Main Content -->
+        <ngx-skeleton-loader
+          *ngIf="showLoader()"
+          count="100"
+          appearance="line"
+          animation="pulse"
+        >
+        </ngx-skeleton-loader>
         <router-outlet></router-outlet>
       </div>
     </div>

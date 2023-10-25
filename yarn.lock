@@ -2007,42 +2007,6 @@
   "resolved" "https://registry.npmjs.org/@floating-ui/utils/-/utils-0.1.4.tgz"
   "version" "0.1.4"
 
-"@fullcalendar/angular@^6.1.8":
-  "integrity" "sha512-jOYy2fvYagJe9F4T4gJ6U8VpfZJdzHnuZipHj1bJPHuzw4/pRzenf8yeg4tmvDegbMn8rKyddIgy1B5h6umnWg=="
-  "resolved" "https://registry.npmjs.org/@fullcalendar/angular/-/angular-6.1.8.tgz"
-  "version" "6.1.8"
-  dependencies:
-    "tslib" "^2.3.0"
-
-"@fullcalendar/core@^6.1.8":
-  "integrity" "sha512-i8JBIvZCWGO9dsMEDcx9bnsQZ9PtGSJdOXGgWbhLaGq2iq41OBdp9g9gM4b/Otv2oK8bL5Gl6CsMmb/HkDtA6Q=="
-  "resolved" "https://registry.npmjs.org/@fullcalendar/core/-/core-6.1.8.tgz"
-  "version" "6.1.8"
-  dependencies:
-    "preact" "~10.12.1"
-
-"@fullcalendar/daygrid@^6.1.8", "@fullcalendar/daygrid@~6.1.8":
-  "integrity" "sha512-kCZxQFKb9Vqa3CZRX0v7rMSJ2mlTt4gDpyLfiNJKxUAq7W51uKurPaFZWicaXy1ESHVBxKNlbx5uNjBpyu50JQ=="
-  "resolved" "https://registry.npmjs.org/@fullcalendar/daygrid/-/daygrid-6.1.8.tgz"
-  "version" "6.1.8"
-
-"@fullcalendar/interaction@^6.1.8":
-  "integrity" "sha512-r6W4E9ohaA87M2uPSlmpE2WT7Fzu7LN0u2pE6D/tThruCEaAPbN8Pw5+sqclsuyTIL09mg0eSJm/ggJekTabSA=="
-  "resolved" "https://registry.npmjs.org/@fullcalendar/interaction/-/interaction-6.1.8.tgz"
-  "version" "6.1.8"
-
-"@fullcalendar/list@^6.1.8":
-  "integrity" "sha512-10N0T/vCtId1cE3JGLpnbAivWVnaWCCkVO7wmbsyr5Y+I939kr/zq4BUNwBoP/xSFVVxx59FETh3iyA+MkV8Fw=="
-  "resolved" "https://registry.npmjs.org/@fullcalendar/list/-/list-6.1.8.tgz"
-  "version" "6.1.8"
-
-"@fullcalendar/timegrid@^6.1.8":
-  "integrity" "sha512-3+3KHHCoNcaLs/gQt004hAqICbY5+WAffrZ0ePv+80HFB1OVh8BQ5XXLHSOUbTvXdgtUTcfBHuw9fhO31kt5gA=="
-  "resolved" "https://registry.npmjs.org/@fullcalendar/timegrid/-/timegrid-6.1.8.tgz"
-  "version" "6.1.8"
-  dependencies:
-    "@fullcalendar/daygrid" "~6.1.8"
-
 "@grpc/grpc-js@~1.9.0":
   "integrity" "sha512-b8iWtdrYIeT5fdZdS4Br/6h/kuk0PW5EVBUGk1amSbrpL8DlktJD43CdcCWwRdd6+jgwHhADSbL9CsNnm6EUPA=="
   "resolved" "https://registry.npmjs.org/@grpc/grpc-js/-/grpc-js-1.9.3.tgz"
@@ -6602,6 +6566,13 @@
     "tslib" "^2.3.0"
     "webpack" "^5.75.0"
 
+"ngx-skeleton-loader@^8.1.0":
+  "integrity" "sha512-Ap/QSjadv/Kl0Vj7BiIWLG0JZZlo0eCJhdIVJ3Ryz7R0c4BR2Eq3O01du3ftf0SDbwt5vt7342NyqhLNrQ08RA=="
+  "resolved" "https://registry.npmjs.org/ngx-skeleton-loader/-/ngx-skeleton-loader-8.1.0.tgz"
+  "version" "8.1.0"
+  dependencies:
+    "tslib" "^2.0.0"
+
 "ngx-slick-carousel@^15.0.0":
   "integrity" "sha512-4di69uKcA+cDsb3w7411rmGH2cTaTCT98SFD1qqxDhIInNpV2qga7dkXLCdgxHMYraPg8JrnGZus7uHL0lj7lw=="
   "resolved" "https://registry.npmjs.org/ngx-slick-carousel/-/ngx-slick-carousel-15.0.0.tgz"
@@ -7136,11 +7107,6 @@
     "nanoid" "^3.3.6"
     "picocolors" "^1.0.0"
     "source-map-js" "^1.0.2"
-
-"preact@~10.12.1":
-  "integrity" "sha512-l8386ixSsBdbreOAkqtrwqHwdvR35ID8c3rKPa8lCWuO86dBi32QWHV4vfsZK1utLLFMvw+Z5Ad4XLkZzchscg=="
-  "resolved" "https://registry.npmjs.org/preact/-/preact-10.12.1.tgz"
-  "version" "10.12.1"
 
 "pretty-bytes@^5.3.0":
   "integrity" "sha512-FFw039TmrBqFK8ma/7OL3sDz/VytdtJr044/QUJtH0wK9lb9jLq9tJyIxUwtQJHwar2BqtiA4iCWSwo9JLkzFg=="
