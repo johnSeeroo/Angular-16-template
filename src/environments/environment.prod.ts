@@ -9,6 +9,7 @@ export const environment = {
     storageBucket: '',
     messagingSenderId: '',
     appId: '',
-    measurementId: ''
+    measurementId: '',
+    bugsnagkey:'7bd1ea541bfcc625eb7800ab6b8251d3'
   }
 };

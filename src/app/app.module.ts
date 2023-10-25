@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { NgModule,ErrorHandler } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 
 // search module
@@ -26,10 +26,19 @@ import { JwtInterceptor } from "./core/helpers/jwt.interceptor";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 
+//Bugsnag
+import Bugsnag from '@bugsnag/js'
+import { BugsnagErrorHandler } from '@bugsnag/plugin-angular'
+
+// configuring Bugsnag 
+
 export function createTranslateLoader(http: HttpClient): any {
   return new TranslateHttpLoader(http, "assets/i18n/", ".json");
 }
-
+// create a factory which will return the Bugsnag error handler
+export function errorHandlerFactory() {
+  return new BugsnagErrorHandler()
+}
 if (environment.defaultauth === "firebase") {
   initFirebaseBackend(environment.firebaseConfig);
 } else {
@@ -62,6 +71,8 @@ if (environment.defaultauth === "firebase") {
       useClass: FakeBackendInterceptor,
       multi: true,
     },
+    /* Pass the BugsnagErrorHandler class along to the providers for your module */
+    { provide: ErrorHandler, useFactory: errorHandlerFactory } 
   ],
   bootstrap: [AppComponent],
 })

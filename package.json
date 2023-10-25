@@ -23,6 +23,8 @@
     "@angular/platform-browser-dynamic": "^16.2.5",
     "@angular/router": "^16.2.5",
     "@asymmetrik/ngx-leaflet": "^16.0.1",
+    "@bugsnag/js": "^7.21.0",
+    "@bugsnag/plugin-angular": "^7.21.0",
     "@ckeditor/ckeditor5-angular": "^7.0.0",
     "@ckeditor/ckeditor5-build-classic": "^39.0.2",
     "@ctrl/ngx-emoji-mart": "^9.2.0",
