@@ -41,6 +41,7 @@ import { SharedModule } from "src/app/shared/shared.module";
 import { FlatpickrModule } from "angularx-flatpickr";
 import { NgSelectModule } from "@ng-select/ng-select";
 import { NgbdLeadsSortableHeader } from "./leads/leads-sortable.directive";
+import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   url: "https://httpbin.org/post",
@@ -78,6 +79,7 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     SharedModule,
     FlatpickrModule,
     NgSelectModule,
+    NgxSkeletonLoaderModule,
   ],
   providers: [
     provideNgxMask(),

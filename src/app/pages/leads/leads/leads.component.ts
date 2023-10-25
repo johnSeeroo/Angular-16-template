@@ -24,7 +24,6 @@ import {
   NgbdLeadsSortableHeader,
   leadSortEvent,
 } from "./leads-sortable.directive";
-import { LoaderService } from "src/app/core/services/loader.service";
 
 @Component({
   selector: "app-leads",
@@ -62,10 +61,8 @@ export class LeadsComponent {
     private formBuilder: UntypedFormBuilder,
     private restApiService: restApiService,
     private offcanvasService: NgbOffcanvas,
-    private datePipe: DatePipe,
-    private loaderService: LoaderService
+    private datePipe: DatePipe
   ) {
-    this.loaderService.setLoaderVisibility(true);
     this.invoiceList = service.leads$;
     this.total = service.total$;
   }
@@ -100,7 +97,6 @@ export class LeadsComponent {
         this.leads = Object.assign([], x);
       });
       document.getElementById("elmLoader")?.classList.add("d-none");
-      this.loaderService.setLoaderVisibility(false);
     }, 1200);
   }
 
