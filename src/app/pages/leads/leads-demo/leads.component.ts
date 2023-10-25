@@ -24,7 +24,6 @@ import {
   NgbdLeadsSortableHeader,
   leadSortEvent,
 } from "./leads-sortable.directive";
-import { LoaderService } from "src/app/core/services/loader.service";
 
 @Component({
   selector: "app-leads",
@@ -35,7 +34,7 @@ import { LoaderService } from "src/app/core/services/loader.service";
 /**
  * Leads Component
  */
-export class LeadsComponent {
+export class LeadsDemoComponent {
   // bread crumb items
   breadCrumbItems!: Array<{}>;
   submitted = false;
@@ -46,7 +45,7 @@ export class LeadsComponent {
 
   // Api Data
   content?: any;
-  leads = Leads[0].data;
+  leads?: any;
   econtent?: any;
 
   // Table data
@@ -62,10 +61,9 @@ export class LeadsComponent {
     private formBuilder: UntypedFormBuilder,
     private restApiService: restApiService,
     private offcanvasService: NgbOffcanvas,
-    private datePipe: DatePipe,
-    private loaderService: LoaderService
+    private datePipe: DatePipe
   ) {
-    // this.invoiceList = service.leads$;
+    this.invoiceList = service.leads$;
     this.total = service.total$;
   }
 
@@ -73,7 +71,6 @@ export class LeadsComponent {
     /**
      * BreadCrumb
      */
-    this.loaderService.setLoaderVisibility(true);
     this.breadCrumbItems = [{ label: "CRM" }, { label: "Leads", active: true }];
 
     /**
@@ -95,13 +92,12 @@ export class LeadsComponent {
      * fetches data
      */
     setTimeout(() => {
-      this.loaderService.setLoaderVisibility(false);
-      // this.invoiceList.subscribe((x) => {
-      //   this.content = this.leads;
-      //   this.leads = Object.assign([], x);
-      // });
-      // document.getElementById("elmLoader")?.classList.add("d-none");
-    }, 2000);
+      this.invoiceList.subscribe((x) => {
+        this.content = this.leads;
+        this.leads = Object.assign([], x);
+      });
+      document.getElementById("elmLoader")?.classList.add("d-none");
+    }, 1200);
   }
 
   /**
