@@ -1,24 +1,22 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { NgbCarouselModule } from "@ng-bootstrap/ng-bootstrap";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 
 // Component
-import { SigninRoutingModule } from './signin-routing.module';
-import { BasicComponent } from './basic/basic.component';
-import { CoverComponent } from './cover/cover.component';
+import { SigninRoutingModule } from "./signin-routing.module";
+import { BasicComponent } from "./basic/basic.component";
+import { CoverComponent } from "./cover/cover.component";
+import { LoginComponent } from "./login/login.component";
 
 @NgModule({
-  declarations: [
-    BasicComponent,
-    CoverComponent
-  ],
+  declarations: [BasicComponent, CoverComponent, LoginComponent],
   imports: [
     CommonModule,
     NgbCarouselModule,
     ReactiveFormsModule,
     FormsModule,
-    SigninRoutingModule
-  ]
+    SigninRoutingModule,
+  ],
 })
-export class SigninModule { }
+export class SigninModule {}
