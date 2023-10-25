@@ -25,6 +25,7 @@ import { JwtInterceptor } from "./core/helpers/jwt.interceptor";
 // Language
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
+import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 
 export function createTranslateLoader(http: HttpClient): any {
   return new TranslateHttpLoader(http, "assets/i18n/", ".json");
@@ -53,6 +54,10 @@ if (environment.defaultauth === "firebase") {
     AppRoutingModule,
     PagesModule,
     NgPipesModule,
+    NgxSkeletonLoaderModule.forRoot({
+      animation: "pulse",
+      loadingText: "This item is actually loading...",
+    }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
