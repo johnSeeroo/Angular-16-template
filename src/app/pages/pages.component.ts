@@ -7,6 +7,7 @@ import {
   SIDEBAR_VIEW,
   TOPBAR,
 } from "./pages.model";
+import { LoaderService } from "../core/services/loader.service";
 
 @Component({
   selector: "app-pages",
@@ -14,6 +15,7 @@ import {
   styleUrls: ["./pages.component.scss"],
 })
 export class PagesComponent {
+  constructor(private loaderService: LoaderService) {}
   ngOnInit(): void {
     document.documentElement.setAttribute("data-layout", "horizontal");
     document.documentElement.setAttribute("data-topbar", TOPBAR);
@@ -34,5 +36,9 @@ export class PagesComponent {
     if (document.documentElement.clientWidth <= 1024) {
       document.body.classList.toggle("menu");
     }
+  }
+
+  showLoader() {
+    return this.loaderService.getLoaderVisibility();
   }
 }
