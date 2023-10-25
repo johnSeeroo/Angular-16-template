@@ -210,7 +210,7 @@
                           <a
                             class="edit-item-btn"
                             data-bs-toggle="modal"
-                            (click)="editDataGet(data.leadId, content)"
+                            routerLink="/leads/edit/{{ data.leadId }}"
                             ><i
                               class="ri-pencil-fill align-bottom text-muted"
                             ></i

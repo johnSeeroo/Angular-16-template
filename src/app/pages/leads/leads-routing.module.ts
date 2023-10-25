@@ -4,6 +4,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { ListleadsComponent } from "./listleads/listleads.component";
 import { LeadsListComponent } from "./leads-list/leads-list.component";
 import { LeadsComponent } from "./leads/leads.component";
+import { LeadsEditComponent } from "./leads-edit/leads-edit.component";
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: "leadslist",
     component: LeadsListComponent,
+  },
+  {
+    path: "edit/:id",
+    component: LeadsEditComponent,
   },
 ];
 

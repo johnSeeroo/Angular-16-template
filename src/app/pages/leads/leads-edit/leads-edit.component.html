@@ -1,0 +1,178 @@
+<div class="row">
+  <div class="col-xxl-12 col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title mb-0">{{ leadsInformation.leadName }}</h3>
+        <h6>#{{ leadsInformation.leadId }} {{ leadsInformation.CreatedOn }}</h6>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-xxl-10 col-lg-10">
+            <div class="card">
+              <!-- <div class="card-header">
+                  <h6 class="card-title mb-0">Creative Agency Quote</h6>
+                </div> -->
+              <div class="card-body grey-bg-color">
+                <div>
+                  <h6 class="card-title mb-4"><u>Lead Information</u></h6>
+                </div>
+                <div class="row">
+                  <div class="col-lg-3">
+                    <div class="mb-4">
+                      Lead Owner: {{ leadsInformation.leadOwner }}
+                    </div>
+                    <div class="mb-4">
+                      Alternate Number: {{ leadsInformation.alternateNumber }}
+                    </div>
+                    <div class="mb-4">
+                      Website: {{ leadsInformation.website }}
+                    </div>
+                    <div class="mb-4">
+                      Annual Revenue: {{ leadsInformation.annualRevenue }}
+                    </div>
+                    <div class="mb-4">
+                      Created By: {{ leadsInformation.createdBy }}
+                    </div>
+                  </div>
+                  <div class="col-lg-3">
+                    <div class="mb-4">
+                      Lead Name: {{ leadsInformation.leadName }}
+                    </div>
+                    <div class="mb-4">
+                      Company: {{ leadsInformation.company }}
+                    </div>
+                    <div class="mb-4">
+                      Lead Source: {{ leadsInformation.leadSource }}
+                    </div>
+                    <div class="mb-4">
+                      Marital Status: {{ leadsInformation.martialStatus }}
+                    </div>
+                    <div class="mb-4">
+                      Modified By: {{ leadsInformation.modifiedBy }}
+                    </div>
+                  </div>
+                  <div class="col-lg-3">
+                    <div class="mb-4"></div>
+                    <div class="mb-4">
+                      Designation: {{ leadsInformation.designation }}
+                    </div>
+                    <div class="mb-4">
+                      Lead Status: {{ leadsInformation.leadStatus }}
+                    </div>
+                    <div class="mb-4">
+                      Nationality: {{ leadsInformation.nationality }}
+                    </div>
+                    <div class="mb-4"></div>
+                  </div>
+                  <div class="col-lg-3">
+                    <div class="mb-4">
+                      Mobile: {{ leadsInformation.phoneNumber }}
+                    </div>
+                    <div class="mb-4">
+                      Industry: {{ leadsInformation.industry }}
+                    </div>
+                    <div class="mb-4"></div>
+                    <div class="mb-4">
+                      Preferred time to call:
+                      {{ leadsInformation.preferredTimeToCall }}
+                    </div>
+                    <div class="mb-4"></div>
+                  </div>
+                </div>
+                <div>
+                  <h6 class="card-title mb-4"><u>Address Information</u></h6>
+                </div>
+                <div>Current Address: {{ leadsInformation.address }}</div>
+
+                <div>
+                  <h6 class="card-title mb-4 mt-4">
+                    <u>Property Prefference</u>
+                  </h6>
+                </div>
+                <div class="row g-2">
+                  <div class="col-lg-2">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="residential"
+                        value="residential"
+                        checked
+                      />
+                      <label class="form-check-label" for="residential"
+                        >Residential</label
+                      >
+                    </div>
+                  </div>
+                  <div class="col-lg-2">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="commercial"
+                        value="commercial"
+                      />
+                      <label class="form-check-label" for="commercial"
+                        >Residential</label
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-4">
+                  <div class="col-lg-12 border">
+                    <div class="row mt-2">
+                      <div class="col-lg-3">
+                        Desired Property Location: Doha
+                      </div>
+                      <div class="col-lg-3">Preferred Neighbourhood: None</div>
+                      <div class="col-lg-3">Number of Bedrooms: 2</div>
+                      <div class="col-lg-3">Number of Bathroom: 2</div>
+                    </div>
+                    <div class="row mt-2">
+                      <div class="col-lg-3">Price Range: QAR 1000 - 2000</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-4">
+                  <div class="col-lg-12 border">
+                    <div class="row mt-2">
+                      <div class="col-lg-3">Building Type: Tower</div>
+                      <div class="col-lg-3">Unit Type: 2BHK</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mt-4">
+                  <div class="col-lg-12 border">
+                    <div class="row mt-2">
+                      <div class="col-lg-3">Floor Preference: Second Floor</div>
+                      <div class="col-lg-3">View Preference: Sea View</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h6 class="card-title mb-4 mt-4">
+                    <u>Description</u>
+                  </h6>
+                  <p>
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of type and scrambled it to make a
+                    type specimen book. It has survived not only five centuries,
+                    but also the leap into electronic typesetting, remaining
+                    essentially unchanged. It was popularised in the 1960s with
+                    the release of Letraset sheets containing Lorem Ipsum
+                    passages, and more recently with desktop publishing software
+                    like Aldus PageMaker including versions of Lorem Ipsum.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

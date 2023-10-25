@@ -46,4 +46,37 @@ const Leads = [
   },
 ];
 
-export { Leads };
+const LeadsInformation = [
+  {
+    statusCode: 200,
+    message: "Leads detail list",
+    data: [
+      {
+        leadId: 12912,
+        leadName: "Muhammed Al Jasser",
+        phoneNumber: "55132657",
+        email: "muhammmed98@gmail.com",
+        type: "Residential",
+        leadSource: "Facebook",
+        leadOwner: "Mariana John",
+        leadStatus: 1,
+        alternateNumber: 669680823,
+        company: "Qatar National Bank",
+        designation: "Manager",
+        industry: "Bank",
+        website: "https//qnb.com",
+        annualRevenue: false,
+        martialStatus: "Married",
+        nationality: "Qatar",
+        preferredTimeToCall: "Weekend after 10 pm",
+        createdBy: "Mariana John",
+        CreatedOn: "24 sep 2023 09:34 am",
+        modifiedBy: "Mariana John",
+        modifiedOn: "24 sep 2023 09:34 am",
+        address: "Al Wakra Main St, Doha, Qatar",
+      },
+    ],
+  },
+];
+
+export { Leads, LeadsInformation };
