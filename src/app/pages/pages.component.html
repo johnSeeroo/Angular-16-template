@@ -1,7 +1,21 @@
-<div id="layout-wrapper">
-  <!-- Top Bar -->
+<!-- <div id="layout-wrapper">
   <app-topbar (mobileMenuButtonClicked)="onToggleMobileMenu()"></app-topbar>
   <app-horizontal-topbar></app-horizontal-topbar>
+  <div class="main-content">
+    <div class="page-content">
+      <div class="container-fluid">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div> -->
+
+<div id="layout-wrapper" (window:resize)="onResize($event)">
+  <!-- Top Bar -->
+  <app-topbar (mobileMenuButtonClicked)="onToggleMobileMenu()"></app-topbar>
+  <!-- Side Bar -->
+  <app-sidebar></app-sidebar>
   <div class="main-content">
     <div class="page-content">
       <div class="container-fluid">
@@ -13,3 +27,7 @@
     <app-footer></app-footer>
   </div>
 </div>
+<!-- Right Side Bar -->
+<app-rightsidebar
+  (settingsButtonClicked)="onSettingsButtonClicked()"
+></app-rightsidebar>

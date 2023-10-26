@@ -1,5 +1,5 @@
 // export layout related constants
-export const LAYOUT = "horizontal";
+export const LAYOUT = "vertical";
 
 export const LAYOUT_MODE = "light";
 
