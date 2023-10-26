@@ -7,3 +7,21 @@
   border-style: solid !important;
   border-color: black !important;
 }
+.ml-10 {
+  margin-left: 10px !important;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+}
+
+.form-group input {
+  margin-left: 10px;
+  width: 150px;
+}
+
+.form-group textarea {
+  margin-left: 10px;
+  width: 200px;
+}

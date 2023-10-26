@@ -14,79 +14,178 @@
                 </div> -->
               <div class="card-body grey-bg-color">
                 <div>
-                  <h6 class="card-title mb-4"><u>Lead Information</u></h6>
+                  <h6 class="card-title mb-4">
+                    <u>Lead Information</u
+                    ><a (click)="leadInfoReadMode = !leadInfoReadMode"
+                      ><i class="mdi mdi-file-edit-outline ml-10"></i
+                    ></a>
+                  </h6>
                 </div>
                 <div class="row">
                   <div class="col-lg-3">
-                    <div class="mb-4">
-                      Lead Owner: {{ leadsInformation.leadOwner }}
+                    <div class="form-group mb-4">
+                      <label>Lead Owner:</label>
+                      <input
+                        type="text"
+                        value="{{ leadsInformation.leadOwner }}"
+                        [disabled]="leadInfoReadMode"
+                      />
                     </div>
-                    <div class="mb-4">
-                      Alternate Number: {{ leadsInformation.alternateNumber }}
+                    <div class="form-group mb-4">
+                      <label>Alternate Number:</label>
+                      <input
+                        type="text"
+                        value="{{ leadsInformation.alternateNumber }}"
+                        [disabled]="leadInfoReadMode"
+                      />
                     </div>
-                    <div class="mb-4">
-                      Website: {{ leadsInformation.website }}
+                    <div class="form-group mb-4">
+                      <label>Website:</label>
+                      <input
+                        type="text"
+                        value="{{ leadsInformation.website }}"
+                        [disabled]="leadInfoReadMode"
+                      />
                     </div>
-                    <div class="mb-4">
-                      Annual Revenue: {{ leadsInformation.annualRevenue }}
+                    <div class="form-group mb-4">
+                      <label>Annual Revenue:</label>
+                      <input
+                        type="text"
+                        value="{{ leadsInformation.annualRevenue }}"
+                        [disabled]="leadInfoReadMode"
+                      />
                     </div>
-                    <div class="mb-4">
-                      Created By: {{ leadsInformation.createdBy }}
+                    <div class="form-group mb-4">
+                      <label>Created By:</label>
+                      <input
+                        type="text"
+                        value="{{ leadsInformation.createdBy }}"
+                        [disabled]="leadInfoReadMode"
+                      />
                     </div>
                   </div>
                   <div class="col-lg-3">
-                    <div class="mb-4">
-                      Lead Name: {{ leadsInformation.leadName }}
+                    <div class="form-group mb-4">
+                      <label>Lead Name:</label>
+                      <input
+                        type="text"
+                        value="{{ leadsInformation.leadName }}"
+                        [disabled]="leadInfoReadMode"
+                      />
                     </div>
-                    <div class="mb-4">
-                      Company: {{ leadsInformation.company }}
+                    <div class="form-group mb-4">
+                      <label>Company:</label>
+                      <input
+                        type="text"
+                        value="{{ leadsInformation.company }}"
+                        [disabled]="leadInfoReadMode"
+                      />
                     </div>
-                    <div class="mb-4">
-                      Lead Source: {{ leadsInformation.leadSource }}
+                    <div class="form-group mb-4">
+                      <label>Lead Source:</label>
+                      <input
+                        type="text"
+                        value="{{ leadsInformation.leadSource }}"
+                        [disabled]="leadInfoReadMode"
+                      />
                     </div>
-                    <div class="mb-4">
-                      Marital Status: {{ leadsInformation.martialStatus }}
+                    <div class="form-group mb-4">
+                      <label>Marital Status:</label>
+                      <input
+                        type="text"
+                        value="{{ leadsInformation.martialStatus }}"
+                        [disabled]="leadInfoReadMode"
+                      />
                     </div>
-                    <div class="mb-4">
-                      Modified By: {{ leadsInformation.modifiedBy }}
+                    <div class="form-group mb-4">
+                      <label>Modified By:</label>
+                      <input
+                        type="text"
+                        value="{{ leadsInformation.modifiedBy }}"
+                        [disabled]="leadInfoReadMode"
+                      />
                     </div>
                   </div>
                   <div class="col-lg-3">
-                    <div class="mb-4"></div>
-                    <div class="mb-4">
-                      Designation: {{ leadsInformation.designation }}
+                    <div class="mb-4">{{ "" }}</div>
+                    <div class="form-group mb-4">
+                      <label>Designation:</label>
+                      <input
+                        type="text"
+                        value="{{ leadsInformation.designation }}"
+                        [disabled]="leadInfoReadMode"
+                      />
                     </div>
-                    <div class="mb-4">
-                      Lead Status: {{ leadsInformation.leadStatus }}
+                    <div class="form-group mb-4">
+                      <label>Lead Status:</label>
+                      <input
+                        type="text"
+                        value="{{ leadsInformation.leadStatus }}"
+                        [disabled]="leadInfoReadMode"
+                      />
                     </div>
-                    <div class="mb-4">
-                      Nationality: {{ leadsInformation.nationality }}
+                    <div class="form-group mb-4">
+                      <label>Nationality:</label>
+                      <input
+                        type="text"
+                        value="{{ leadsInformation.nationality }}"
+                        [disabled]="leadInfoReadMode"
+                      />
                     </div>
-                    <div class="mb-4"></div>
+                    <div class="mb-4">{{ "" }}</div>
                   </div>
                   <div class="col-lg-3">
-                    <div class="mb-4">
-                      Mobile: {{ leadsInformation.phoneNumber }}
+                    <div class="form-group mb-4">
+                      <label>Mobile:</label>
+                      <input
+                        type="text"
+                        value="{{ leadsInformation.phoneNumber }}"
+                        [disabled]="leadInfoReadMode"
+                      />
                     </div>
-                    <div class="mb-4">
-                      Industry: {{ leadsInformation.industry }}
+                    <div class="form-group mb-4">
+                      <label>Industry:</label>
+                      <input
+                        type="text"
+                        value="{{ leadsInformation.industry }}"
+                        [disabled]="leadInfoReadMode"
+                      />
                     </div>
-                    <div class="mb-4"></div>
-                    <div class="mb-4">
-                      Preferred time to call:
-                      {{ leadsInformation.preferredTimeToCall }}
+                    <div class="mb-4">{{ "" }}</div>
+                    <div class="form-group mb-4">
+                      <label>Preferred time to call:</label>
+                      <input
+                        type="text"
+                        value="{{ leadsInformation.preferredTimeToCall }}"
+                        [disabled]="leadInfoReadMode"
+                      />
                     </div>
-                    <div class="mb-4"></div>
+                    <div class="mb-4">{{ "" }}</div>
                   </div>
                 </div>
                 <div>
-                  <h6 class="card-title mb-4"><u>Address Information</u></h6>
+                  <h6 class="card-title mb-4">
+                    <u>Address Information</u
+                    ><a (click)="addressReadMode = !addressReadMode"
+                      ><i class="mdi mdi-file-edit-outline ml-10"></i
+                    ></a>
+                  </h6>
                 </div>
-                <div>Current Address: {{ leadsInformation.address }}</div>
+                <div class="form-group mb-4">
+                  <label>Current Address:</label>
+                  <textarea
+                    value="{{ leadsInformation.address }}"
+                    [disabled]="addressReadMode"
+                    rows="2"
+                    cols="40"
+                  ></textarea>
+                </div>
+                <!-- <div>Current Address: {{ leadsInformation.address }}</div> -->
 
                 <div>
                   <h6 class="card-title mb-4 mt-4">
-                    <u>Property Prefference</u>
+                    <u>Property Prefference</u
+                    ><a><i class="mdi mdi-file-edit-outline ml-10"></i></a>
                   </h6>
                 </div>
                 <div class="row g-2">
@@ -153,9 +252,12 @@
 
                 <div>
                   <h6 class="card-title mb-4 mt-4">
-                    <u>Description</u>
+                    <u>Description</u
+                    ><a (click)="descriptionReadMode = !descriptionReadMode"
+                      ><i class="mdi mdi-file-edit-outline ml-10"></i
+                    ></a>
                   </h6>
-                  <p>
+                  <p *ngIf="descriptionReadMode">
                     Lorem Ipsum is simply dummy text of the printing and
                     typesetting industry. Lorem Ipsum has been the industry's
                     standard dummy text ever since the 1500s, when an unknown
@@ -167,6 +269,14 @@
                     passages, and more recently with desktop publishing software
                     like Aldus PageMaker including versions of Lorem Ipsum.
                   </p>
+                  <textarea
+                    style="width: 90% !important"
+                    *ngIf="!descriptionReadMode"
+                    value="Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry."
+                    rows="5"
+                    cols="40"
+                  ></textarea>
                 </div>
               </div>
             </div>
