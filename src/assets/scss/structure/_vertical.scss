@@ -279,10 +279,13 @@
 
 .logo {
     line-height: $header-height;
+	height: 80px;
 
     .logo-sm {
         display: none;
+		
     }
+	.logo-lg {height: auto!important; width: 80%;}
 }
 
 .logo-light {
