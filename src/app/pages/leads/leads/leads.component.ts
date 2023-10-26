@@ -45,7 +45,7 @@ export class LeadsComponent {
 
   // Api Data
   content?: any;
-  leads?: any;
+  leads = Leads[0].data;
   econtent?: any;
 
   // Table data
@@ -92,10 +92,10 @@ export class LeadsComponent {
      * fetches data
      */
     setTimeout(() => {
-      this.invoiceList.subscribe((x) => {
-        this.content = this.leads;
-        this.leads = Object.assign([], x);
-      });
+      // this.invoiceList.subscribe((x) => {
+      //   this.content = this.leads;
+      //   this.leads = Object.assign([], x);
+      // });
       document.getElementById("elmLoader")?.classList.add("d-none");
     }, 1200);
   }
@@ -263,43 +263,43 @@ export class LeadsComponent {
 
   // The master checkbox will check/ uncheck all items
   checkUncheckAll(ev: any) {
-    this.leads.forEach((x: { state: any }) => (x.state = ev.target.checked));
-    var checkedVal: any[] = [];
-    var result;
-    for (var i = 0; i < this.leads.length; i++) {
-      if (this.leads[i].state == true) {
-        result = this.leads[i];
-        checkedVal.push(result);
-      }
-    }
-    this.checkedValGet = checkedVal;
-    checkedVal.length > 0
-      ? ((
-          document.getElementById("remove-actions") as HTMLElement
-        ).style.display = "block")
-      : ((
-          document.getElementById("remove-actions") as HTMLElement
-        ).style.display = "none");
+    // this.leads.forEach((x: { state: any }) => (x.state = ev.target.checked));
+    // var checkedVal: any[] = [];
+    // var result;
+    // for (var i = 0; i < this.leads.length; i++) {
+    //   if (this.leads[i].state == true) {
+    //     result = this.leads[i];
+    //     checkedVal.push(result);
+    //   }
+    // }
+    // this.checkedValGet = checkedVal;
+    // checkedVal.length > 0
+    //   ? ((
+    //       document.getElementById("remove-actions") as HTMLElement
+    //     ).style.display = "block")
+    //   : ((
+    //       document.getElementById("remove-actions") as HTMLElement
+    //     ).style.display = "none");
   }
 
   // Select Checkbox value Get
   onCheckboxChange(e: any) {
-    var checkedVal: any[] = [];
-    var result;
-    for (var i = 0; i < this.leads.length; i++) {
-      if (this.leads[i].state == true) {
-        result = this.leads[i];
-        checkedVal.push(result);
-      }
-    }
-    this.checkedValGet = checkedVal;
-    checkedVal.length > 0
-      ? ((
-          document.getElementById("remove-actions") as HTMLElement
-        ).style.display = "block")
-      : ((
-          document.getElementById("remove-actions") as HTMLElement
-        ).style.display = "none");
+    // var checkedVal: any[] = [];
+    // var result;
+    // for (var i = 0; i < this.leads.length; i++) {
+    //   if (this.leads[i].state == true) {
+    //     result = this.leads[i];
+    //     checkedVal.push(result);
+    //   }
+    // }
+    // this.checkedValGet = checkedVal;
+    // checkedVal.length > 0
+    //   ? ((
+    //       document.getElementById("remove-actions") as HTMLElement
+    //     ).style.display = "block")
+    //   : ((
+    //       document.getElementById("remove-actions") as HTMLElement
+    //     ).style.display = "none");
   }
 
   /**
