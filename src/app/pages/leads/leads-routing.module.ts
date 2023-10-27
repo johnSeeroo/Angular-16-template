@@ -10,18 +10,23 @@ const routes: Routes = [
   {
     path: "",
     component: LeadsComponent,
+    data:{module:'leadsmodule'},
+    
   },
   {
     path: "list",
     component: ListleadsComponent,
+    data:{module:'leadsmodule'}
   },
   {
     path: "leadslist",
     component: LeadsListComponent,
+    data:{module:'leadsmodule'}
   },
   {
     path: "edit/:id",
     component: LeadsEditComponent,
+    data:{module:'leadsmodule'}
   },
 ];
 

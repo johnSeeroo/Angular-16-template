@@ -13,6 +13,7 @@ import {
 import { DatePipe } from "@angular/common";
 
 import { restApiService } from "../../../core/services/rest-api.service";
+import { data } from "src/assets/data/permission";
 
 // Sweet Alert
 import Swal from "sweetalert2";
@@ -47,6 +48,13 @@ export class LeadsComponent {
   content?: any;
   leads = Leads[0].data;
   econtent?: any;
+  user = data.data[0];
+  canReadLeadsModule!: boolean| undefined;;
+  canWriteLeadsModule!: boolean| undefined;;
+  canDeleteLeadsModule!: boolean| undefined;;
+  
+  
+  
 
   // Table data
   invoiceList!: Observable<LeadsModel[]>;
@@ -72,7 +80,11 @@ export class LeadsComponent {
      * BreadCrumb
      */
     this.breadCrumbItems = [{ label: "CRM" }, { label: "Leads", active: true }];
-
+    this.canReadLeadsModule = this.user.permissions[0].LeadsModule?.read
+    this.canWriteLeadsModule = this.user.permissions[0].LeadsModule?.write
+    this.canDeleteLeadsModule = this.user.permissions[0].LeadsModule?.delete
+    
+    
     /**
      * Form Validation
      */

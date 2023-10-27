@@ -3,6 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 
 // Component pages
 import { DashboardComponent } from "./dashboards/dashboard/dashboard.component";
+import { AuthGuard } from "../core/guards/auth.guard";
 
 const routes: Routes = [
   {
@@ -20,6 +21,8 @@ const routes: Routes = [
     path: "leads",
     loadChildren: () =>
       import("./leads/leads.module").then((m) => m.LeadsModule),
+    canActivate:[AuthGuard]  
+
   },
 ];
 

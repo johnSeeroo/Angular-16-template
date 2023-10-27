@@ -14,7 +14,8 @@ import { TranslateService } from "@ngx-translate/core";
 
 import { MENU } from "./menu";
 import { MenuItem } from "./menu.model";
-import { AuthenticationService } from "src/app/core/services/auth.service";
+import { AuthenticationService } from "../../../core/services/auth.service";
+
 
 @Component({
   selector: "app-horizontal-topbar",
