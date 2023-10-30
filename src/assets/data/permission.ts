@@ -9,9 +9,9 @@ export const data={
                 "permissions": [
                     {
                         "LeadsModule": {
-                            "read": false,
-                            "write": true,
-                            "delete": true
+                            "read": true,
+                            "write": false,
+                            "delete": false
                         }
                     },
                     {

@@ -52,7 +52,7 @@ export class AuthGuard  {
                 return true;
             } else {
                 // If the route is '/leads' but 'LeadsModule' read permission is false, deny access
-                this.router.navigate(['/auth/errors/404-basic']);
+                this.router.navigate(['/auth/errors/access-denied']);
                 return false;
             }
         }

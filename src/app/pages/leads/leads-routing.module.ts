@@ -5,12 +5,16 @@ import { ListleadsComponent } from "./listleads/listleads.component";
 import { LeadsListComponent } from "./leads-list/leads-list.component";
 import { LeadsComponent } from "./leads/leads.component";
 import { LeadsEditComponent } from "./leads-edit/leads-edit.component";
+import { PermissionsResolver } from "src/app/core/services/permission-resolver";
 
 const routes: Routes = [
   {
     path: "",
     component: LeadsComponent,
     data:{module:'leadsmodule'},
+    resolve: {
+      permissions: PermissionsResolver, // Resolve the permissions here
+    },
     
   },
   {
