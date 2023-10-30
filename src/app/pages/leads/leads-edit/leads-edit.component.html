@@ -6,191 +6,206 @@
         <h6>#{{ leadsInformation.leadId }} {{ leadsInformation.CreatedOn }}</h6>
       </div>
       <div class="card-body">
-        <div class="row">
-          <div class="col-xxl-10 col-lg-10">
-            <div class="card">
-              <!-- <div class="card-header">
-                  <h6 class="card-title mb-0">Creative Agency Quote</h6>
-                </div> -->
-              <div class="card-body grey-bg-color">
-                <div>
-                  <h6 class="card-title mb-4">
+		<div class="live-preview">
+				<div class="row gy-4">
+				<div class="col-xxl-12 col-md-12"><h6 class="card-title mb-4">
                     <u>Lead Information</u
                     ><a (click)="leadInfoReadMode = !leadInfoReadMode"
                       ><i class="mdi mdi-file-edit-outline ml-10"></i
                     ></a>
-                  </h6>
-                </div>
-                <div class="row">
-                  <div class="col-lg-3">
-                    <div class="form-group mb-4">
-                      <label>Lead Owner:</label>
+                  </h6></div>
+				<div class="col-xxl-4 col-md-6">
+					 <label>Lead Owner:</label>
+					<select class="form-select" aria-label="Disabled select example" disabled="">
+                                                    <option selected="">Mariana John</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+					</div>	
+				<div class="col-xxl-4 col-md-6">
+				 <label>Mobile:</label>
                       <input
-                        type="text"
-                        value="{{ leadsInformation.leadOwner }}"
+                        type="number" class="form-control form-control-sm"
+                        value="{{ leadsInformation.phoneNumber }}"
                         [disabled]="leadInfoReadMode"
-                      />
-                    </div>
-                    <div class="form-group mb-4">
-                      <label>Alternate Number:</label>
-                      <input
-                        type="text"
+                      />	
+					</div>
+				<div class="col-xxl-4 col-md-6">
+					
+					<label>Alternate Number:</label>
+                      <input class="form-control form-control-sm"
+                        type="number"
                         value="{{ leadsInformation.alternateNumber }}"
                         [disabled]="leadInfoReadMode"
                       />
-                    </div>
-                    <div class="form-group mb-4">
-                      <label>Website:</label>
+					</div>	
+				<div class="col-xxl-4 col-md-6">
+					<label>Website:</label>
                       <input
-                        type="text"
+                        type="text" class="form-control form-control-sm"
                         value="{{ leadsInformation.website }}"
                         [disabled]="leadInfoReadMode"
                       />
-                    </div>
-                    <div class="form-group mb-4">
-                      <label>Annual Revenue:</label>
+					
+					</div>
+				<div class="col-xxl-4 col-md-6">
+					<label>Annual Revenue:</label>
                       <input
-                        type="text"
+                        type="text" class="form-control form-control-sm"
                         value="{{ leadsInformation.annualRevenue }}"
                         [disabled]="leadInfoReadMode"
                       />
-                    </div>
-                    <div class="form-group mb-4">
-                      <label>Created By:</label>
-                      <input
-                        type="text"
-                        value="{{ leadsInformation.createdBy }}"
-                        [disabled]="leadInfoReadMode"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-lg-3">
-                    <div class="form-group mb-4">
-                      <label>Lead Name:</label>
-                      <input
-                        type="text"
+					</div>
+				<div class="col-xxl-4 col-md-6">
+					<label>Created By:</label>
+                      <select class="form-select" aria-label="Disabled select example" disabled="">
+                                                    <option selected="">Mariana John</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+					
+					</div>
+				<div class="col-xxl-4 col-md-6">
+					<label>Lead Name:</label>
+                      <input  type="text" class="form-control form-control-sm"
                         value="{{ leadsInformation.leadName }}"
                         [disabled]="leadInfoReadMode"
                       />
-                    </div>
-                    <div class="form-group mb-4">
-                      <label>Company:</label>
+					</div>					
+				<div class="col-xxl-4 col-md-6">
+					<label>Company:</label>
                       <input
-                        type="text"
+                        type="text" class="form-control form-control-sm"
                         value="{{ leadsInformation.company }}"
                         [disabled]="leadInfoReadMode"
                       />
-                    </div>
-                    <div class="form-group mb-4">
-                      <label>Lead Source:</label>
-                      <input
-                        type="text"
-                        value="{{ leadsInformation.leadSource }}"
-                        [disabled]="leadInfoReadMode"
-                      />
-                    </div>
-                    <div class="form-group mb-4">
-                      <label>Marital Status:</label>
-                      <input
-                        type="text"
-                        value="{{ leadsInformation.martialStatus }}"
-                        [disabled]="leadInfoReadMode"
-                      />
-                    </div>
-                    <div class="form-group mb-4">
-                      <label>Modified By:</label>
-                      <input
-                        type="text"
-                        value="{{ leadsInformation.modifiedBy }}"
-                        [disabled]="leadInfoReadMode"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-lg-3">
-                    <div class="mb-4">{{ "" }}</div>
-                    <div class="form-group mb-4">
-                      <label>Designation:</label>
-                      <input
-                        type="text"
+					</div>
+				<div class="col-xxl-4 col-md-6">
+					
+					<label>Lead Source:</label>
+                      <select class="form-select" aria-label="Disabled select example" disabled="">
+                                                    <option selected="">Facebook</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+					
+					</div>
+				<div class="col-xxl-4 col-md-6">
+				<label>Marital Status:</label>
+                      <select class="form-select" aria-label="Disabled select example" disabled="">
+                                                    <option selected="">Married</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+					</div>
+				<div class="col-xxl-4 col-md-6">
+					 <label>Modified By:</label>
+					<select class="form-select" aria-label="Disabled select example" disabled="">
+                                                    <option selected="">Mariana John</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+					</div>
+				<div class="col-xxl-4 col-md-6">
+				 <label>Designation:</label>
+                      <input 
+                        type="text" class="form-control form-control-sm"
                         value="{{ leadsInformation.designation }}"
                         [disabled]="leadInfoReadMode"
-                      />
-                    </div>
-                    <div class="form-group mb-4">
-                      <label>Lead Status:</label>
+                      />	
+					
+					</div>				
+				<div class="col-xxl-4 col-md-6">
+					<label>Lead Status:</label>
+                      <select class="form-select" aria-label="Disabled select example" disabled="">
+                                                    <option selected="">New</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+					</div>
+				<div class="col-xxl-4 col-md-6">
+					<label>Nationality:</label>
+                      <select class="form-select" aria-label="Disabled select example" disabled="">
+                                                    <option selected="">Indian</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+					
+					</div>							
+				<div class="col-xxl-4 col-md-6">
+					
+				<label>Industry:</label>
                       <input
-                        type="text"
-                        value="{{ leadsInformation.leadStatus }}"
-                        [disabled]="leadInfoReadMode"
-                      />
-                    </div>
-                    <div class="form-group mb-4">
-                      <label>Nationality:</label>
-                      <input
-                        type="text"
-                        value="{{ leadsInformation.nationality }}"
-                        [disabled]="leadInfoReadMode"
-                      />
-                    </div>
-                    <div class="mb-4">{{ "" }}</div>
-                  </div>
-                  <div class="col-lg-3">
-                    <div class="form-group mb-4">
-                      <label>Mobile:</label>
-                      <input
-                        type="text"
-                        value="{{ leadsInformation.phoneNumber }}"
-                        [disabled]="leadInfoReadMode"
-                      />
-                    </div>
-                    <div class="form-group mb-4">
-                      <label>Industry:</label>
-                      <input
-                        type="text"
+                        type="text" class="form-control form-control-sm"
                         value="{{ leadsInformation.industry }}"
                         [disabled]="leadInfoReadMode"
-                      />
-                    </div>
-                    <div class="mb-4">{{ "" }}</div>
-                    <div class="form-group mb-4">
-                      <label>Preferred time to call:</label>
+                      />	
+					</div>
+				<div class="col-xxl-4 col-md-6">
+					<label>Preferred time to call:</label>
                       <input
-                        type="text"
+                        type="text" class="form-control form-control-sm"
                         value="{{ leadsInformation.preferredTimeToCall }}"
                         [disabled]="leadInfoReadMode"
                       />
-                    </div>
-                    <div class="mb-4">{{ "" }}</div>
-                  </div>
-                </div>
-                <div>
-                  <h6 class="card-title mb-4">
+					
+					</div>
+				<div class="col-xxl-12 col-md-12">
+					
+					<h6 class="card-title mb-4">
                     <u>Address Information</u
                     ><a (click)="addressReadMode = !addressReadMode"
                       ><i class="mdi mdi-file-edit-outline ml-10"></i
                     ></a>
                   </h6>
-                </div>
-                <div class="form-group mb-4">
-                  <label>Current Address:</label>
-                  <textarea
-                    value="{{ leadsInformation.address }}"
-                    [disabled]="addressReadMode"
-                    rows="2"
-                    cols="40"
-                  ></textarea>
-                </div>
-                <!-- <div>Current Address: {{ leadsInformation.address }}</div> -->
+					</div>
+				<div class="col-xxl-4 col-md-6">
+					<label class="form-label" for="des-info-description-input">Address</label>
+                    <textarea class="form-control" placeholder="Please enter a Address" id="des-info-description-input" rows="3" required="" spellcheck="false"></textarea>
+                     <div class="invalid-feedback">Please enter a Address</div>
+					</div>	
+			</div>
+			</div>
+		
+		
+			</div>
+		
+		<!--card body end-->
+			</div>
+	  <!--card end-->
+	  </div>
+	</div>
+	<!--row end-->
+<div class="clearfix"></div>
 
-                <div>
-                  <h6 class="card-title mb-4 mt-4">
+<div class="row">
+  <div class="col-xxl-12 col-lg-12">
+    <div class="card">
+      
+		<div class="card-body">
+        <div class="row">
+          <div class="col-xxl-12 col-lg-12">
+           
+				<div class="live-preview">
+				<div class="row gy-4">
+		<div class="col-xxl-12 col-lg-12">
+		<h6 class="card-title mb-4">
                     <u>Property Prefference</u
-                    ><a><i class="mdi mdi-file-edit-outline ml-10"></i></a>
+                    ><a (click)="leadInfoReadMode = !leadInfoReadMode"
+                      ><i class="mdi mdi-file-edit-outline ml-10"></i
+                    ></a>
                   </h6>
-                </div>
-                <div class="row g-2">
-                  <div class="col-lg-2">
-                    <div class="form-check">
+					</div>
+					
+						<div class="col-xxl-2 col-lg-3">
+						<div class="form-check">
                       <input
                         class="form-check-input"
                         type="checkbox"
@@ -202,9 +217,11 @@
                         >Residential</label
                       >
                     </div>
-                  </div>
-                  <div class="col-lg-2">
-                    <div class="form-check">
+						
+						</div>	
+					
+						<div class="col-xxl-2 col-lg-3">
+					<div class="form-check">
                       <input
                         class="form-check-input"
                         type="checkbox"
@@ -212,52 +229,107 @@
                         value="commercial"
                       />
                       <label class="form-check-label" for="commercial"
-                        >Residential</label
+                        >Commercial</label
                       >
                     </div>
-                  </div>
-                </div>
-                <div class="row mt-4">
-                  <div class="col-lg-12 border">
-                    <div class="row mt-2">
-                      <div class="col-lg-3">
-                        Desired Property Location: Doha
-                      </div>
-                      <div class="col-lg-3">Preferred Neighbourhood: None</div>
-                      <div class="col-lg-3">Number of Bedrooms: 2</div>
-                      <div class="col-lg-3">Number of Bathroom: 2</div>
-                    </div>
-                    <div class="row mt-2">
-                      <div class="col-lg-3">Price Range: QAR 1000 - 2000</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row mt-4">
-                  <div class="col-lg-12 border">
-                    <div class="row mt-2">
-                      <div class="col-lg-3">Building Type: Tower</div>
-                      <div class="col-lg-3">Unit Type: 2BHK</div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row mt-4">
-                  <div class="col-lg-12 border">
-                    <div class="row mt-2">
-                      <div class="col-lg-3">Floor Preference: Second Floor</div>
-                      <div class="col-lg-3">View Preference: Sea View</div>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <h6 class="card-title mb-4 mt-4">
+					</div>
+					<div class="col-xxl-8 col-lg-6"></div>
+					
+					
+					<div class="col-xxl-4 col-lg-6">
+					<label>Desired Property Location :</label>
+                      <select class="form-select" aria-label="Disabled select example" disabled="">
+                                                    <option selected="">Doha</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+					
+					</div>
+					<div class="col-xxl-4 col-lg-6">
+					<label>Preferred Neighbourhood:</label>
+                      <select class="form-select" aria-label="Disabled select example" disabled="">
+                                                    <option selected="">Doha</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+					
+					</div>
+					<div class="col-xxl-4 col-lg-6">
+						<label>Number of Bedrooms:</label>
+					<select class="form-select" aria-label="Disabled select example" disabled="">
+                                                    <option selected="">2</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+					</div>
+					
+					<div class="col-xxl-4 col-lg-6">
+					<label>Number of Bathroom:</label>
+					<select class="form-select" aria-label="Disabled select example" disabled="">
+                                                    <option selected="">2</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+					</div>
+					<div class="col-xxl-4 col-lg-6">
+					<label>Price Range:</label>
+					<select class="form-select" aria-label="Disabled select example" disabled="">
+                                                    <option selected="">1000 - 2000 QAR</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+					</div>
+					<div class="col-xxl-4 col-lg-6">
+						<label>Building Type:</label>
+					<select class="form-select" aria-label="Disabled select example" disabled="">
+                                                    <option selected="">Tower</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+					</div>
+					
+					<div class="col-xxl-4 col-lg-6">
+					<label>Unit Type:</label>
+					<select class="form-select" aria-label="Disabled select example" disabled="">
+                                                    <option selected="">2BHK</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+					</div>
+					<div class="col-xxl-4 col-lg-6">
+					<label>Floor Preference:</label>
+					<select class="form-select" aria-label="Disabled select example" disabled="">
+                                                    <option selected="">Second Floor</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+					</div>
+					<div class="col-xxl-4 col-lg-6">
+					<label>View Preference:</label>
+					<select class="form-select" aria-label="Disabled select example" disabled="">
+                                                    <option selected="">Sea View</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+					</div>
+					
+					<div class="col-xxl-12 col-lg-12"><h6 class="card-title mb-4 mt-4">
                     <u>Description</u
                     ><a (click)="descriptionReadMode = !descriptionReadMode"
                       ><i class="mdi mdi-file-edit-outline ml-10"></i
                     ></a>
-                  </h6>
-                  <p *ngIf="descriptionReadMode">
+                  </h6></div>
+					<div class="col-xxl-12 col-lg-12">
+					 <p *ngIf="descriptionReadMode">
                     Lorem Ipsum is simply dummy text of the printing and
                     typesetting industry. Lorem Ipsum has been the industry's
                     standard dummy text ever since the 1500s, when an unknown
@@ -277,12 +349,365 @@
                     rows="5"
                     cols="40"
                   ></textarea>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+						
+						
+					</div>
+					<div class="col-xxl-4 col-lg-6"></div>
+					
+					
+		
+		
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+		
+		
+		
+		</div>
+	  </div>
+	</div>
+
+<div class="row">
+                        <div class="col-xl-12">
+                            <div class="card">
+                                <div class="card-header align-items-center d-flex">
+                                    <h4 class="card-title mb-0 flex-grow-1">Notes</h4>
+                                   
+                                </div><!-- end card header -->
+
+                                <div class="card-body">
+                                    
+                                    <div class="live-preview">
+                                        <div class="list-group">
+                                            
+                                            <a href="javascript:void(0);" class="list-group-item list-group-item-action">
+                                                <div class="float-end">
+                                                    Pending
+                                                </div>
+                                                <div class="d-flex mb-2 align-items-center">
+                                                    <div class="flex-shrink-0">
+                                                        <img src="assets/images/users/avatar-2.jpg" alt="" class="avatar-sm rounded-circle">
+                                                    </div>
+                                                    <div class="flex-grow-1 ms-3">
+                                                        <h5 class="list-title fs-15 mb-1">Dominic Charlton</h5>
+                                                        <p class="list-text mb-0 fs-12">12 min Ago</p>
+                                                    </div>
+                                                </div>
+                                                <p class="list-text mb-0">Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin.</p>
+                                            </a>
+                                            <a href="javascript:void(0);" class="list-group-item list-group-item-action">
+                                                <div class="float-end">
+                                                    Rejected
+                                                </div>
+                                                <div class="d-flex mb-2 align-items-center">
+                                                    <div class="flex-shrink-0">
+                                                        <img src="assets/images/users/avatar-3.jpg" alt="" class="avatar-sm rounded-circle">
+                                                    </div>
+                                                    <div class="flex-grow-1 ms-3">
+                                                        <h5 class="list-title fs-15 mb-1">Declan Long</h5>
+                                                        <p class="list-text mb-0 fs-12">12 min Ago</p>
+                                                    </div>
+                                                </div>
+                                                <p class="list-text mb-0">Big July earthquakes confound zany experimental vow. My girl wove six dozen plaid jackets before she quit. Six big devils from Japan quickly forgot how to waltz. try again until it looks right, and each assumenda labore aes Homo nostrud organic, assumenda labore aesthetic magna elements, buttons, everything.</p>
+                                            </a>
+                                            <a href="javascript:void(0);" class="list-group-item list-group-item-action">
+                                                <div class="float-end">
+                                                    Successful
+                                                </div>
+                                                <div class="d-flex mb-2 align-items-center">
+                                                    <div class="flex-shrink-0">
+                                                        <img src="assets/images/users/avatar-4.jpg" alt="" class="avatar-sm rounded-circle">
+                                                    </div>
+                                                    <div class="flex-grow-1 ms-3">
+                                                        <h5 class="list-title fs-15 mb-1">Angela Bernier</h5>
+                                                        <p class="list-text mb-0 fs-12">5 days Ago</p>
+                                                    </div>
+                                                </div>
+                                                <p class="list-text mb-0">Just like in the image where we talked about using multiple fonts, you can see that the background in this graphic design is blurred. Whenever you put text on top of an image, it’s important that your viewers can understand the text, and sometimes that means applying a gaussian readable.</p>
+                                            </a>
+											<br>
+											<textarea  placeholder="Please enter your note" id="" rows="3" required="" spellcheck="false" class="form-control"></textarea>
+											<br>
+											<div class="d-flex flex-wrap gap-2">
+											<button type="button" class="btn btn-primary waves-effect waves-light btn_width">Save</button>
+											<button type="button" class="btn btn-info waves-effect waves-light btn_width">Cancel</button>
+											</div>
+                                        </div>
+                                    </div>
+                                    
+                                </div><!-- end card-body -->
+                            </div><!-- end card -->
+                        </div>
+                        <!-- end col -->
+                    </div>
+
+
+<div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title mb-0">Dropzone</h4>
+                                </div><!-- end card header -->
+
+                                <div class="card-body">
+                                    <p class="text-muted">DropzoneJS is an open source library that provides drag’n’drop file uploads with image previews.</p>
+
+                                    <div class="dropzone dz-clickable">
+                                        
+                                        <div class="dz-message needsclick">
+                                            <div class="mb-3">
+                                                <i class="display-4 text-muted ri-upload-cloud-2-fill"></i>
+                                            </div>
+
+                                            <h4>Drop files here or click to upload.</h4>
+                                        </div>
+                                    </div>
+
+                                    <ul class="list-unstyled mb-0" id="dropzone-preview">
+                                        
+                                    </ul>
+                                    <!-- end dropzon-preview -->
+                                </div>
+                                <!-- end card body -->
+                            </div>
+                            <!-- end card -->
+                        </div>
+
+
+<div class="row mt-4">
+                        <div class="col-lg-12">
+							<div class="card">
+							<div class="card-header align-items-center d-flex">
+                                    <h4 class="card-title mb-0 flex-grow-1">Left Timeline</h4>
+                                   
+                                </div>
+                            <div>
+                              
+                                <div class="timeline-2">
+                                    <div class="timeline-year">
+                                        <p>12 Dec 2021</p>
+                                    </div>
+                                    <div class="timeline-continue">
+                                        <div class="row timeline-right">
+                                            <div class="col-12">
+                                                <p class="timeline-date">
+                                                    02:35AM to 04:30PM
+                                                </p>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="timeline-box">
+                                                    <div class="timeline-text">
+                                                        <div class="d-flex">
+                                                            <img src="assets/images/users/avatar-7.jpg" alt="" class="avatar-sm rounded">
+                                                            <div class="flex-grow-1 ms-3">
+                                                                <h5 class="mb-1">Frank hook joined with our company</h5>
+                                                                <p class="text-muted mb-0">It makes a statement, it’s impressive graphic design. Increase or decrease the letter spacing depending on the situation and try, try again until it looks right, and each letter has the perfect spot of its own. </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row timeline-right">
+                                            <div class="col-12">
+                                                <p class="timeline-date">
+                                                    02:35AM to 04:30PM
+                                                </p>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="timeline-box">
+                                                    <div class="timeline-text">
+                                                        <h5>Trip planning</h5>
+                                                        <p class="text-muted">In the trip planner, keep only one or two activities in a day if the purpose of the trip is to relax and take it easy during the vacation :</p>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="timeline-year">
+                                                    <p>08 Dec 2021</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row timeline-right">
+                                            <div class="col-12">
+                                                <p class="timeline-date">
+                                                    02:35AM to 04:30PM
+                                                </p>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="timeline-box">
+                                                    <div class="timeline-text">
+                                                        <h5>Velzon - Project Discussion</h5>
+                                                        <p class="text-muted mb-0">The purpose of the discussion is to interpret and describe the significance of your findings in light of what was already known about the research problem being investigated, and to explain any new understanding or fresh insights about the problem after you've taken the findings into consideration.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row timeline-right">
+                                            <div class="col-12">
+                                                <p class="timeline-date">
+                                                    10:24AM to 11:15PM
+                                                </p>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="timeline-box">
+                                                    <div class="timeline-text">
+                                                        <h5>Client Meeting (Nancy Martino)</h5>
+                                                        <p class="text-muted mb-0">A client meeting, meaning, direct collaboration and communication with a customer, is the best way to understand their needs and how you can help support them.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row timeline-right">
+                                            <div class="col-12">
+                                                <p class="timeline-date">
+                                                    9:20AM to 10:05PM
+                                                </p>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="timeline-box">
+                                                    <div class="timeline-text">
+                                                        <h5>Designer &amp; Developer Meeting</h5>
+                                                        <ul class="mb-0 text-muted vstack gap-2">
+                                                            <li>Last updates</li>
+                                                            <li>Weekly Planning</li>
+                                                            <li>Work Distribution</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+                                    
+                                </div>
+                            </div>
+	</div>
+                        </div>
+                        <!--end col-->
+                    </div>
+
+
+
+
+<div class="row">
+
+      <div class="col-xxl-12">
+        
+          <div class="card">
+			  <div class="card-header align-items-center d-flex">
+                                    <h4 class="card-title mb-0 flex-grow-1">Activities</h4><button type="button" class="btn btn-primary waves-effect waves-light"><i class="las la-plus"></i> Add</button>
+                                   
+                                </div>
+              <div class="card-body">
+                  
+                  <!-- Nav tabs -->
+                  <ul ngbNav #Bordered="ngbNav" [activeId]="1" class="nav nav-tabs nav-tabs-custom nav-success nav-justified mb-3">
+                    <li [ngbNavItem]="1">
+                        <a ngbNavLink>
+                            Task
+                        </a>
+                        <ng-template ngbNavContent>
+                          <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <i class="ri-checkbox-multiple-blank-fill text-success"></i>
+                            </div>
+                            <div class="flex-grow-1 ms-2">
+                                <table class="table mb-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Subject</th>
+                                                            <th scope="col">Due Date</th>
+                                                            <th scope="col">Task Owner</th>
+                                                            <th scope="col">Status</th>
+															<th scope="col">Priority</th>
+															<th scope="col">Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Call to John</td>
+                                                            <td>24 Sep 2023</td>
+                                                            <td>Mariana John</td>
+                                                            <td>New</td>
+															<td>High</td>
+                                                            <td><i class="las la-pen edit_icon"></i> <i class="las la-trash-alt edit_icon"></i></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Call to John</td>
+                                                            <td>24 Sep 2023</td>
+                                                            <td>Mariana John</td>
+                                                            <td>New</td>
+															<td>High</td>
+                                                            <td><i class="las la-pen edit_icon"></i> <i class="las la-trash-alt edit_icon"></i></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                            </div>
+                          </div>
+                        </ng-template>
+                    </li>
+                    <li [ngbNavItem]="2">
+                        <a ngbNavLink>
+                            Appointment
+                        </a>
+                        <ng-template ngbNavContent>
+                          <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <i class="ri-checkbox-multiple-blank-fill text-success"></i>
+                            </div>
+                            <div class="flex-grow-1 ms-2">
+                               <table class="table mb-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Title</th>
+                                                            <th scope="col">From</th>
+                                                            <th scope="col">To</th>
+                                                            <th scope="col">Host</th>
+															<th scope="col">Priority</th>
+															<th scope="col">Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Appointment with Mr. Muhammed Al Jasser</td>
+                                                            <td>18/10/2023 11:00 AM</td>
+                                                            <td>18/10/2023 12:00 PM</td>
+                                                            <td>Mariana John</td>
+															<td>High</td>
+                                                            <td><i class="las la-pen edit_icon"></i> <i class="las la-trash-alt edit_icon"></i></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Appointment with Mr. Muhammed Al Jasser</td>
+                                                            <td>18/10/2023 11:00 AM</td>
+                                                            <td>18/10/2023 12:00 PM</td>
+                                                            <td>Mariana John</td>
+															<td>High</td>
+                                                            <td><i class="las la-pen edit_icon"></i> <i class="las la-trash-alt edit_icon"></i></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                            </div>
+                          </div>
+                        </ng-template>
+                
+					  </li>
+                  </ul>
+                  <!-- Tab panes -->
+                  <div class="tab-content text-muted">
+                    <div [ngbNavOutlet]="Bordered"></div>
+                  </div>
+              </div><!-- end card-body -->
+          </div><!-- end card -->
       </div>
-    </div>
   </div>
-</div>
