@@ -16,6 +16,9 @@ import { TranslateService } from "@ngx-translate/core";
 
 import { CartModel } from "./topbar.model";
 import { cartData } from "./data";
+import { MenuItem } from "../sidebar/menu.model";
+import { SUBMENU } from "../sidebar/subMenu";
+import { CommonService } from "src/app/core/services/common.service";
 
 @Component({
   selector: "app-topbar",
@@ -36,6 +39,7 @@ export class TopbarComponent implements OnInit {
   countryName: any;
   cookieValue: any;
   userData: any;
+  menuItems: MenuItem[] = SUBMENU;
 
   constructor(
     @Inject(DOCUMENT) private document: any,
@@ -46,7 +50,8 @@ export class TopbarComponent implements OnInit {
     private authService: AuthenticationService,
     private authFackservice: AuthfakeauthenticationService,
     private router: Router,
-    private TokenStorageService: TokenStorageService
+    private TokenStorageService: TokenStorageService,
+    private commonService: CommonService
   ) {}
 
   ngOnInit(): void {
@@ -285,5 +290,9 @@ export class TopbarComponent implements OnInit {
     dropdown.classList.remove("show");
     searchOptions.classList.add("d-none");
     searchInputReponsive.value = "";
+  }
+
+  onClickTopMenu(id: number) {
+    this.commonService.setTopMenuItemId(id);
   }
 }

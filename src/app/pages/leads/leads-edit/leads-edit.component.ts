@@ -7,5 +7,8 @@ import { LeadsInformation } from "../leads/data";
   styleUrls: ["./leads-edit.component.scss"],
 })
 export class LeadsEditComponent {
+  leadInfoReadMode = true;
+  addressReadMode = true;
+  descriptionReadMode = true;
   leadsInformation = LeadsInformation[0].data[0];
 }
