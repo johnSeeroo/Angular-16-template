@@ -381,7 +381,7 @@
                 !item.isTitle && !item.isLayout && selectedTopMenuId === item.id
               "
             >
-              <a
+              <!-- <a
                 *ngIf="hasItems(item)"
                 href="javascript:void(0);"
                 class="is-parent nav-link menu-link"
@@ -400,9 +400,9 @@
                   *ngIf="item.badge"
                   >{{ item.badge.text }}</span
                 >
-              </a>
+              </a> -->
 
-              <a
+              <!-- <a
                 [routerLink]="item.link"
                 *ngIf="!hasItems(item)"
                 class="side-nav-link-ref nav-link menu-link"
@@ -419,7 +419,7 @@
                   *ngIf="item.badge"
                   >{{ item.badge.text }}</span
                 >
-              </a>
+              </a> -->
 
               <div class="collapse menu-dropdown show" *ngIf="hasItems(item)">
                 <ul

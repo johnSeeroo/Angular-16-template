@@ -296,4 +296,12 @@ export class TopbarComponent implements OnInit {
   onClickTopMenu(id: number) {
     this.commonService.setTopMenuItemId(id);
   }
+
+  getClass() {
+    if (document.documentElement.getAttribute("data-sidebar-size") === "lg") {
+      return "hamburger-icon";
+    } else {
+      return "hamburger-icon open";
+    }
+  }
 }

@@ -12,6 +12,7 @@ import {
   TOPBAR,
 } from "./pages.model";
 import { EventService } from "../core/services/event.service";
+import { NavigationEnd, Router } from "@angular/router";
 
 @Component({
   selector: "app-pages",
@@ -21,9 +22,13 @@ import { EventService } from "../core/services/event.service";
 export class PagesComponent implements OnInit {
   isCondensed = false;
 
-  constructor(private eventService: EventService) {}
+  constructor(private eventService: EventService, private router: Router) {}
 
   ngOnInit(): void {
+    if (this.router.url === "/dashboard") {
+      document.documentElement.setAttribute("data-sidebar-size", "sm");
+      this.isCondensed = !this.isCondensed;
+    }
     if (document.documentElement.getAttribute("data-layout") == "semibox") {
       document.documentElement.setAttribute("data-layout", "semibox");
     } else {
@@ -55,6 +60,21 @@ export class PagesComponent implements OnInit {
       } else if (document.documentElement.clientWidth >= 1024) {
         document.documentElement.setAttribute("data-sidebar-size", "lg");
         document.querySelector(".hamburger-icon")?.classList.remove("open");
+      }
+    });
+
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        const currentSIdebarSize =
+          document.documentElement.getAttribute("data-sidebar-size");
+        if (this.router.url === "/dashboard") {
+          if (currentSIdebarSize == "lg") {
+            document.documentElement.setAttribute("data-sidebar-size", "sm");
+            this.isCondensed = !this.isCondensed;
+          }
+        } else if (currentSIdebarSize == "sm") {
+          document.documentElement.setAttribute("data-sidebar-size", "lg");
+        }
       }
     });
   }
