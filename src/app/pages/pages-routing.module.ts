@@ -6,7 +6,7 @@ import { DashboardComponent } from "./dashboards/dashboard/dashboard.component";
 
 const routes: Routes = [
   {
-    path: "",
+    path: "dashboard",
     component: DashboardComponent,
     loadChildren: () =>
       import("./dashboards/dashboards.module").then((m) => m.DashboardsModule),
@@ -21,6 +21,7 @@ const routes: Routes = [
     loadChildren: () =>
       import("./leads/leads.module").then((m) => m.LeadsModule),
   },
+  { path: "", redirectTo: "/dashboard", pathMatch: "full" },
 ];
 
 @NgModule({
