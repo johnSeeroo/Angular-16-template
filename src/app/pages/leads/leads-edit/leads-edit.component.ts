@@ -7,8 +7,16 @@ import { LeadsInformation } from "../leads/data";
   styleUrls: ["./leads-edit.component.scss"],
 })
 export class LeadsEditComponent {
+  // bread crumb items
+  breadCrumbItems!: Array<{}>;
   leadInfoReadMode = true;
   addressReadMode = true;
   descriptionReadMode = true;
   leadsInformation = LeadsInformation[0].data[0];
+  constructor() {
+    /**
+     * BreadCrumb
+     */
+    // this.breadCrumbItems = [{ label: "CRM" }, { label: "Leads-Edit", active: true }]; 
+  }
 }

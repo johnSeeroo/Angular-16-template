@@ -10,8 +10,8 @@ export const data={
                     {
                         "LeadsModule": {
                             "read": true,
-                            "write": false,
-                            "delete": false
+                            "write": true,
+                            "delete": true
                         }
                     },
                     {
