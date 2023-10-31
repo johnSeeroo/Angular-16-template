@@ -1,67 +1,161 @@
 /* You can add global styles to this file, and also import other style files */
 // Swiper
 .coverflowslide .slide {
-    position: relative;
-    transition: transform 0.3s;
+  position: relative;
+  transition: transform 0.3s;
 }
 
 .coverflowslide .slick-list {
-    overflow: hidden !important;
+  overflow: hidden !important;
 }
 
 .coverflowslide .slick-center {
-    transform: scale(1.2); // Adjust the scale factor for the "Coverflow" effect
-    z-index: 1;
+  transform: scale(1.2); // Adjust the scale factor for the "Coverflow" effect
+  z-index: 1;
 }
 
 .coverflowslide .carousel {
-    width: 100%;
-    max-width: 600px; // Adjust the carousel width as needed
-    margin: 0 auto;
+  width: 100%;
+  max-width: 600px; // Adjust the carousel width as needed
+  margin: 0 auto;
 }
 
 .space .slick-slide {
-    margin: 10px;
+  margin: 10px;
 }
-h1, h2, h3, h4, h5, h6 {color:#184568 !important; }
-.btn-success, .btn-icon:hover {background-color:#184568 !important; }
-.btn-success:hover {background-color:#25608E !important; }
-	.ri-settings-4-line:before {color: #184568;}
-.btn-soft-info:hover .ri-settings-4-line:before {color: #fff;}
-.page-link.active, .active > .page-link {background-color:#184568 !important; }
-.padding_btm_none, .auth-page-content {padding-bottom:0 !important; height: 100vh;}
-.card{margin-bottom: 0px!important;}
-.full-height {height: 100vh !important;}
-.bg_full_width, .bg-overlay {height: 100vh!important;}
-.auth-one-bg {height: 100vh!important;}
-.center_align {margin: auto 0;}
-.container-fluid {padding: 0!important;}
-.form-control {padding: 0.5rem 0.9rem !important;}
-.card {margin-bottom: 20px!important;}
-.btn_width{width: 100px; float:right; margin:5px;}
-.timeline-2 {margin: 30px;}
-.timeline-2 .timeline-year p {background:#eeeeee!important;}
-.timeline-2::after {background:#eeeeee!important;}
-.edit_icon {font-size: 18px; margin: 0 5px;}
-.top_menu_new { margin: 0; padding: 0; height: 70px;}
-.top_menu_new li {display: inline; float: left; padding: 5px 10px;}
-.top_menu_new li a {line-height: 70px; font-size: 14px;}
-.navbar-menu {background:#184568 !important; }
-.navbar-menu .navbar-nav .nav-link{color: #fff!important;}
-.page_head {background: #fff; padding: 5px 10px; border-bottom: 1px solid #e2e2e2; margin-bottom: 10px;}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #184568 !important;
+}
+.btn-success,
+.btn-icon:hover {
+  background-color: #184568 !important;
+}
+.btn-success:hover {
+  background-color: #25608e !important;
+}
+.ri-settings-4-line:before {
+  color: #184568;
+}
+.btn-soft-info:hover .ri-settings-4-line:before {
+  color: #fff;
+}
+.page-link.active,
+.active > .page-link {
+  background-color: #184568 !important;
+}
+.padding_btm_none,
+.auth-page-content {
+  padding-bottom: 0 !important;
+  height: 100vh;
+}
+.card {
+  margin-bottom: 0px !important;
+}
+.full-height {
+  height: 100vh !important;
+}
+.bg_full_width,
+.bg-overlay {
+  height: 100vh !important;
+}
+.auth-one-bg {
+  height: 100vh !important;
+}
+.center_align {
+  margin: auto 0;
+}
+.container-fluid {
+  padding: 0 !important;
+}
+.form-control {
+  padding: 0.5rem 0.9rem !important;
+}
+.card {
+  margin-bottom: 20px !important;
+}
+.btn_width {
+  width: 100px;
+  float: right;
+  margin: 5px;
+}
+.timeline-2 {
+  margin: 30px;
+}
+.timeline-2 .timeline-year p {
+  background: #eeeeee !important;
+}
+.timeline-2::after {
+  background: #eeeeee !important;
+}
+.edit_icon {
+  font-size: 18px;
+  margin: 0 5px;
+}
+.top_menu_new {
+  margin: 0;
+  padding: 0;
+  height: 70px;
+}
+.top_menu_new li {
+  display: inline;
+  float: left;
+  padding: 5px 10px;
+}
+.top_menu_new li a {
+  line-height: 70px;
+  font-size: 14px;
+}
+.navbar-menu {
+  background: #184568 !important;
+}
+.navbar-menu .navbar-nav .nav-link {
+  color: #fff !important;
+}
+.page_head {
+  background: #fff;
+  padding: 5px 10px;
+  border-bottom: 1px solid #e2e2e2;
+  margin-bottom: 10px;
+}
 .head_sticky {
-   position: sticky;
-   top: 71px;
-	background: #fff;
-	z-index: 1;
-	width: 100%;
-	border-radius: 5px;
+  position: sticky;
+  top: 71px;
+  background: #fff;
+  z-index: 1;
+  width: 100%;
+  border-radius: 5px;
 }
-.btn_direction {display: flex; flex-direction: row-reverse;}
-.margin_btn {margin: 10px 5px;}
-.navbar-brand-box {background: #184568!important;}
-.btn {padding: 5px 10px !important;}
-.center_align {margin: 5rem 0;}
+.btn_direction {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.margin_btn {
+  margin: 10px 5px;
+}
 .navbar-brand-box {
-	padding: 0.2rem 1.3rem 1.3rem 1.3rem!important;}
-.search-box .search-icon {right: 13px!important;}
+  background: #184568 !important;
+}
+.btn {
+  padding: 5px 10px !important;
+}
+.center_align {
+  margin: 5rem 0;
+}
+.navbar-brand-box {
+  padding: 0.2rem 1.3rem 1.3rem 1.3rem !important;
+}
+.search-box .search-icon {
+  right: 13px !important;
+}
+.microsoft_365 {
+  margin: 50px 10px;
+  text-align: center;
+}
+.microsoft_365 img {
+  margin-top: 20px;
+}
