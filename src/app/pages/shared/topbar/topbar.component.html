@@ -40,7 +40,13 @@
           <li *ngFor="let item of menuItems">
             <a
               (click)="onClickTopMenu(item.id)"
-              routerLink="{{ item.link ? item.link : item.subItems[0].link }}"
+              routerLink="{{
+                item.link
+                  ? item.link
+                  : item.subItems[0].link
+                  ? item.subItems[0].link
+                  : item.subItems[0].subItems[0].link
+              }}"
               >{{ item.label }}</a
             >
           </li>
