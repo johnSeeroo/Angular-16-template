@@ -1,29 +1,29 @@
 
 <!-- auth-page wrapper -->
-<div class="auth-page-wrapper auth-bg-cover py-5 d-flex justify-content-center align-items-center min-vh-100">
+<div class="auth-page-wrapper auth-bg-cover d-flex justify-content-center align-items-center min-vh-100">
     <div class="bg-overlay"></div>
     <!-- auth-page content -->
-    <div class="auth-page-content overflow-hidden pt-lg-5">
-        <div class="container">
-            <div class="row">
+    <div class="auth-page-content overflow-hidden padding_btm_none">
+        <div class="container-fluid">
+            <div class="row-fluid">
                 <div class="col-lg-12">
-                    <div class="card overflow-hidden">
+                    <div class="card full-height overflow-hidden">
                         <div class="row g-0">
                             <div class="col-lg-6">
-                                <div class="p-lg-5 p-4 auth-one-bg h-100">
-                                    <div class="bg-overlay"></div>
+                                <div class="p-lg-5 p-4 auth-one-bg">
+                                    <div class="bg-overlay bg_full_width"></div>
                                     <div class="position-relative h-100 d-flex flex-column">
                                         <div class="mb-4">
                                             <a routerLink="" class="d-block">
-                                                <img src="assets/images/logo-light.png" alt="" height="18">
+                                                <img src="assets/images/logo-light.png" alt="" height="90">
                                             </a>
                                         </div>
                                         <div class="mt-auto">
                                             <div class="mb-3">
-                                                <i class="ri-double-quotes-l display-4 text-success"></i>
+                                                
                                             </div>
   
-                                            <ngb-carousel [showNavigationArrows]="true">
+                                           <!-- <ngb-carousel [showNavigationArrows]="true">
                                               <ng-template ngbSlide>
                                                 <div class="carousel-inner text-center text-white-50 pb-5">
                                                   <div class="carousel-item active">
@@ -31,21 +31,9 @@
                                                   </div>
                                                 </div>
                                               </ng-template>
-                                              <ng-template ngbSlide>
-                                                <div class="carousel-inner text-center text-white-50 pb-5">
-                                                  <div class="carousel-item active">
-                                                    <p class="fs-15 fst-italic">" The theme is really great with an amazing customer support."</p>
-                                                  </div>
-                                                </div>
-                                              </ng-template>
-                                              <ng-template ngbSlide>
-                                                <div class="carousel-inner text-center text-white-50 pb-5">
-                                                  <div class="carousel-item active">
-                                                      <p class="fs-15 fst-italic">" Great! Clean code, clean design, easy for customization. Thanks very much! "</p>
-                                                    </div>
-                                                  </div>
-                                              </ng-template>
-                                            </ngb-carousel>
+                                             
+                                             
+                                            </ngb-carousel>-->
                                           <!-- end carousel -->
                                         </div>
                                     </div>
@@ -54,7 +42,7 @@
                             <!-- end col -->
   
                             <div class="col-lg-6">
-                                <div class="p-lg-5 p-4">
+                                <div class="p-lg-5 p-4 center_align">
                                     <div>
                                         <h5 class="text-primary">Welcome Back !</h5>
                                         <p class="text-muted">Sign in to continue to Al shareef.</p>
@@ -113,6 +101,11 @@
                                     </div>
   
                                         <!-- 2 -->
+									<div class="microsoft_365">
+										<h5>Sign In with</h5>
+									<a href="#"><img src="assets/images/logo_microsoft365.png" alt="" height="80"></a>
+									</div>
+									
                                 </div>
                             </div>
                             <!-- end col -->
@@ -131,7 +124,7 @@
     <!-- end auth page content -->
   
     <!-- footer -->
-    <footer class="footer">
+    <!--<footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -141,7 +134,7 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer>-->
     <!-- end Footer -->
   </div>
   <!-- end auth-page-wrapper -->

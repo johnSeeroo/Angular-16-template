@@ -1,19 +1,19 @@
-<header id="page-topbar" data-scroll-header (window:scroll)="windowScroll()">
+<header id="page-topbar" data-scroll-header>
   <div class="layout-width">
     <div class="navbar-header">
       <div class="d-flex">
         <!-- LOGO -->
         <div class="navbar-brand-box horizontal-logo">
-          <a routerLink="" class="logo logo-dark">
+          <a routerLink="/dashboard" class="logo logo-dark">
             <span class="logo-sm">
               <img src="assets/images/logo-sm.png" alt="" height="22" />
             </span>
             <span class="logo-lg">
-              <img src="assets/images/logo-dark.png" alt="" height="17" />
+              <img src="assets/images/logo-dark.png" alt="" height="60" />
             </span>
           </a>
 
-          <a routerLink="" class="logo logo-light">
+          <a routerLink="/dashboard" class="logo logo-light">
             <span class="logo-sm">
               <img src="assets/images/logo-sm.png" alt="" height="22" />
             </span>
@@ -29,12 +29,28 @@
           id="topnav-hamburger-icon"
           (click)="toggleMobileMenu($event)"
         >
-          <span class="hamburger-icon">
+          <span class="hamburger-icon" ngClass="{{ getClass() }}">
             <span></span>
             <span></span>
             <span></span>
           </span>
         </button>
+
+        <ul class="top_menu_new">
+          <li *ngFor="let item of menuItems">
+            <a
+              (click)="onClickTopMenu(item.id)"
+              routerLink="{{
+                item.link
+                  ? item.link
+                  : item.subItems[0].link
+                  ? item.subItems[0].link
+                  : item.subItems[0].subItems[0].link
+              }}"
+              >{{ item.label }}</a
+            >
+          </li>
+        </ul>
 
         <!-- App Search-->
         <!-- <form class="app-search d-none d-md-block">
