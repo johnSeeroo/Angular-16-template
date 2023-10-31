@@ -19,6 +19,7 @@ import { cartData } from "./data";
 import { MenuItem } from "../sidebar/menu.model";
 import { SUBMENU } from "../sidebar/subMenu";
 import { CommonService } from "src/app/core/services/common.service";
+import { TOPBARMENU } from "./topbarMenu";
 
 @Component({
   selector: "app-topbar",
@@ -39,7 +40,7 @@ export class TopbarComponent implements OnInit {
   countryName: any;
   cookieValue: any;
   userData: any;
-  menuItems: MenuItem[] = SUBMENU;
+  menuItems: MenuItem[] = TOPBARMENU;
 
   constructor(
     @Inject(DOCUMENT) private document: any,

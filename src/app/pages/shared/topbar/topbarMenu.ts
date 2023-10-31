@@ -1,20 +1,9 @@
-import { MenuItem } from "./menu.model";
+import { MenuItem } from "../sidebar/menu.model";
 
-export const SUBMENU: MenuItem[] = [
-  //   {
-  //     id: 1,
-  //     label: "MENU",
-  //     isTitle: true,
-  //   },
-  //   {
-  //     id: 2,
-  //     label: "DASHBOARD",
-  //     icon: "ri-dashboard-2-line",
-  //     link: "/",
-  //   },
+export const TOPBARMENU: MenuItem[] = [
   {
     id: 3,
-    label: "LEADS",
+    label: "Leads",
     icon: "ri-rocket-line",
     subItems: [
       {
@@ -301,7 +290,7 @@ export const SUBMENU: MenuItem[] = [
   },
   {
     id: 4,
-    label: "PROPERTIES",
+    label: "Properties",
     icon: "ri-rocket-line",
     subItems: [
       {
@@ -382,7 +371,7 @@ export const SUBMENU: MenuItem[] = [
       {
         id: 413,
         label: "Unit Occupancies",
-        link: "/unit",
+        link: "/leads",
         parentId: 4,
       },
       {
@@ -407,7 +396,7 @@ export const SUBMENU: MenuItem[] = [
   },
   {
     id: 5,
-    label: "TENANTS ",
+    label: "Tenants",
     icon: "ri-rocket-line",
     subItems: [
       {
@@ -486,7 +475,7 @@ export const SUBMENU: MenuItem[] = [
   },
   {
     id: 6,
-    label: "SETTINGS",
+    label: "Settings",
     icon: "ri-rocket-line",
     subItems: [
       {
@@ -546,7 +535,7 @@ export const SUBMENU: MenuItem[] = [
   },
   {
     id: 7,
-    label: "REPORTS",
+    label: "Reports",
     icon: "ri-rocket-line",
     subItems: [
       {
@@ -567,13 +556,13 @@ export const SUBMENU: MenuItem[] = [
   },
   {
     id: 8,
-    label: "APPROVALS",
+    label: "Approvals",
     icon: "ri-rocket-line",
     link: "/approvals",
   },
   {
     id: 9,
-    label: "USERS",
+    label: "Users",
     icon: "ri-rocket-line",
     link: "/users",
   },
