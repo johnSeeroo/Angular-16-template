@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Notes } from './data';
 
 @Component({
@@ -7,6 +7,7 @@ import { Notes } from './data';
   styleUrls: ['./notes.component.scss']
 })
 export class NotesComponent {
+  @Input() leadId!: number;
   Notesdata=Notes[0].data
   
   constructor() {

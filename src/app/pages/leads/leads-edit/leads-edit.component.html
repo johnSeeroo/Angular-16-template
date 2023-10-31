@@ -437,7 +437,7 @@
 </div>
 
 <div class="row">
-  <app-notes></app-notes>
+  <app-notes [id]="leadId"></app-notes>
 </div>
 
 <div class="col-lg-12">
@@ -471,5 +471,5 @@
   <!-- end card -->
 </div>
 
-<app-timeline></app-timeline>
-<app-activities></app-activities>
+<app-timeline [id]="leadId"></app-timeline>
+<app-activities [id]="leadId"></app-activities>

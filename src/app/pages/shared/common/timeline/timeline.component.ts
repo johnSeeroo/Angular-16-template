@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Timelinedata } from './data';
 @Component({
   selector: 'app-timeline',
@@ -6,6 +6,7 @@ import { Timelinedata } from './data';
   styleUrls: ['./timeline.component.scss']
 })
 export class TimelineComponent {
+  @Input() leadId!: number;
   timelines=Timelinedata[0].data
 
   constructor() {

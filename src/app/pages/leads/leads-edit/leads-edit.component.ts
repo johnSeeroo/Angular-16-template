@@ -13,6 +13,7 @@ export class LeadsEditComponent {
   addressReadMode = true;
   descriptionReadMode = true;
   leadsInformation = LeadsInformation[0].data[0];
+  leadId= LeadsInformation[0].data[0].leadId
   constructor() {
     /**
      * BreadCrumb
