@@ -4,7 +4,7 @@
       <div class="d-flex">
         <!-- LOGO -->
         <div class="navbar-brand-box horizontal-logo">
-          <a routerLink="" class="logo logo-dark">
+          <a routerLink="/dashboard" class="logo logo-dark">
             <span class="logo-sm">
               <img src="assets/images/logo-sm.png" alt="" height="22" />
             </span>
@@ -13,7 +13,7 @@
             </span>
           </a>
 
-          <a routerLink="" class="logo logo-light">
+          <a routerLink="/dashboard" class="logo logo-light">
             <span class="logo-sm">
               <img src="assets/images/logo-sm.png" alt="" height="22" />
             </span>
@@ -29,40 +29,29 @@
           id="topnav-hamburger-icon"
           (click)="toggleMobileMenu($event)"
         >
-          <span class="hamburger-icon">
+          <span class="hamburger-icon" ngClass="{{ getClass() }}">
             <span></span>
             <span></span>
             <span></span>
           </span>
         </button>
-	
-		  
-		  <ul class="top_menu_new">
-		  
-		<li><a href="#">Leads</a></li>
-		<li><a href="#">Support tickets</a> </li>
-		<li><a href="#">Properties</a> </li>
-		<li><a href="#">Tenants</a> </li>
-		<li><a href="#">Settings</a></li>
-		<li><a href="#">Reports</a></li>
-		<li><a href="#">Approvals</a></li>
-		<li><a href="#">Users</a></li>
-		  
-		  </ul>
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
+
+        <ul class="top_menu_new">
+          <li *ngFor="let item of menuItems">
+            <a
+              (click)="onClickTopMenu(item.id)"
+              routerLink="{{
+                item.link
+                  ? item.link
+                  : item.subItems[0].link
+                  ? item.subItems[0].link
+                  : item.subItems[0].subItems[0].link
+              }}"
+              >{{ item.label }}</a
+            >
+          </li>
+        </ul>
+
         <!-- App Search-->
         <!-- <form class="app-search d-none d-md-block">
           <div class="position-relative">
@@ -790,23 +779,23 @@
               ></i>
               <span class="align-middle">Messages</span></a
             >
-            <a class="dropdown-item" routerLink="/tasks/kanban"
+            <!-- <a class="dropdown-item" routerLink="/tasks/kanban"
               ><i
                 class="mdi mdi-calendar-check-outline text-muted fs-16 align-middle me-1"
               ></i>
               <span class="align-middle">Taskboard</span></a
-            >
-            <a class="dropdown-item" routerLink="/pages/faqs"
+            > -->
+            <!-- <a class="dropdown-item" routerLink="/pages/faqs"
               ><i
                 class="mdi mdi-lifebuoy text-muted fs-16 align-middle me-1"
               ></i>
               <span class="align-middle">Help</span></a
-            >
+            > -->
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" routerLink="/pages/profile"
+            <!-- <a class="dropdown-item" routerLink="/pages/profile"
               ><i class="mdi mdi-wallet text-muted fs-16 align-middle me-1"></i>
               <span class="align-middle">Balance : <b>$5971.67</b></span></a
-            >
+            > -->
             <a class="dropdown-item" routerLink="/pages/profile"
               ><span class="badge bg-success-subtle text-success mt-1 float-end"
                 >New</span
@@ -815,10 +804,10 @@
               ></i>
               <span class="align-middle">Settings</span></a
             >
-            <a class="dropdown-item" routerLink="/auth/lockscreen/basic"
+            <!-- <a class="dropdown-item" routerLink="/auth/lockscreen/basic"
               ><i class="mdi mdi-lock text-muted fs-16 align-middle me-1"></i>
               <span class="align-middle">Lock screen</span></a
-            >
+            > -->
             <a
               class="dropdown-item"
               href="javascript: void(0);"

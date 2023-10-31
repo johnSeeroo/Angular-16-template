@@ -48,4 +48,20 @@ h1, h2, h3, h4, h5, h6 {color:#184568 !important; }
 .top_menu_new li a {line-height: 70px; font-size: 14px;}
 .navbar-menu {background:#184568 !important; }
 .navbar-menu .navbar-nav .nav-link{color: #fff!important;}
-
+.page_head {background: #fff; padding: 5px 10px; border-bottom: 1px solid #e2e2e2; margin-bottom: 10px;}
+.head_sticky {
+   position: sticky;
+   top: 71px;
+	background: #fff;
+	z-index: 10;
+	width: 100%;
+	border-radius: 5px;
+}
+.btn_direction {display: flex; flex-direction: row-reverse;}
+.margin_btn {margin: 10px 5px;}
+.navbar-brand-box {background: #184568!important;}
+.btn {padding: 5px 10px !important;}
+.center_align {margin: 5rem 0;}
+.navbar-brand-box {
+	padding: 0.2rem 1.3rem 1.3rem 1.3rem!important;}
+.search-box .search-icon {right: 13px!important;}
