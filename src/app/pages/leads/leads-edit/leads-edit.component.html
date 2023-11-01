@@ -4,14 +4,31 @@
 
 <div class="page_head head_sticky">
   <div class="row">
-	  <div class="col-xxl-6 col-lg-6"><h3 class="page_titile">{{ leadsInformation.leadName }}</h3>
+	  <div class="col-xxl-4 col-lg-4"><h3 class="page_titile">{{ leadsInformation.leadName }}</h3>
         <h6>#{{ leadsInformation.leadId }} {{ leadsInformation.CreatedOn }}</h6></div>
-	  <div class="col-xxl-6 col-lg-6">
+	  <div class="col-xxl-8 col-lg-8">
 		  <div class="btn_direction">
+		 <div class="btn-group group_height" ngbDropdown>
+                            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuClickableInside"
+                                data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"
+                                ngbDropdownToggle>
+                                ...
+                            </button>
+                            <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownMenuClickableInside">
+                                <li><a class="dropdown-item" href="javascript:void(0);">Menu item</a></li>
+                                <li><a class="dropdown-item" href="javascript:void(0);">Menu item</a></li>
+                                <li><a class="dropdown-item" href="javascript:void(0);">Menu item</a></li>
+                            </ul>
+                        </div>  
 		  <button _ngcontent-ng-c797134160="" type="button" class="btn btn-primary waves-effect waves-light margin_btn">Import Leads</button>
 		<button _ngcontent-ng-c797134160="" type="button" class="btn btn-primary waves-effect waves-light margin_btn">Add New Lead</button>
 		<button _ngcontent-ng-c797134160="" type="button" class="btn btn-primary waves-effect waves-light margin_btn">Renew Lead</button>
 		<button _ngcontent-ng-c797134160="" type="button" class="btn btn-primary waves-effect waves-light margin_btn">Convert</button>
+		<button _ngcontent-ng-c797134160="" type="button" class="btn btn-primary waves-effect waves-light margin_btn">Edit</button>
+			  
+			
+			  
+			  
 		  </div>
 	    
 	  </div>
@@ -24,6 +41,123 @@
   <div class="col-xxl-12 col-lg-12">
 	
     <div class="card">
+      
+      <div class="card-body">
+		<div class="live-preview">
+				<div class="row gy-4">
+				<div class="col-xxl-12 col-md-12"><h6 class="card-title mb-4">
+                    <u>Lead Information</u
+                    ><a (click)="leadInfoReadMode = !leadInfoReadMode"
+                      ><i class="mdi mdi-file-edit-outline ml-10"></i
+                    ></a>
+                  </h6></div>
+				<div class="col-xxl-4 col-md-6 margin_top">
+					 <label>Lead Owner:</label>
+					<p>Mariana John</p>
+					
+					</div>	
+				<div class="col-xxl-4 col-md-6 margin_top">
+				 <label>Mobile:</label>
+					<p>55132657</p>
+                      	
+					</div>
+				<div class="col-xxl-4 col-md-6 margin_top">
+					
+					<label>Alternate Number:</label>
+					<p>669680823</p>
+                      
+					</div>	
+				<div class="col-xxl-4 col-md-6 margin_top">
+					<label>Website:</label>
+					<p><a href="https//qnb.com">https//qnb.com</a></p>
+                      
+					
+					</div>
+				<div class="col-xxl-4 col-md-6 margin_top">
+					<label>Annual Revenue:</label>
+					<p>false</p>
+                     
+					</div>
+				<div class="col-xxl-4 col-md-6 margin_top">
+					<label>Created By:</label>
+					<p>Mariana John</p>
+                    					
+					</div>
+				<div class="col-xxl-4 col-md-6 margin_top">
+					<label>Lead Name:</label>
+					<p>Muhammed Al Jasser</p>
+                      
+					</div>					
+				<div class="col-xxl-4 col-md-6 margin_top">
+					<label>Company:</label>
+                     <p>Qatar National Bank</p>
+					</div>
+				<div class="col-xxl-4 col-md-6 margin_top">
+					
+					<label>Lead Source:</label>
+					<p>Facebook</p>
+                      
+					
+					</div>
+				<div class="col-xxl-4 col-md-6 margin_top">
+				<label>Marital Status:</label>
+					<p>Married</p>
+                     
+					</div>
+				<div class="col-xxl-4 col-md-6 margin_top">
+					 <label>Modified By:</label>
+					<p>Mariana John</p>
+					
+					</div>
+				<div class="col-xxl-4 col-md-6 margin_top">
+				 <label>Designation:</label>
+                      <p>Manager</p>	
+					
+					</div>				
+				<div class="col-xxl-4 col-md-6 margin_top">
+					<label>Lead Status:</label>
+					<p>New</p>
+                      
+					</div>
+				<div class="col-xxl-4 col-md-6 margin_top">
+					<label>Nationality:</label>
+                      <p>Indian</p>
+					
+					</div>							
+				<div class="col-xxl-4 col-md-6 margin_top">
+					
+				<label>Industry:</label>
+					<p>Bank</p>
+                     	
+					</div>
+				<div class="col-xxl-4 col-md-6 margin_top">
+					<label>Preferred time to call:</label>
+                     <p>Weekend after 10 pm</p>
+					
+					</div>
+				<div class="col-xxl-12 col-md-12 margin_top">
+					
+					<h6 class="card-title mb-4 margin_top">
+                    <u>Address Information</u
+                    ><a (click)="addressReadMode = !addressReadMode"
+                      ><i class="mdi mdi-file-edit-outline ml-10"></i
+                    ></a>
+                  </h6>
+					</div>
+				<div class="col-xxl-6 col-md-6 margin_top">
+					<label class="form-label" for="des-info-description-input">Address</label>
+                    <textarea class="form-control" placeholder="Please enter a Address" id="des-info-description-input" rows="3" required="" spellcheck="false"></textarea>
+                     <div class="invalid-feedback">Please enter a Address</div>
+					</div>	
+			</div>
+			</div>
+		
+		
+			</div>
+		
+					</div>
+	  
+	 <!--<div class="card">
       
       <div class="card-body">
 		<div class="live-preview">
@@ -197,8 +331,8 @@
 		
 			</div>
 		
-		<!--card body end-->
-			</div>
+					</div>--> 
+	  
 	  <!--card end-->
 	  </div>
 	</div>
@@ -208,6 +342,152 @@
 <div class="row">
   <div class="col-xxl-12 col-lg-12">
     <div class="card">
+      
+		<div class="card-body">
+        <div class="row">
+          <div class="col-xxl-12 col-lg-12">
+           
+				<div class="live-preview">
+				<div class="row gy-4">
+		<div class="col-xxl-12 col-lg-12">
+		<h6 class="card-title mb-4">
+                    <u>Property Prefference</u
+                    ><a (click)="leadInfoReadMode = !leadInfoReadMode"
+                      ><i class="mdi mdi-file-edit-outline ml-10"></i
+                    ></a>
+                  </h6>
+					</div>
+					
+						<div class="col-xxl-2 col-lg-3 margin_top">
+						<div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="residential"
+                        value="residential"
+                        checked
+                      />
+                      <label class="form-check-label" for="residential"
+                        >Residential</label
+                      >
+                    </div>
+						
+						</div>	
+					
+						<div class="col-xxl-2 col-lg-3 margin_top">
+					<div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="commercial"
+                        value="commercial"
+                      />
+                      <label class="form-check-label" for="commercial"
+                        >Commercial</label
+                      >
+                    </div>
+					</div>
+					<div class="col-xxl-8 col-lg-6"></div>
+					
+					
+					<div class="col-xxl-4 col-lg-6 ">
+					<label>Desired Property Location :</label>
+						<p>Doha</p>
+                     
+					
+					</div>
+					<div class="col-xxl-4 col-lg-6 ">
+					<label>Preferred Neighbourhood:</label>
+						<p>Doha</p>
+                     
+					
+					</div>
+					<div class="col-xxl-4 col-lg-6 ">
+						<label>Number of Bedrooms:</label>
+						<p>2</p>
+					
+					</div>
+					
+					<div class="col-xxl-4 col-lg-6 margin_top">
+					<label>Number of Bathroom:</label>
+						<p>2</p>
+					
+					</div>
+					<div class="col-xxl-4 col-lg-6 margin_top">
+					<label>Price Range:</label>
+						<p>1000 - 2000 QAR</p>
+					
+					</div>
+					<div class="col-xxl-4 col-lg-6 margin_top">
+						<label>Building Type:</label>
+						<p>Tower</p>
+					
+					</div>
+					
+					<div class="col-xxl-4 col-lg-6 margin_top">
+					<label>Unit Type:</label>
+						<p>2BHK</p>
+					
+					</div>
+					<div class="col-xxl-4 col-lg-6 margin_top">
+					<label>Floor Preference:</label>
+						<p>Second Floor</p>
+					
+					</div>
+					<div class="col-xxl-4 col-lg-6 margin_top">
+					<label>View Preference:</label>
+						<p>Sea View</p>
+					
+					</div>
+					
+					<div class="col-xxl-12 col-lg-12 margin_top"><h6 class="card-title mb-4 mt-4">
+                    <u>Description</u
+                    ><a (click)="descriptionReadMode = !descriptionReadMode"
+                      ><i class="mdi mdi-file-edit-outline ml-10"></i
+                    ></a>
+                  </h6></div>
+					<div class="col-xxl-12 col-lg-12 margin_top">
+					 <p *ngIf="descriptionReadMode">
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of type and scrambled it to make a
+                    type specimen book. It has survived not only five centuries,
+                    but also the leap into electronic typesetting, remaining
+                    essentially unchanged. It was popularised in the 1960s with
+                    the release of Letraset sheets containing Lorem Ipsum
+                    passages, and more recently with desktop publishing software
+                    like Aldus PageMaker including versions of Lorem Ipsum.
+                  </p>
+                  <textarea
+                    style="width: 90% !important"
+                    *ngIf="!descriptionReadMode"
+                    value="Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry."
+                    rows="5"
+                    cols="40"
+                  ></textarea>
+						
+						
+					</div>
+					<div class="col-xxl-4 col-lg-6"></div>
+					
+					
+		
+		
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+		
+		
+		
+		</div>
+	  
+	  
+	  
+<!--<div class="card">
       
 		<div class="card-body">
         <div class="row">
@@ -385,7 +665,15 @@
 		
 		
 		
-		</div>
+		</div>-->	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
 	  </div>
 	</div>
 
