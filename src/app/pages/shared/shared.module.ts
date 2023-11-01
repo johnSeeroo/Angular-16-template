@@ -17,6 +17,9 @@ import { NgSelectModule } from "@ng-select/ng-select";
 import { NgxSliderModule } from "ngx-slider-v2";
 import { FormsModule } from "@angular/forms";
 import { SidebarComponent } from "./sidebar/sidebar.component";
+import { NotesComponent } from './common/notes/notes.component';
+import { TimelineComponent } from './common/timeline/timeline.component';
+import { ActivitiesComponent } from './common/activities/activities.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,9 @@ import { SidebarComponent } from "./sidebar/sidebar.component";
     TopbarComponent,
     TableFilterComponent,
     SidebarComponent,
+    NotesComponent,
+    TimelineComponent,
+    ActivitiesComponent,
   ],
   imports: [
     CommonModule,
@@ -44,6 +50,9 @@ import { SidebarComponent } from "./sidebar/sidebar.component";
     HorizontalTopbarComponent,
     TableFilterComponent,
     SidebarComponent,
+    NotesComponent,
+    TimelineComponent,
+    ActivitiesComponent
   ],
   providers: [LanguageService],
 })

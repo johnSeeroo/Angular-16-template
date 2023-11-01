@@ -140,6 +140,7 @@
                           value="{{ data.leadId }}"
                           [(ngModel)]="data.state"
                           (change)="onCheckboxChange($event)"
+                        
                         />
                       </div>
                     </th>
@@ -213,7 +214,8 @@
                           <a
                             class="edit-item-btn"
                             data-bs-toggle="modal"
-                            routerLink="/leads/edit/{{ data.leadId }}"
+                            [class.disabled]="!canWriteLeadsModule" 
+                            [routerLink]="canWriteLeadsModule ? '/leads/edit/' + data.leadId : null"
                             ><i
                               class="ri-pencil-fill align-bottom text-muted"
                             ></i
@@ -227,7 +229,8 @@
                           <a
                             class="remove-item-btn"
                             data-bs-toggle="modal"
-                            (click)="confirm(deleteModel, data.leadId)"
+                            (click)="canDeleteLeadsModule ? confirm(deleteModel, data.leadId) : null"
+                            
                           >
                             <i
                               class="ri-delete-bin-fill align-bottom text-muted"
