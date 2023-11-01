@@ -1,0 +1,98 @@
+<div class="row">
+
+    <div class="col-xxl-12">
+      
+        <div class="card">
+            <div class="card-header align-items-center d-flex">
+                                  <h4 class="card-title mb-0 flex-grow-1">Activities</h4><button type="button" class="btn btn-primary waves-effect waves-light"><i class="las la-plus"></i> Add</button>
+                                 
+                              </div>
+            <div class="card-body">
+                
+                <!-- Nav tabs -->
+                <ul ngbNav #Bordered="ngbNav" [activeId]="1" class="nav nav-tabs nav-tabs-custom nav-success nav-justified mb-3">
+                  <li [ngbNavItem]="1">
+                      <a ngbNavLink>
+                          Task
+                      </a>
+                      <ng-template ngbNavContent>
+                        <div class="d-flex">
+                          <div class="flex-shrink-0">
+                              <i class="ri-checkbox-multiple-blank-fill text-success"></i>
+                          </div>
+                          <div class="flex-grow-1 ms-2"  >
+                              <table class="table mb-0">
+                                                  <thead>
+                                                      <tr>
+                                                          <th scope="col">Subject</th>
+                                                          <th scope="col">Due Date</th>
+                                                          <th scope="col">Task Owner</th>
+                                                          <th scope="col">Status</th>
+                                                          <th scope="col">Priority</th>
+                                                          <th scope="col">Actions</th>
+                                                      </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                      <tr *ngFor="let activity of activities">
+                                                          <td>{{activity.subject}}</td>
+                                                          <td>{{activity.duedate}}</td>
+                                                          <td>{{activity.taskowner}}</td>
+                                                          <td>{{activity.status}}</td>
+                                                          <td>{{activity.priority}}</td>
+                                                          <td><i class="las la-pen edit_icon"></i> <i class="las la-trash-alt edit_icon"></i></td>
+                                                      </tr>
+                                                      
+                                                  </tbody>
+                                              </table>
+                          </div>
+                        </div>
+                      </ng-template>
+                  </li>
+                  <li [ngbNavItem]="2">
+                      <a ngbNavLink>
+                          Appointment
+                      </a>
+                      <ng-template ngbNavContent>
+                        <div class="d-flex">
+                          <div class="flex-shrink-0">
+                              <i class="ri-checkbox-multiple-blank-fill text-success"></i>
+                          </div>
+                          <div class="flex-grow-1 ms-2">
+                             <table class="table mb-0">
+                                                  <thead>
+                                                      <tr>
+                                                          <th scope="col">Title</th>
+                                                          <th scope="col">From</th>
+                                                          <th scope="col">To</th>
+                                                          <th scope="col">Host</th>
+                                                          <th scope="col">Priority</th>
+                                                          <th scope="col">Actions</th>
+                                                      </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                      <tr *ngFor="let appointment of appointments">
+                                                        <td>{{appointment.title}}</td>
+                                                        <td>{{appointment.from}}</td>
+                                                        <td>{{appointment.to}}</td>                                                          <td>18/10/2023 12:00 PM</td>
+                                                        <td>{{appointment.host}}</td>
+                                                        <td>{{appointment.priority}}</td>
+                                                          <td><i class="las la-pen edit_icon"></i> <i class="las la-trash-alt edit_icon"></i></td>
+                                                      </tr>
+                                                     
+                                                  </tbody>
+                                              </table>
+                          </div>
+                        </div>
+                      </ng-template>
+              
+                    </li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content text-muted">
+                  <div [ngbNavOutlet]="Bordered"></div>
+                </div>
+            </div><!-- end card-body -->
+        </div><!-- end card -->
+    </div>
+</div>
+

@@ -44,6 +44,8 @@ import { NgbdLeadsSortableHeader } from "./leads/leads-sortable.directive";
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 import { LeadsEditComponent } from './leads-edit/leads-edit.component';
 
+ 
+
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   url: "https://httpbin.org/post",
   maxFilesize: 50,
@@ -58,6 +60,7 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     LeadsComponent,
     NgbdLeadsSortableHeader,
     LeadsEditComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -82,6 +85,8 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     FlatpickrModule,
     NgSelectModule,
     NgxSkeletonLoaderModule,
+    
+    
   ],
   providers: [
     provideNgxMask(),

@@ -13,6 +13,7 @@ import {
 import { DatePipe } from "@angular/common";
 
 import { restApiService } from "../../../core/services/rest-api.service";
+import { data } from "src/assets/data/permission";
 
 // Sweet Alert
 import Swal from "sweetalert2";
@@ -24,6 +25,7 @@ import {
   NgbdLeadsSortableHeader,
   leadSortEvent,
 } from "./leads-sortable.directive";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-leads",
@@ -47,6 +49,12 @@ export class LeadsComponent {
   content?: any;
   leads = Leads[0].data;
   econtent?: any;
+  user = data.data[0];  
+  // canWriteLeadsModule!: boolean| undefined;;
+  // canDeleteLeadsModule!: boolean| undefined;;
+  
+  
+  
 
   // Table data
   invoiceList!: Observable<LeadsModel[]>;
@@ -54,6 +62,8 @@ export class LeadsComponent {
   @ViewChildren(NgbdLeadsSortableHeader)
   headers!: QueryList<NgbdLeadsSortableHeader>;
   closeResult: any;
+  canWriteLeadsModule: boolean = false;
+  canDeleteLeadsModule: boolean = false;
 
   constructor(
     private modalService: NgbModal,
@@ -61,18 +71,23 @@ export class LeadsComponent {
     private formBuilder: UntypedFormBuilder,
     private restApiService: restApiService,
     private offcanvasService: NgbOffcanvas,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private route: ActivatedRoute
   ) {
     this.invoiceList = service.leads$;
     this.total = service.total$;
+    this.canWriteLeadsModule = this.route.snapshot.data["permissions"]?.write
+    this.canDeleteLeadsModule = this.route.snapshot.data["permissions"]?.delete;
+    
   }
 
   ngOnInit(): void {
     /**
      * BreadCrumb
      */
-    this.breadCrumbItems = [{ label: "CRM" }, { label: "Leads", active: true }];
-
+    this.breadCrumbItems = [{ label: "CRM" }, { label: "Leads", active: true }];    
+    console.log(this.canDeleteLeadsModule)
+    
     /**
      * Form Validation
      */

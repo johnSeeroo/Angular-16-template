@@ -1,0 +1,122 @@
+<div class="row mt-4">
+    <div class="col-lg-12">
+        <div class="card">
+        <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">Left Timeline</h4>
+               
+            </div>
+        <div>
+          
+            <div class="timeline-2" *ngFor="let timesline of timelines;let i=index;">
+                <div class="timeline-year">
+                    <p>{{timesline.date}}</p>
+                </div>
+                <div class="timeline-continue">
+                    <div class="row timeline-right"  *ngFor="let task of timesline.timelinedata">
+                        <div class="col-12">
+                            <p class="timeline-date">
+                                {{task.timeduration}}
+                            </p>
+                        </div>
+                        <div class="col-12">
+                            <div class="timeline-box">
+                                <div class="timeline-text">
+                                    <div class="d-flex">
+                                        <!-- <img src="assets/images/users/avatar-7.jpg" alt="" class="avatar-sm rounded"> -->
+                                        <div class="flex-grow-1 ms-3">
+                                            <h5 class="mb-1">{{task.tasktitle}}</h5>
+                                            <p class="text-muted mb-0">{{task.taskdescription}} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="row timeline-right">
+                        <div class="col-12">
+                            <p class="timeline-date">
+                                02:35AM to 04:30PM
+                            </p>
+                        </div>
+                        <div class="col-12">
+                            <div class="timeline-box">
+                                <div class="timeline-text">
+                                    <h5>Trip planning</h5>
+                                    <p class="text-muted">In the trip planner, keep only one or two activities in a day if the purpose of the trip is to relax and take it easy during the vacation :</p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!-- <div class="row">
+                        <div class="col-12">
+                            <div class="timeline-year">
+                                <p>08 Dec 2021</p>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!-- <div class="row timeline-right">
+                        <div class="col-12">
+                            <p class="timeline-date">
+                                02:35AM to 04:30PM
+                            </p>
+                        </div>
+                        <div class="col-12">
+                            <div class="timeline-box">
+                                <div class="timeline-text">
+                                    <h5>Velzon - Project Discussion</h5>
+                                    <p class="text-muted mb-0">The purpose of the discussion is to interpret and describe the significance of your findings in light of what was already known about the research problem being investigated, and to explain any new understanding or fresh insights about the problem after you've taken the findings into consideration.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!-- <div class="row timeline-right">
+                        <div class="col-12">
+                            <p class="timeline-date">
+                                10:24AM to 11:15PM
+                            </p>
+                        </div>
+                        <div class="col-12">
+                            <div class="timeline-box">
+                                <div class="timeline-text">
+                                    <h5>Client Meeting (Nancy Martino)</h5>
+                                    <p class="text-muted mb-0">A client meeting, meaning, direct collaboration and communication with a customer, is the best way to understand their needs and how you can help support them.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!-- <div class="row timeline-right">
+                        <div class="col-12">
+                            <p class="timeline-date">
+                                9:20AM to 10:05PM
+                            </p>
+                        </div>
+                        <div class="col-12">
+                            <div class="timeline-box">
+                                <div class="timeline-text">
+                                    <h5>Designer &amp; Developer Meeting</h5>
+                                    <ul class="mb-0 text-muted vstack gap-2">
+                                        <li>Last updates</li>
+                                        <li>Weekly Planning</li>
+                                        <li>Work Distribution</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+
+                
+                
+            </div>
+        </div>
+</div>
+    </div>
+    
+</div>
+
