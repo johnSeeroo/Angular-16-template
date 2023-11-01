@@ -9,6 +9,7 @@ import {
   Validators,
 } from "@angular/forms";
 
+
 // Date Format
 import { DatePipe } from "@angular/common";
 
@@ -345,5 +346,14 @@ export class LeadsComponent {
 
     this.service.sortColumn = column;
     this.service.sortDirection = direction;
+  }
+
+  /**
+   *  Add new leads full modal 
+   *  
+   */
+
+  fullModal(smallDataModal: any) {
+    this.modalService.open(smallDataModal, { size: 'fullscreen', windowClass: 'modal-holder' });
   }
 }

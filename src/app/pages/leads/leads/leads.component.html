@@ -51,6 +51,9 @@
               >
                 <i class="ri-add-line align-bottom me-1"></i> Add Leads
               </button>
+              <button type="button" class="btn btn-success add-btn " data-bs-toggle="modal"
+              data-bs-target=".exampleModalFullscreen" (click)="fullModal(fullDataModal)">Fullscreen
+              Modal</button>
             </div>
           </div>
         </div>
@@ -717,3 +720,190 @@
   </form>
 </ng-template>
 <!--end offcanvas-->
+
+
+<!-- Full screen modal content -->
+<ng-template #fullDataModal let-modal>
+  <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalFullscreenLabel">Lead Add</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+              (click)="modal.dismiss('Close click')"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-xxl-12 col-lg-12">
+          
+            <div class="card">
+              
+              <div class="card-body">
+            <div class="live-preview">
+                <div class="row gy-4">
+                <div class="col-xxl-12 col-md-12"><h6 class="card-title mb-4">
+                            <u>Lead Information</u
+                            >
+                          </h6></div>
+                <div class="col-xxl-4 col-md-6">
+                   <label>Lead Owner:</label>
+                  <select class="form-select" aria-label="select example" >
+                                                            <option selected="">Mariana John</option>
+                                                            <option value="1">One</option>
+                                                            <option value="2">Two</option>
+                                                            <option value="3">Three</option>
+                                                        </select>
+                  </div>	
+                <div class="col-xxl-4 col-md-6">
+                 <label>Mobile:</label>
+                              <input
+                                type="number" class="form-control form-control-sm"
+                                value=""
+                              />	
+                  </div>
+                <div class="col-xxl-4 col-md-6">
+                  
+                  <label>Alternate Number:</label>
+                              <input class="form-control form-control-sm"
+                                type="number"
+                                value=""
+                               
+                              />
+                  </div>	
+                <div class="col-xxl-4 col-md-6">
+                  <label>Website:</label>
+                              <input
+                                type="text" class="form-control form-control-sm"
+                                value=""
+                               
+                              />
+                  
+                  </div>
+                <div class="col-xxl-4 col-md-6">
+                  <label>Annual Revenue:</label>
+                              <input
+                                type="text" class="form-control form-control-sm"
+                                value=""
+                                
+                              />
+                  </div>
+             
+                <div class="col-xxl-4 col-md-6">
+                  <label>Lead Name:</label>
+                              <input  type="text" class="form-control form-control-sm"
+                                value=""
+                                
+                              />
+                  </div>					
+                <div class="col-xxl-4 col-md-6">
+                  <label>Company:</label>
+                              <input
+                                type="text" class="form-control form-control-sm"
+                                value=""
+                                
+                              />
+                  </div>
+                <div class="col-xxl-4 col-md-6">
+                  
+                  <label>Lead Source:</label>
+                              <select class="form-select" aria-label="Disabled select example" >
+                                                            <option selected="">Facebook</option>
+                                                            <option value="1">One</option>
+                                                            <option value="2">Two</option>
+                                                            <option value="3">Three</option>
+                                                        </select>
+                  
+                  </div>
+                <div class="col-xxl-4 col-md-6">
+                <label>Marital Status:</label>
+                              <select class="form-select" aria-label="Disabled select example" >
+                                                            <option selected="">Married</option>
+                                                            <option value="1">One</option>
+                                                            <option value="2">Two</option>
+                                                            <option value="3">Three</option>
+                                                        </select>
+                  </div>
+                <div class="col-xxl-4 col-md-6">
+                   <label>Modified By:</label>
+                  <select class="form-select" aria-label="Disabled select example" >
+                                                            <option selected="">Mariana John</option>
+                                                            <option value="1">One</option>
+                                                            <option value="2">Two</option>
+                                                            <option value="3">Three</option>
+                                                        </select>
+                  </div>
+                <div class="col-xxl-4 col-md-6">
+                 <label>Designation:</label>
+                              <input 
+                                type="text" class="form-control form-control-sm"
+                                value=""
+                                
+                              />	
+                  
+                  </div>				
+                <div class="col-xxl-4 col-md-6">
+                  <label>Lead Status:</label>
+                              <select class="form-select" aria-label="Disabled select example" >
+                                                            <option selected="">New</option>
+                                                            <option value="1">One</option>
+                                                            <option value="2">Two</option>
+                                                            <option value="3">Three</option>
+                                                        </select>
+                  </div>
+                <div class="col-xxl-4 col-md-6">
+                  <label>Nationality:</label>
+                              <select class="form-select" aria-label="Disabled select example" >
+                                                            <option selected="">Indian</option>
+                                                            <option value="1">One</option>
+                                                            <option value="2">Two</option>
+                                                            <option value="3">Three</option>
+                                                        </select>
+                  
+                  </div>							
+                <div class="col-xxl-4 col-md-6">
+                  
+                <label>Industry:</label>
+                              <input
+                                type="text" class="form-control form-control-sm"
+                                value=""
+                              
+                              />	
+                  </div>
+                <div class="col-xxl-4 col-md-6">
+                  <label>Preferred time to call:</label>
+                              <input
+                                type="text" class="form-control form-control-sm"
+                                value=""
+                               
+                              />
+                  
+                  </div>
+                <div class="col-xxl-12 col-md-12">
+                  
+                  <h6 class="card-title mb-4">
+                            <u>Address Information</u
+                            >
+                          </h6>
+                  </div>
+                <div class="col-xxl-4 col-md-6">
+                  <label class="form-label" for="des-info-description-input">Address</label>
+                            <textarea class="form-control" placeholder="Please enter a Address" id="des-info-description-input" rows="3" required="" spellcheck="false"></textarea>
+                             <div class="invalid-feedback">Please enter a Address</div>
+                  </div>	
+              </div>
+              </div>
+            
+            
+              </div>
+            
+            <!--card body end-->
+              </div>
+            <!--card end-->
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+          <a href="javascript:void(0);" class="btn btn-link link-success fw-medium" data-bs-dismiss="modal"
+              (click)="modal.close('Close click')"><i class="ri-close-line me-1 align-middle"></i> Close</a>
+          <button type="button" class="btn btn-primary ">Save changes</button>
+      </div>
+  </div><!-- /.modal-content -->
+</ng-template><!-- /.modal-dialog -->
