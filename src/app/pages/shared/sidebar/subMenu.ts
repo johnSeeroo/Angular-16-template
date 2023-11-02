@@ -20,7 +20,8 @@ export const SUBMENU: MenuItem[] = [
       {
         id: 301,
         label: "Leads",
-        icon: "ri-stack-line",
+        icon: " ri-user-settings-line",
+
         subItems: [
           {
             id: 30109,
@@ -31,7 +32,7 @@ export const SUBMENU: MenuItem[] = [
           {
             id: 30110,
             label: "Accounts",
-            link: "/leads/accounts",
+            link: "/pages/coming-soon",
             parentId: 301,
           },
           {
@@ -57,13 +58,14 @@ export const SUBMENU: MenuItem[] = [
       {
         id: 302,
         label: "Reservations ",
+        icon: " ri-pages-line",
         link: "/reservations",
         parentId: 302,
       },
       {
         id: 303,
         label: "Contacts ",
-        icon: "ri-stack-line",
+        icon: "ri-contacts-line",
         subItems: [
           {
             id: 30310,
@@ -94,7 +96,7 @@ export const SUBMENU: MenuItem[] = [
       {
         id: 304,
         label: "Configurations",
-        icon: "ri-stack-line",
+        icon: "ri-file-settings-line",
         subItems: [
           {
             id: 30410,
@@ -137,7 +139,7 @@ export const SUBMENU: MenuItem[] = [
       {
         id: 305,
         label: "External Agencies",
-        icon: "ri-stack-line",
+        icon: "ri-team-line",
         subItems: [
           {
             id: 30510,
@@ -156,7 +158,7 @@ export const SUBMENU: MenuItem[] = [
       {
         id: 306,
         label: "Activities",
-        icon: "ri-stack-line",
+        icon: " ri-survey-line",
         subItems: [
           {
             id: 30610,
@@ -175,6 +177,7 @@ export const SUBMENU: MenuItem[] = [
       {
         id: 307,
         label: "Accounts",
+        icon: " ri-account-box-line",
         link: "/accounts",
         parentId: 3,
       },
@@ -182,12 +185,14 @@ export const SUBMENU: MenuItem[] = [
       {
         id: 308,
         label: "Opportunities ",
+        icon: " ri-body-scan-fill",
         link: "/opportunities",
         parentId: 3,
       },
       {
         id: 309,
         label: "Quotations ",
+        icon: " ri-briefcase-4-line",
         link: "/quotations",
         parentId: 3,
       },
@@ -195,107 +200,30 @@ export const SUBMENU: MenuItem[] = [
       {
         id: 310,
         label: "Contracts ",
+        icon: "ri-newspaper-line",
         link: "/contracts ",
         parentId: 3,
       },
       {
         id: 311,
         label: "Addendums ",
+        icon: "ri-file-paper-line",
         link: "/addendums ",
         parentId: 3,
       },
       {
         id: 312,
         label: "Terminations ",
+        icon: "ri-file-forbid-line",
         link: "/terminations ",
         parentId: 3,
       },
       {
         id: 313,
         label: "Temporary lease extensions",
+        icon: "ri-file-list-line",
         link: "/lease-extensions",
         parentId: 3,
-      },
-      {
-        id: 314,
-        label: "Configurations ",
-        icon: "ri-stack-line",
-        subItems: [
-          {
-            id: 31410,
-            label: "Lead sources",
-            link: "/configurations /sweetalerts",
-            parentId: 314,
-          },
-          {
-            id: 31411,
-            label: "Property Locations",
-            link: "/configurations /sweetalerts",
-            parentId: 314,
-          },
-          {
-            id: 31412,
-            label: "Neighborhood  ",
-            link: "/configurations /sweetalerts",
-            parentId: 314,
-          },
-          {
-            id: 31413,
-            label: "Lead Stages",
-            link: "/configurations /sweetalerts",
-            parentId: 314,
-          },
-          {
-            id: 31414,
-            label: "Lost Reasons",
-            link: "/configurations /sweetalerts",
-            parentId: 314,
-          },
-          {
-            id: 31415,
-            label: "Nationalities",
-            link: "/configurations /sweetalerts",
-            parentId: 314,
-          },
-        ],
-      },
-      {
-        id: 315,
-        label: "External Agencies",
-        icon: "ri-stack-line",
-        subItems: [
-          {
-            id: 31510,
-            label: "Agencies  ",
-            link: "/externalagencies/sweetalerts",
-            parentId: 315,
-          },
-          {
-            id: 31511,
-            label: "Bookings and Commissions",
-            link: "/externalagencies/sweetalerts",
-            parentId: 315,
-          },
-        ],
-      },
-      {
-        id: 316,
-        label: "Activities ",
-        icon: "ri-stack-line",
-        subItems: [
-          {
-            id: 31610,
-            label: "Tasks  ",
-            link: "/activities/sweetalerts",
-            parentId: 316,
-          },
-          {
-            id: 31611,
-            label: "Appointments  ",
-            link: "/activities/sweetalerts",
-            parentId: 316,
-          },
-        ],
       },
     ],
   },
@@ -307,7 +235,7 @@ export const SUBMENU: MenuItem[] = [
       {
         id: 411,
         label: "Properties",
-        icon: "ri-stack-line",
+        icon: "ri-building-line",
         subItems: [
           {
             id: 41110,
@@ -362,7 +290,7 @@ export const SUBMENU: MenuItem[] = [
       {
         id: 412,
         label: "Pricing",
-        icon: "ri-stack-line",
+        icon: "ri-price-tag-3-line",
         subItems: [
           {
             id: 41210,
@@ -382,24 +310,28 @@ export const SUBMENU: MenuItem[] = [
       {
         id: 413,
         label: "Unit Occupancies",
+        icon: "ri-community-line",
         link: "/unit",
         parentId: 4,
       },
       {
         id: 414,
         label: "Parking Allocation",
+        icon: "ri-parking-box-line",
         link: "/accounts",
         parentId: 4,
       },
       {
         id: 415,
         label: "Vendors ",
+        icon: "ri-group-line",
         link: "/contacts",
         parentId: 4,
       },
       {
         id: 416,
         label: "Services ",
+        icon: "ri-service-line",
         link: "/opportunities",
         parentId: 4,
       },
@@ -413,72 +345,84 @@ export const SUBMENU: MenuItem[] = [
       {
         id: 501,
         label: "Tenants and Companions",
+        icon: "ri-group-2-line",
         link: "/tenents",
         parentId: 5,
       },
       {
         id: 502,
         label: "Move in",
+        icon: "ri-arrow-left-circle-line",
         link: "/accounts",
         parentId: 5,
       },
       {
         id: 503,
         label: "Move out  ",
+        icon: "ri-arrow-right-circle-line",
         link: "/contacts",
         parentId: 5,
       },
       {
         id: 504,
         label: "Service requests  ",
+        icon: "ri-user-settings-line",
         link: "/opportunities",
         parentId: 5,
       },
       {
         id: 505,
         label: "Support tickets/maintenance requests",
+        icon: "ri-coupon-line",
         link: "/quotations",
         parentId: 5,
       },
       {
         id: 506,
         label: "Announcements ",
+        icon: "ri-notification-3-line",
         link: "/reservations",
         parentId: 5,
       },
       {
         id: 507,
         label: "Warnings ",
+        icon: "ri-error-warning-line",
         link: "/contracts ",
         parentId: 5,
       },
       {
         id: 508,
         label: "Greetings ",
+        icon: "ri-hand-heart-line",
         link: "/addendums ",
         parentId: 5,
       },
       {
         id: 509,
         label: "Blacklisted  ",
+        icon: "ri-spam-line",
         link: "/terminations ",
         parentId: 5,
       },
       {
         id: 510,
         label: "Visitors / Deliveries ",
+        icons: "ri-parent-line",
         link: "/lease-extensions",
         parentId: 5,
       },
       {
         id: 511,
         label: "Compensations  ",
+        icon: "ri-money-dollar-circle-line",
         link: "/lease-extensions",
         parentId: 5,
       },
       {
         id: 512,
         label: "Non renewals ",
+        icon: " ri-arrow-up-down-line",
         link: "/lease-extensions",
         parentId: 5,
       },
@@ -492,28 +436,28 @@ export const SUBMENU: MenuItem[] = [
       {
         id: 610,
         label: "Workflows",
-        icon: "ri-stack-line",
+        icon: "ri-list-settings-line",
         link: "/reservations",
         parentId: 6,
       },
       {
         id: 611,
         label: "SLA",
-        icon: "ri-stack-line",
+        icon: "ri-file-list-line",
         link: "/reservations",
         parentId: 6,
       },
       {
         id: 612,
         label: "Email templates",
-        icon: "ri-stack-line",
+        icon: "ri-mail-line",
         link: "/reservations",
         parentId: 6,
       },
       {
         id: 613,
         label: "CMS",
-        icon: "ri-stack-line",
+        icon: "ri-contacts-book-line",
         subItems: [
           {
             id: 61310,
@@ -552,14 +496,14 @@ export const SUBMENU: MenuItem[] = [
       {
         id: 710,
         label: "Reports",
-        icon: "ri-stack-line",
+        icon: "ri-file-text-line",
         link: "/reservations",
         parentId: 7,
       },
       {
         id: 711,
-        label: "analytics",
-        icon: "ri-stack-line",
+        label: "Analytics",
+        icon: " ri-file-search-line",
         link: "/reservations",
         parentId: 7,
       },

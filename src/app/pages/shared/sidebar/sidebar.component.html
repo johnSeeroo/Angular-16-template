@@ -435,6 +435,11 @@
                       [attr.data-parent]="subitem.parentId"
                       (click)="updateActive($event)"
                     >
+                      <i
+                        class="bx {{ subitem.icon }} icon nav-icon"
+                        *ngIf="subitem.icon"
+                        class=""
+                      ></i>
                       {{ subitem.label }}
                       <span
                         class="badge badge-pill {{ subitem.badge.variant }}"
@@ -451,6 +456,11 @@
                       aria-expanded="false"
                       (click)="toggleSubItem($event)"
                     >
+                      <i
+                        class="bx {{ subitem.icon }} icon nav-icon"
+                        *ngIf="subitem.icon"
+                        class=""
+                      ></i>
                       {{ subitem.label }}
                       <span
                         class="badge badge-pill {{ subitem.badge.variant }}"

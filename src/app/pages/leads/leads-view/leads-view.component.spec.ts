@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LeadsEditComponent } from './leads-edit.component';
+import { LeadsViewComponent } from './leads-view.component';
 
-describe('LeadsEditComponent', () => {
-  let component: LeadsEditComponent;
-  let fixture: ComponentFixture<LeadsEditComponent>;
+describe('LeadsViewComponent', () => {
+  let component: LeadsViewComponent;
+  let fixture: ComponentFixture<LeadsViewComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LeadsEditComponent]
+      declarations: [LeadsViewComponent]
     });
-    fixture = TestBed.createComponent(LeadsEditComponent);
+    fixture = TestBed.createComponent(LeadsViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

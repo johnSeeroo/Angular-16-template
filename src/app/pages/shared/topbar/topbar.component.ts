@@ -7,7 +7,7 @@ import { environment } from "../../../../environments/environment";
 import { AuthenticationService } from "../../../core/services/auth.service";
 import { AuthfakeauthenticationService } from "../../../core/services/authfake.service";
 import { TokenStorageService } from "../../../core/services/token-storage.service";
-import { Router } from "@angular/router";
+import { NavigationEnd, Router } from "@angular/router";
 
 // Language
 import { CookieService } from "ngx-cookie-service";
@@ -41,6 +41,7 @@ export class TopbarComponent implements OnInit {
   cookieValue: any;
   userData: any;
   menuItems: MenuItem[] = TOPBARMENU;
+  hideToggleButton = true;
 
   constructor(
     @Inject(DOCUMENT) private document: any,
@@ -56,6 +57,20 @@ export class TopbarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    if (this.router.url === "/dashboard") {
+      this.hideToggleButton = true;
+    } else {
+      this.hideToggleButton = false;
+    }
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        if (this.router.url === "/dashboard") {
+          this.hideToggleButton = true;
+        } else {
+          this.hideToggleButton = false;
+        }
+      }
+    });
     this.userData = this.TokenStorageService.getUser();
     this.element = document.documentElement;
 
