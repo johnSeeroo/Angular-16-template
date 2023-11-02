@@ -197,7 +197,7 @@
                           ngbTooltip="View"
                           placement="top"
                         >
-                          <a href="javascript:void(0);"
+                          <a [routerLink]="'/leads/view/' + data.leadId"
                             ><i class="ri-eye-fill align-bottom text-muted"></i
                           ></a>
                         </li>
@@ -209,7 +209,16 @@
                           <a
                             class="edit-item-btn"
                             data-bs-toggle="modal"
+<<<<<<< HEAD
                             routerLink="/leads/edit/{{ data.leadId }}"
+=======
+                            [class.disabled]="!canWriteLeadsModule"
+                            [routerLink]="
+                              canWriteLeadsModule
+                                ? '/leads/edit/' + data.leadId
+                                : null
+                            "
+>>>>>>> 9a2d05c52f9a3e0893501f1f60e307ef3e03d410
                             ><i
                               class="ri-pencil-fill align-bottom text-muted"
                             ></i
@@ -223,7 +232,15 @@
                           <a
                             class="remove-item-btn"
                             data-bs-toggle="modal"
+<<<<<<< HEAD
                             (click)="confirm(deleteModel, data.leadId)"
+=======
+                            (click)="
+                              canDeleteLeadsModule
+                                ? confirm(deleteModel, data.leadId)
+                                : null
+                            "
+>>>>>>> 9a2d05c52f9a3e0893501f1f60e307ef3e03d410
                           >
                             <i
                               class="ri-delete-bin-fill align-bottom text-muted"
