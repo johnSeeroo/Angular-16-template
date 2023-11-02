@@ -7,8 +7,11 @@ import {
   UntypedFormGroup,
   FormArray,
   Validators,
+  ReactiveFormsModule,
+  FormGroup,
+  FormControl,
+  AbstractControl,
 } from "@angular/forms";
-
 
 // Date Format
 import { DatePipe } from "@angular/common";
@@ -19,8 +22,20 @@ import { data } from "src/assets/data/permission";
 // Sweet Alert
 import Swal from "sweetalert2";
 
-import { LeadsModel } from "./leads.model";
-import { Leads } from "./data";
+import {
+  LeadsModel,
+  LeadsOwner,
+  LeadSource,
+  MaritalStatus,
+  LeadStatus,
+} from "./leads.model";
+import {
+  Leads,
+  LEADSOWNER,
+  LEADSSOURCE,
+  MARITALSTATUS,
+  LEADSTATUS,
+} from "./data";
 import { LeadsService } from "./leads.service";
 import {
   NgbdLeadsSortableHeader,
@@ -50,12 +65,17 @@ export class LeadsComponent {
   content?: any;
   leads = Leads[0].data;
   econtent?: any;
-  user = data.data[0];  
+  user = data.data[0];
   // canWriteLeadsModule!: boolean| undefined;;
   // canDeleteLeadsModule!: boolean| undefined;;
-  
-  
-  
+
+  leadOwnerArray: LeadsOwner[] = LEADSOWNER;
+  default: number = 1;
+
+  leadSourceArray: LeadSource[] = LEADSSOURCE;
+
+  maritalStatusArray: MaritalStatus[] = MARITALSTATUS;
+  leadStatusArray: LeadStatus[] = LEADSTATUS;
 
   // Table data
   invoiceList!: Observable<LeadsModel[]>;
@@ -77,31 +97,55 @@ export class LeadsComponent {
   ) {
     this.invoiceList = service.leads$;
     this.total = service.total$;
-    this.canWriteLeadsModule = this.route.snapshot.data["permissions"]?.write
+    this.canWriteLeadsModule = this.route.snapshot.data["permissions"]?.write;
     this.canDeleteLeadsModule = this.route.snapshot.data["permissions"]?.delete;
-    
   }
 
   ngOnInit(): void {
     /**
      * BreadCrumb
      */
-    this.breadCrumbItems = [{ label: "CRM" }, { label: "Leads", active: true }];    
-    console.log(this.canDeleteLeadsModule)
-    
+    this.breadCrumbItems = [{ label: "CRM" }, { label: "Leads", active: true }];
+    console.log(this.canDeleteLeadsModule);
+
     /**
      * Form Validation
      */
     this.leadsForm = this.formBuilder.group({
-      image_src: ["avatar-8.jpg"],
-      ids: [""],
-      name: ["", [Validators.required]],
+      leadOwner: ["", [Validators.required]],
+      mobile: ["", [Validators.required]],
+      email: ["", [Validators.required, Validators.email]],
+      leadName: ["", [Validators.required, Validators.pattern("[a-zA-Z0-9]+")]],
+      alternateNumber: [
+        "",
+        [Validators.required, Validators.pattern("[0-9 ]{11}")],
+      ],
       company: ["", [Validators.required]],
-      score: ["", [Validators.required]],
-      phone: ["", [Validators.required]],
-      location: ["", [Validators.required]],
-      tags: ["", [Validators.required]],
-      date: ["", [Validators.required]],
+      designation: [
+        "",
+        [Validators.required, Validators.pattern("[a-zA-Z0-9]+")],
+      ],
+      industry: ["", [Validators.required]],
+      website: ["", [Validators.required]],
+      leadSource: [null, [Validators.required]],
+      leadStatus: [null, [Validators.required]],
+      maritalStatus: [null, [Validators.required]],
+      annualRevenue: [
+        "",
+        [Validators.required, Validators.pattern("[a-zA-Z0-9]+")],
+      ],
+      preferredTimeToCall: ["", [Validators.required]],
+      nationality: ["", [Validators.required]],
+      propertyPreferences: ["", Validators.required],
+      desiredPropertyLocation: ["", Validators.required],
+      area: ["", Validators.required],
+      desiredMoveIndate: ["", Validators.required],
+      description: ["", Validators.required],
+      currentAddress: ["", Validators.required],
+    });
+
+    this.leadsForm.controls["leadOwner"].setValue(this.default, {
+      onlySelf: true,
     });
 
     /**
@@ -364,11 +408,33 @@ export class LeadsComponent {
   }
 
   /**
-   *  Add new leads full modal 
-   *  
+   *  Add new leads full modal
+   *
    */
 
   fullModal(smallDataModal: any) {
-    this.modalService.open(smallDataModal, { size: 'fullscreen', windowClass: 'modal-holder' });
+    this.modalService.open(smallDataModal, {
+      size: "fullscreen",
+      windowClass: "modal-holder",
+    });
+  }
+  onSubmit() {
+    console.log("Form submitted");
+    this.submitted = true;
+    console.log(this.leadsForm.invalid, "Invalid");
+    if (this.leadsForm.invalid) {
+      return;
+    }
+
+    // display form values on success
+    alert("SUCCESS!! :-)\n\n" + JSON.stringify(this.leadsForm.value, null, 4));
+  }
+  onClick() {
+    console.log("Submit button was clicked!");
+  }
+
+  submitForm() {
+    // Perform any pre-submission actions or validation if needed
+    this.onSubmit();
   }
 }
