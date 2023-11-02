@@ -43,6 +43,9 @@ import { NgSelectModule } from "@ng-select/ng-select";
 import { NgbdLeadsSortableHeader } from "./leads/leads-sortable.directive";
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 import { LeadsViewComponent } from "./leads-view/leads-view.component";
+import { EditleadsComponent } from './editleads/editleads.component';
+
+ 
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   url: "https://httpbin.org/post",
@@ -58,6 +61,8 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     LeadsComponent,
     NgbdLeadsSortableHeader,
     LeadsViewComponent,
+    EditleadsComponent,
+    
   ],
   imports: [
     CommonModule,
