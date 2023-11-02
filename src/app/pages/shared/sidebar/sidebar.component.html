@@ -365,7 +365,7 @@
     </button>
   </div>
 
-  <div id="scrollbar" class="h-100">
+  <div id="scrollbar" class="h-100" style="margin-top: 20px">
     <div class="container-fluid h-100">
       <div id="two-column-menu"></div>
       <ngx-simplebar class="sidebar-menu-scroll h-100">
@@ -381,26 +381,17 @@
                 !item.isTitle && !item.isLayout && selectedTopMenuId === item.id
               "
             >
-              <!-- <a
-                *ngIf="hasItems(item)"
+              <a
+                *ngIf="hasItems(item) && showIcon()"
                 href="javascript:void(0);"
-                class="is-parent nav-link menu-link"
-                [ngClass]="{
-                  'has-arrow': !item.badge,
-                  'has-dropdown': item.badge
-                }"
-                data-bs-toggle="collapse"
-                aria-expanded="true"
-                (click)="toggleItem($event)"
+                class="is-parent nav-link vertical-item"
               >
-                <i class="{{ item.icon }} icon nav-icon" class=""></i>
-                <span class=""> {{ item.label }}</span>
-                <span
-                  class="badge badge-pill {{ item.badge.variant }}"
-                  *ngIf="item.badge"
-                  >{{ item.badge.text }}</span
-                >
-              </a> -->
+                <ng-container *ngFor="let subitem of item.subItems">
+                  <div>
+                    <i class="{{ subitem.icon }} icon nav-icon" class=""></i>
+                  </div>
+                </ng-container>
+              </a>
 
               <!-- <a
                 [routerLink]="item.link"

@@ -290,4 +290,15 @@ export class SidebarComponent implements OnInit {
   SidebarHide() {
     document.body.classList.remove("vertical-sidebar-enable");
   }
+
+  showIcon() {
+    if (
+      document.documentElement.getAttribute("data-sidebar-size") === "sm" &&
+      this.router.url !== "/dashboard"
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
