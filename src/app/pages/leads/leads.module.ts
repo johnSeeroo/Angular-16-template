@@ -43,6 +43,7 @@ import { NgSelectModule } from "@ng-select/ng-select";
 import { NgbdLeadsSortableHeader } from "./leads/leads-sortable.directive";
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 import { LeadsEditComponent } from './leads-edit/leads-edit.component';
+import { EditleadsComponent } from './editleads/editleads.component';
 
  
 
@@ -60,6 +61,7 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     LeadsComponent,
     NgbdLeadsSortableHeader,
     LeadsEditComponent,
+    EditleadsComponent,
     
   ],
   imports: [

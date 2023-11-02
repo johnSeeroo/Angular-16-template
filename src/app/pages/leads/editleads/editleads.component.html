@@ -1,0 +1,388 @@
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalFullscreenLabel">Lead information edit</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                (click)="close()"></button>
+        </div>
+    <form [formGroup]="editleadsform">
+        <div class="row">
+            <div class="col-xxl-12 col-lg-12">
+              
+              <div class="card">
+                
+                <div class="card-body">
+                  <div class="live-preview">
+                    <div class="row gy-4">
+                      <div class="col-xxl-12 col-md-12">
+                        <h6 class="card-title mb-4">
+                          <u>Lead Information</u
+                          >
+                          
+                        </h6>
+                      </div>
+                      <div class="col-xxl-4 col-md-6">
+                        <label>Lead Owner:</label>
+                        <select class="form-select" formControlName="leadOwner">
+                          
+                            <option value="Mariana John">Mariana John</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                          <div *ngIf="editleadsform?.get('leadOwner')?.invalid && editleadsform?.get('leadOwner')?.touched" class="invalid-feedback">
+                            <div *ngIf="editleadsform?.get('leadOwner')?.hasError('required')">Lead Owner is required.</div>
+                        </div>
+                      </div>
+                      <div class="col-xxl-4 col-md-6">
+                        <label>Mobile:</label>
+                        <input
+                        type="number"
+                        class="form-control form-control-sm"
+                        id="mobile"
+                        formControlName="mobile"
+                        [ngClass]="{'is-invalid': submitted && form['mobile'].errors }"
+                        
+                      />
+                      <div *ngIf="submitted && form['mobile'].errors" class="invalid-feedback">
+                        <div *ngIf="form['mobile'].errors['required']">Mobile is required</div>
+                        <div *ngIf="form['mobile'].errors['pattern']">Mobile pattern is invalid</div>
+                      </div>
+                      <!-- <div class="valid-feedback" *ngIf="submitted && !form['mobile'].errors">
+                        Looks good!
+                    </div> -->
+                      </div>
+                      <div class="col-xxl-4 col-md-6">
+                        <label>Alternate Number:</label>
+                        <input
+                        type="number"
+                        class="form-control form-control-sm"
+                        id="alternateNumber"
+                        formControlName="alternateNumber"
+                      />
+                      </div>
+                      <div class="col-xxl-4 col-md-6">
+                        <label>Website:</label>
+                        <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        id="website"
+                        formControlName="website"
+                      />
+                      </div>
+                      <div class="col-xxl-4 col-md-6">
+                        <label>Annual Revenue:</label>
+                        <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        id="annualRevenue"
+                        formControlName="annualRevenue"
+                      />
+                        
+                      </div>
+                      <div class="col-xxl-4 col-md-6">
+                        <label>Created By:</label>
+                        <select class="form-select" formControlName="createdBy">
+                            <option value="Mariana John">Mariana John</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                      </div>
+                      <div class="col-xxl-4 col-md-6">
+                        <label>Lead Name:</label>
+                        <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        id="leadName"
+                        formControlName="leadName"
+                      />                     
+
+                      </div>
+                      <div class="col-xxl-4 col-md-6">
+                        <label>Company:</label>
+                        <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        id="company"
+                        formControlName="company"
+                      />        
+                        
+                      </div>
+                      <div class="col-xxl-4 col-md-6">
+                        <label>Lead Source:</label>
+                        <select class="form-select" formControlName="leadSource">
+                            <option value="Facebook">Facebook</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                        
+                      </div>
+                      <div class="col-xxl-4 col-md-6">
+                        <label>Marital Status:</label>                        
+                        <select class="form-select" formControlName="maritalStatus">
+                            <option value="Married">Married</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                       
+                      </div>
+                      <div class="col-xxl-4 col-md-6">
+                        <label>Modified By:</label>
+                        <select class="form-select" formControlName="modifiedBy">
+                            <option value="Mariana John">Mariana John</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                        
+                      </div>
+                      <div class="col-xxl-4 col-md-6">
+                        <label>Designation:</label>
+                        <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        id="designation"
+                        formControlName="designation"
+                      />        
+                      </div>
+                      <div class="col-xxl-4 col-md-6">
+                        <label>Lead Status:</label>
+                        <select class="form-select" formControlName="leadStatus">
+                            <option value="1">New</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                        
+                      </div>
+                      <div class="col-xxl-4 col-md-6">
+                        <label>Nationality:</label>
+                        <select class="form-select" formControlName="nationality">
+                            <option value="Qatar">Qatar</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                        
+                      </div>
+                      <div class="col-xxl-4 col-md-6">
+                        <label>Industry:</label>
+                        <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        id="industry"
+                        formControlName="industry"
+                      />        
+                       
+                      </div>
+                      <div class="col-xxl-4 col-md-6">
+                        <label>Preferred time to call:</label>
+                        <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        id="preferredTimeToCall"
+                        formControlName="preferredTimeToCall"
+                      />        
+                        
+                      </div>
+                      <div class="col-xxl-12 col-md-12">
+                        <h6 class="card-title mb-4">
+                          <u>Address Information</u
+                          >
+                        </h6>
+                      </div>
+                      <div class="col-xxl-4 col-md-6">
+                        <label class="form-label" for="des-info-description-input">Address</label>
+                        <textarea
+                          class="form-control"
+                          id="des-info-description-input"
+                          rows="3"
+                          formControlName="address"
+                          spellcheck="false"
+                        ></textarea>
+                        <div class="invalid-feedback">
+                          Please enter an Address
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          
+                <!--card body end-->
+              </div>
+              <!--card end-->
+            </div>
+          </div>
+        <div class="row">
+            <div class="col-xxl-12 col-lg-12">
+              <div class="card">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-xxl-12 col-lg-12">
+                      <div class="live-preview">
+                        <div class="row gy-4">
+                          <div class="col-xxl-12 col-lg-12">
+                            <h6 class="card-title mb-4">
+                              <u>Property Prefference</u
+                              >
+                            </h6>
+                          </div>
+          
+                          <div class="col-xxl-2 col-lg-3">
+                            <div class="form-check">
+                                <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="residential"
+                                formControlName="residential"
+                              />
+                              <label class="form-check-label" for="residential">Residential</label>
+                            </div>
+                          </div>
+          
+                          <div class="col-xxl-2 col-lg-3">
+                            <div class="form-check">
+                                <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="commercial"
+                                formControlName="commercial"
+                              />
+                              <label class="form-check-label" for="commercial">Commercial</label>
+                            </div>
+                          </div>
+                          <div class="col-xxl-8 col-lg-6"></div>
+          
+                          <div class="col-xxl-4 col-lg-6">
+                            <label>Desired Property Location :</label>
+                            <select class="form-select" formControlName="desiredpropertylocation">
+                                <option value="">Doha</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                              </select>
+                            
+                            
+                          </div>
+                          <div class="col-xxl-4 col-lg-6">
+                            <label>Preferred Neighbourhood:</label>
+                            <select class="form-select" formControlName="prefferedneighbourhood">
+                                <option value="">Doha</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                              </select>
+                            
+                          </div>
+                          <div class="col-xxl-4 col-lg-6">
+                            <label>Number of Bedrooms:</label>
+                            <select class="form-select" formControlName="numberofbedrooms">
+                                <option value="">2</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                              </select>
+                          </div>
+          
+                          <div class="col-xxl-4 col-lg-6">
+                            <label>Number of Bathroom:</label>
+                            <select class="form-select" formControlName="numberofbathrooms">
+                                <option value="">2</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                              </select>
+                          </div>
+                          <div class="col-xxl-4 col-lg-6">
+                            <label>Price Range:</label>
+                            <select class="form-select" formControlName="pricerange">
+                              <option value="">1000 - 2000 QAR</option>
+                              <option value="1">One</option>
+                              <option value="2">Two</option>
+                              <option value="3">Three</option>
+                            </select>
+                          </div>
+                          <div class="col-xxl-4 col-lg-6">
+                            <label>Building Type:</label>
+                            <select class="form-select" formControlName="buildingtype">
+                              <option value="">Tower</option>
+                              <option value="1">One</option>
+                              <option value="2">Two</option>
+                              <option value="3">Three</option>
+                            </select>
+                          </div>
+          
+                          <div class="col-xxl-4 col-lg-6">
+                            <label>Unit Type:</label>
+                            <select class="form-select" formControlName="unittype">
+                              <option value="">2BHK</option>
+                              <option value="1">One</option>
+                              <option value="2">Two</option>
+                              <option value="3">Three</option>
+                            </select>
+                          </div>
+                          <div class="col-xxl-4 col-lg-6">
+                            <label>Floor Preference:</label>
+                            <select class="form-select" formControlName="floorpreference">
+                              <option value="">Second Floor</option>
+                              <option value="1">One</option>
+                              <option value="2">Two</option>
+                              <option value="3">Three</option>
+                            </select>
+                          </div>
+                          <div class="col-xxl-4 col-lg-6">
+                            <label>View Preference:</label>
+                            <select class="form-select" formControlName="viewpreference">
+                              <option value="">Sea View</option>
+                              <option value="1">One</option>
+                              <option value="2">Two</option>
+                              <option value="3">Three</option>
+                            </select>
+                          </div>
+          
+                          <div class="col-xxl-12 col-lg-12">
+                            <h6 class="card-title mb-4 mt-4">
+                              <u>Description</u
+                              >
+                            </h6>
+                          </div>
+                          <div class="col-xxl-12 col-lg-12">
+                            
+                            <textarea
+                              style="width: 90% !important"
+                              
+                              formControlName="description"
+                              rows="5"
+                              cols="40"
+                            ></textarea>
+                          </div>
+                          <div class="col-xxl-4 col-lg-6"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+          
+    </form>>
+       
+        
+          
+        
+        <div class="modal-footer">
+            <a href="javascript:void(0);" class="btn btn-link link-success fw-medium" data-bs-dismiss="modal"
+            (click)="close()"><i class="ri-close-line me-1 align-middle"></i> Close</a>
+        <button type="button"(click)="submitForm()" class="btn btn-primary ">Save changes</button>
+            
+            
+        </div>
+    </div><!-- /.modal-content -->
+<!-- /.modal-dialog -->
+
