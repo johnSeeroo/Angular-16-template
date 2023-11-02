@@ -20,7 +20,7 @@ export const TOPBARMENU: MenuItem[] = [
           {
             id: 30110,
             label: "Accounts",
-            link: "/leads/accounts",
+            link: "/pages/coming-soon",
             parentId: 301,
           },
           {
@@ -301,7 +301,7 @@ export const TOPBARMENU: MenuItem[] = [
           {
             id: 41110,
             label: "Company codes",
-            link: "/configurations /sweetalerts",
+            link: "/pages/coming-soon",
             parentId: 411,
           },
           {
@@ -402,7 +402,7 @@ export const TOPBARMENU: MenuItem[] = [
       {
         id: 501,
         label: "Tenants and Companions",
-        link: "/tenents",
+        link: "/pages/coming-soon",
         parentId: 5,
       },
       {
@@ -482,7 +482,7 @@ export const TOPBARMENU: MenuItem[] = [
         id: 610,
         label: "Workflows",
         icon: "ri-stack-line",
-        link: "/reservations",
+        link: "/pages/coming-soon",
         parentId: 6,
       },
       {
@@ -542,7 +542,7 @@ export const TOPBARMENU: MenuItem[] = [
         id: 710,
         label: "Reports",
         icon: "ri-stack-line",
-        link: "/reservations",
+        link: "/pages/coming-soon",
         parentId: 7,
       },
       {
@@ -558,12 +558,12 @@ export const TOPBARMENU: MenuItem[] = [
     id: 8,
     label: "Approvals",
     icon: "ri-rocket-line",
-    link: "/approvals",
+    link: "/pages/coming-soon",
   },
   {
     id: 9,
     label: "Users",
     icon: "ri-rocket-line",
-    link: "/users",
+    link: "/pages/coming-soon",
   },
 ];

@@ -18,14 +18,14 @@ const routes: Routes = [
     loadChildren: () =>
       import("./account/account.module").then((m) => m.AccountModule),
   },
-  {
-    path: "pages",
-    loadChildren: () =>
-      import("./extraspages/extraspages.module").then(
-        (m) => m.ExtraspagesModule
-      ),
-    canActivate: [AuthGuard],
-  },
+  // {
+  //   path: "pages",
+  //   loadChildren: () =>
+  //     import("./extraspages/extraspages.module").then(
+  //       (m) => m.ExtraspagesModule
+  //     ),
+  //   canActivate: [AuthGuard],
+  // },
 ];
 
 @NgModule({
