@@ -1,3 +1,4 @@
+import { LeadsOwner, LeadSource , MaritalStatus, LeadStatus} from "./leads.model";
 const Leads = [
   {
     statusCode: 200,
@@ -79,4 +80,50 @@ const LeadsInformation = [
   },
 ];
 
-export { Leads, LeadsInformation };
+const LEADSOWNER:LeadsOwner[] = [
+  {
+    id: 1,
+    name: "Marianna John"
+  },
+  {
+    id: 2,
+    name: "Larry John"
+  },
+  {
+     id:3,
+     name: "Ahamad Muneeb"
+  } ]
+
+  const LEADSSOURCE:LeadSource[] = [
+    {
+      id: 1,
+      name: "Facebook"
+    },
+    {
+      id: 2,
+      name: "Whatsapp"
+    },
+    {
+       id:3,
+       name: "X platform"
+    } ]
+
+  const MARITALSTATUS: MaritalStatus[] = [  {
+    id: 1,
+    name: "Married"
+  },
+  {
+    id: 2,
+    name: "Unmarried"
+  }]
+  
+  const LEADSTATUS: LeadStatus[] = [  {
+    id: 1,
+    name: "New"
+  },
+  {
+    id: 2,
+    name: "Old"
+  }]
+
+export { Leads, LeadsInformation ,LEADSOWNER, LEADSSOURCE ,MARITALSTATUS ,LEADSTATUS };

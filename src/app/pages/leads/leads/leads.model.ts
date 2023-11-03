@@ -9,3 +9,30 @@ export interface LeadsModel {
   tags: Array<{}>;
   isSelected?:any;
 }
+
+export interface LeadsOwner {
+   id: number,
+   name: string
+}
+
+export interface LeadSource{
+  id: number,
+  name: string
+}
+
+export interface MaritalStatus{
+  id: number,
+  name: string
+}
+
+export interface LeadStatus{
+  id: number,
+  name: string
+}
+
+export interface Nationality{
+  id: number,
+  name: string
+}
+
+
