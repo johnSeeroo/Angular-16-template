@@ -75,10 +75,18 @@ h1, h2, h3, h4, h5, h6 {color:#184568 !important; }
 .group_height { margin: 10px 5px;}
 .group_height .btn { margin: 0!important; padding: 5px 10px!important; height: 35px;}
 .margin_top {margin-top: 5px!important;}
-.nav-link:before {display: none!important;}
+/*.nav-link:before {display: none!important;}*/
 .sub-menu ul li a:before {color: #fff; display: block!important;}
 .sub-menu ul li a {margin-left: .8rem!important;}
 .sticky_side_menu {position: fixed;}
 .sticky_side_menu li {list-style: none;}
 .sticky_side_menu li a {font-size: 24px; padding: 5px 10px; display: block; border: 1px solid #c2c2c2; margin: 3px 0;}
+.simplebar-content {margin-top: 25px;}
+.nav-item:hover > a.menu-link, .menu-dropdown {background: #184568!important}
+.navbar-menu .navbar-nav .nav-link:hover {background:#0c3250; }
+.menu-dropdown ul li{ 
+    color: #fff;
+}
+.menu-dropdown ul li:hover, .nav-item:hover {background:#0c3250;}
+.navbar-menu .navbar-nav .nav-sm .nav-link {padding-left: 0!important;}
 
