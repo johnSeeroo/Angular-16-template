@@ -40,7 +40,11 @@ export class SidebarComponent implements OnInit {
       let value = MENULIST.filter(
         (data: any) => data.id === this.selectedTopMenuId
       );
-      this.menuItems = value[0].subItems;
+      if (value.length > 0) {
+        this.menuItems = value[0].subItems;
+      } else {
+        this.menuItems = [];
+      }
     });
   }
 
@@ -50,12 +54,6 @@ export class SidebarComponent implements OnInit {
         if (event instanceof NavigationEnd) {
           this.initActiveMenu();
         }
-      }
-
-      if (this.router.url === "/dashboard") {
-        this.showSideBarMenuItems = false;
-      } else {
-        this.showSideBarMenuItems = true;
       }
     });
   }

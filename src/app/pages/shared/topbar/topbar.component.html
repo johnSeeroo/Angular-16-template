@@ -39,7 +39,8 @@
 
         <ul class="top_menu_new">
           <li *ngFor="let item of menuItems">
-            <a 
+            <a
+              [ngClass]="item.id === activeMenuItem ? 'acitve_menu' : ''"
               (click)="onClickTopMenu(item.id)"
               routerLink="{{
                 item.link
