@@ -1,4 +1,10 @@
-import { LeadsOwner, LeadSource , MaritalStatus, LeadStatus} from "./leads.model";
+import {
+  LeadsOwner,
+  LeadSource,
+  MaritalStatus,
+  LeadStatus,
+  Nationality,
+} from "./leads.model";
 const Leads = [
   {
     statusCode: 200,
@@ -80,50 +86,86 @@ const LeadsInformation = [
   },
 ];
 
-const LEADSOWNER:LeadsOwner[] = [
+const LEADSOWNER: LeadsOwner[] = [
   {
     id: 1,
-    name: "Marianna John"
+    name: "Marianna John",
   },
   {
     id: 2,
-    name: "Larry John"
+    name: "Larry John",
   },
   {
-     id:3,
-     name: "Ahamad Muneeb"
-  } ]
+    id: 3,
+    name: "Ahamad Muneeb",
+  },
+];
 
-  const LEADSSOURCE:LeadSource[] = [
-    {
-      id: 1,
-      name: "Facebook"
-    },
-    {
-      id: 2,
-      name: "Whatsapp"
-    },
-    {
-       id:3,
-       name: "X platform"
-    } ]
-
-  const MARITALSTATUS: MaritalStatus[] = [  {
+const LEADSSOURCE: LeadSource[] = [
+  {
     id: 1,
-    name: "Married"
+    name: "Facebook",
   },
   {
     id: 2,
-    name: "Unmarried"
-  }]
-  
-  const LEADSTATUS: LeadStatus[] = [  {
+    name: "Whatsapp",
+  },
+  {
+    id: 3,
+    name: "X platform",
+  },
+];
+
+const MARITALSTATUS: MaritalStatus[] = [
+  {
     id: 1,
-    name: "New"
+    name: "Married",
   },
   {
     id: 2,
-    name: "Old"
-  }]
+    name: "Unmarried",
+  },
+];
 
-export { Leads, LeadsInformation ,LEADSOWNER, LEADSSOURCE ,MARITALSTATUS ,LEADSTATUS };
+const LEADSTATUS: LeadStatus[] = [
+  {
+    id: 1,
+    name: "New",
+  },
+  {
+    id: 2,
+    name: "Old",
+  },
+];
+
+const NATIONALITY: Nationality[] = [
+  {
+    id: 1,
+    name: "Qatar",
+  },
+  {
+    id: 2,
+    name: "Dubai",
+  },
+  {
+    id: 3,
+    name: "Oman",
+  },
+  {
+    id: 4,
+    name: "India",
+  },
+];
+
+enum CheckBoxType { APPLY_FOR_RESIDENTIAL, APPLY_FOR_COMMERCIAL, NONE };
+
+export {
+  Leads,
+  LeadsInformation,
+  LEADSOWNER,
+  LEADSSOURCE,
+  MARITALSTATUS,
+  LEADSTATUS,
+  NATIONALITY,
+  CheckBoxType
+};
