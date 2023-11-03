@@ -35,6 +35,7 @@ export class TopbarComponent implements OnInit {
   userData: any;
   menuItems: MenuList[] = MENULIST;
   hideToggleButton = true;
+  activeMenuItem = 0;
 
   constructor(
     @Inject(DOCUMENT) private document: any,
@@ -59,6 +60,8 @@ export class TopbarComponent implements OnInit {
       if (event instanceof NavigationEnd) {
         if (this.router.url === "/dashboard") {
           this.hideToggleButton = true;
+          this.activeMenuItem = 0;
+          this.commonService.setTopMenuItemId(0);
         } else {
           this.hideToggleButton = false;
         }
@@ -281,6 +284,7 @@ export class TopbarComponent implements OnInit {
 
   onClickTopMenu(id: number) {
     this.commonService.setTopMenuItemId(id);
+    this.activeMenuItem = id;
   }
 
   getClass() {

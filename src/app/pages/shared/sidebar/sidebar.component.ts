@@ -26,6 +26,7 @@ export class SidebarComponent implements OnInit {
   @Output() mobileMenuButtonClicked = new EventEmitter();
   selectedTopMenuId = 0;
   @Output() sideBarHide = new EventEmitter();
+  showSideBarMenuItems = false;
 
   constructor(
     private router: Router,
@@ -34,11 +35,16 @@ export class SidebarComponent implements OnInit {
   ) {
     translate.setDefaultLang("en");
     this.commonService.selectedTopMenuItemId.subscribe((data) => {
+      debugger;
       this.selectedTopMenuId = data;
       let value = MENULIST.filter(
         (data: any) => data.id === this.selectedTopMenuId
       );
-      this.menuItems = value[0].subItems;
+      if (value.length > 0) {
+        this.menuItems = value[0].subItems;
+      } else {
+        this.menuItems = [];
+      }
     });
   }
 
