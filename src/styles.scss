@@ -78,4 +78,7 @@ h1, h2, h3, h4, h5, h6 {color:#184568 !important; }
 .nav-link:before {display: none!important;}
 .sub-menu ul li a:before {color: #fff; display: block!important;}
 .sub-menu ul li a {margin-left: .8rem!important;}
+.sticky_side_menu {position: fixed;}
+.sticky_side_menu li {list-style: none;}
+.sticky_side_menu li a {font-size: 24px; padding: 5px 10px; display: block; border: 1px solid #c2c2c2; margin: 3px 0;}
 
