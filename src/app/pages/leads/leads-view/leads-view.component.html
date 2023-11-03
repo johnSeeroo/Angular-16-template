@@ -67,7 +67,7 @@
           type="button"
           class="btn btn-primary waves-effect waves-light margin_btn"
           (click)="openEditLeadsModal()"
-        > 
+        >
           Edit
         </button>
       </div>
@@ -76,8 +76,8 @@
 </div>
 
 <div class="row">
-  <div class="col-xxl-12 col-lg-12">
-    <div class="card">
+  <div class="col-xxl-11 col-lg-11">
+    <div #leadSection id="section-1" class="card">
       <div class="card-body">
         <div class="live-preview">
           <div class="row gy-4">
@@ -161,6 +161,7 @@
                 ></a>
               </h6>
             </div>
+            <div #propertySection></div>
             <div class="col-xxl-6 col-md-6 margin_top">
               <label class="form-label" for="des-info-description-input"
                 >Address</label
@@ -181,190 +182,231 @@
     </div>
 
     <!--<div class="card">
-        
-        <div class="card-body">
-          <div class="live-preview">
-                  <div class="row gy-4">
-                  <div class="col-xxl-12 col-md-12"><h6 class="card-title mb-4">
-                      <u>Lead Information</u
-                      ><a (click)="leadInfoReadMode = !leadInfoReadMode"
-                        ><i class="mdi mdi-file-edit-outline ml-10"></i
-                      ></a>
-                    </h6></div>
-                  <div class="col-xxl-4 col-md-6">
-                       <label>Lead Owner:</label>
-                      <select class="form-select" aria-label="Disabled select example" disabled="">
-                                                      <option selected="">Mariana John</option>
-                                                      <option value="1">One</option>
-                                                      <option value="2">Two</option>
-                                                      <option value="3">Three</option>
-                                                  </select>
-                      </div>	
-                  <div class="col-xxl-4 col-md-6">
-                   <label>Mobile:</label>
-                        <input
-                          type="number" class="form-control form-control-sm"
-                          value="{{ leadsInformation.phoneNumber }}"
-                          [disabled]="leadInfoReadMode"
-                        />	
-                      </div>
-                  <div class="col-xxl-4 col-md-6">
-                      
-                      <label>Alternate Number:</label>
-                        <input class="form-control form-control-sm"
-                          type="number"
-                          value="{{ leadsInformation.alternateNumber }}"
-                          [disabled]="leadInfoReadMode"
-                        />
-                      </div>	
-                  <div class="col-xxl-4 col-md-6">
-                      <label>Website:</label>
-                        <input
-                          type="text" class="form-control form-control-sm"
-                          value="{{ leadsInformation.website }}"
-                          [disabled]="leadInfoReadMode"
-                        />
-                      
-                      </div>
-                  <div class="col-xxl-4 col-md-6">
-                      <label>Annual Revenue:</label>
-                        <input
-                          type="text" class="form-control form-control-sm"
-                          value="{{ leadsInformation.annualRevenue }}"
-                          [disabled]="leadInfoReadMode"
-                        />
-                      </div>
-                  <div class="col-xxl-4 col-md-6">
-                      <label>Created By:</label>
-                        <select class="form-select" aria-label="Disabled select example" disabled="">
-                                                      <option selected="">Mariana John</option>
-                                                      <option value="1">One</option>
-                                                      <option value="2">Two</option>
-                                                      <option value="3">Three</option>
-                                                  </select>
-                      
-                      </div>
-                  <div class="col-xxl-4 col-md-6">
-                      <label>Lead Name:</label>
-                        <input  type="text" class="form-control form-control-sm"
-                          value="{{ leadsInformation.leadName }}"
-                          [disabled]="leadInfoReadMode"
-                        />
-                      </div>					
-                  <div class="col-xxl-4 col-md-6">
-                      <label>Company:</label>
-                        <input
-                          type="text" class="form-control form-control-sm"
-                          value="{{ leadsInformation.company }}"
-                          [disabled]="leadInfoReadMode"
-                        />
-                      </div>
-                  <div class="col-xxl-4 col-md-6">
-                      
-                      <label>Lead Source:</label>
-                        <select class="form-select" aria-label="Disabled select example" disabled="">
-                                                      <option selected="">Facebook</option>
-                                                      <option value="1">One</option>
-                                                      <option value="2">Two</option>
-                                                      <option value="3">Three</option>
-                                                  </select>
-                      
-                      </div>
-                  <div class="col-xxl-4 col-md-6">
-                  <label>Marital Status:</label>
-                        <select class="form-select" aria-label="Disabled select example" disabled="">
-                                                      <option selected="">Married</option>
-                                                      <option value="1">One</option>
-                                                      <option value="2">Two</option>
-                                                      <option value="3">Three</option>
-                                                  </select>
-                      </div>
-                  <div class="col-xxl-4 col-md-6">
-                       <label>Modified By:</label>
-                      <select class="form-select" aria-label="Disabled select example" disabled="">
-                                                      <option selected="">Mariana John</option>
-                                                      <option value="1">One</option>
-                                                      <option value="2">Two</option>
-                                                      <option value="3">Three</option>
-                                                  </select>
-                      </div>
-                  <div class="col-xxl-4 col-md-6">
-                   <label>Designation:</label>
-                        <input 
-                          type="text" class="form-control form-control-sm"
-                          value="{{ leadsInformation.designation }}"
-                          [disabled]="leadInfoReadMode"
-                        />	
-                      
-                      </div>				
-                  <div class="col-xxl-4 col-md-6">
-                      <label>Lead Status:</label>
-                        <select class="form-select" aria-label="Disabled select example" disabled="">
-                                                      <option selected="">New</option>
-                                                      <option value="1">One</option>
-                                                      <option value="2">Two</option>
-                                                      <option value="3">Three</option>
-                                                  </select>
-                      </div>
-                  <div class="col-xxl-4 col-md-6">
-                      <label>Nationality:</label>
-                        <select class="form-select" aria-label="Disabled select example" disabled="">
-                                                      <option selected="">Indian</option>
-                                                      <option value="1">One</option>
-                                                      <option value="2">Two</option>
-                                                      <option value="3">Three</option>
-                                                  </select>
-                      
-                      </div>							
-                  <div class="col-xxl-4 col-md-6">
-                      
-                  <label>Industry:</label>
-                        <input
-                          type="text" class="form-control form-control-sm"
-                          value="{{ leadsInformation.industry }}"
-                          [disabled]="leadInfoReadMode"
-                        />	
-                      </div>
-                  <div class="col-xxl-4 col-md-6">
-                      <label>Preferred time to call:</label>
-                        <input
-                          type="text" class="form-control form-control-sm"
-                          value="{{ leadsInformation.preferredTimeToCall }}"
-                          [disabled]="leadInfoReadMode"
-                        />
-                      
-                      </div>
-                  <div class="col-xxl-12 col-md-12">
-                      
-                      <h6 class="card-title mb-4">
-                      <u>Address Information</u
-                      ><a (click)="addressReadMode = !addressReadMode"
-                        ><i class="mdi mdi-file-edit-outline ml-10"></i
-                      ></a>
-                    </h6>
-                      </div>
-                  <div class="col-xxl-4 col-md-6">
-                      <label class="form-label" for="des-info-description-input">Address</label>
-                      <textarea class="form-control" placeholder="Please enter a Address" id="des-info-description-input" rows="3" required="" spellcheck="false"></textarea>
-                       <div class="invalid-feedback">Please enter a Address</div>
-                      </div>	
-              </div>
-              </div>
           
-          
-              </div>
-          
-                      </div>-->
+          <div class="card-body">
+            <div class="live-preview">
+                    <div class="row gy-4">
+                    <div class="col-xxl-12 col-md-12"><h6 class="card-title mb-4">
+                        <u>Lead Information</u
+                        ><a (click)="leadInfoReadMode = !leadInfoReadMode"
+                          ><i class="mdi mdi-file-edit-outline ml-10"></i
+                        ></a>
+                      </h6></div>
+                    <div class="col-xxl-4 col-md-6">
+                         <label>Lead Owner:</label>
+                        <select class="form-select" aria-label="Disabled select example" disabled="">
+                                                        <option selected="">Mariana John</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                        </div>	
+                    <div class="col-xxl-4 col-md-6">
+                     <label>Mobile:</label>
+                          <input
+                            type="number" class="form-control form-control-sm"
+                            value="{{ leadsInformation.phoneNumber }}"
+                            [disabled]="leadInfoReadMode"
+                          />	
+                        </div>
+                    <div class="col-xxl-4 col-md-6">
+                        
+                        <label>Alternate Number:</label>
+                          <input class="form-control form-control-sm"
+                            type="number"
+                            value="{{ leadsInformation.alternateNumber }}"
+                            [disabled]="leadInfoReadMode"
+                          />
+                        </div>	
+                    <div class="col-xxl-4 col-md-6">
+                        <label>Website:</label>
+                          <input
+                            type="text" class="form-control form-control-sm"
+                            value="{{ leadsInformation.website }}"
+                            [disabled]="leadInfoReadMode"
+                          />
+                        
+                        </div>
+                    <div class="col-xxl-4 col-md-6">
+                        <label>Annual Revenue:</label>
+                          <input
+                            type="text" class="form-control form-control-sm"
+                            value="{{ leadsInformation.annualRevenue }}"
+                            [disabled]="leadInfoReadMode"
+                          />
+                        </div>
+                    <div class="col-xxl-4 col-md-6">
+                        <label>Created By:</label>
+                          <select class="form-select" aria-label="Disabled select example" disabled="">
+                                                        <option selected="">Mariana John</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                        
+                        </div>
+                    <div class="col-xxl-4 col-md-6">
+                        <label>Lead Name:</label>
+                          <input  type="text" class="form-control form-control-sm"
+                            value="{{ leadsInformation.leadName }}"
+                            [disabled]="leadInfoReadMode"
+                          />
+                        </div>					
+                    <div class="col-xxl-4 col-md-6">
+                        <label>Company:</label>
+                          <input
+                            type="text" class="form-control form-control-sm"
+                            value="{{ leadsInformation.company }}"
+                            [disabled]="leadInfoReadMode"
+                          />
+                        </div>
+                    <div class="col-xxl-4 col-md-6">
+                        
+                        <label>Lead Source:</label>
+                          <select class="form-select" aria-label="Disabled select example" disabled="">
+                                                        <option selected="">Facebook</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                        
+                        </div>
+                    <div class="col-xxl-4 col-md-6">
+                    <label>Marital Status:</label>
+                          <select class="form-select" aria-label="Disabled select example" disabled="">
+                                                        <option selected="">Married</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                        </div>
+                    <div class="col-xxl-4 col-md-6">
+                         <label>Modified By:</label>
+                        <select class="form-select" aria-label="Disabled select example" disabled="">
+                                                        <option selected="">Mariana John</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                        </div>
+                    <div class="col-xxl-4 col-md-6">
+                     <label>Designation:</label>
+                          <input 
+                            type="text" class="form-control form-control-sm"
+                            value="{{ leadsInformation.designation }}"
+                            [disabled]="leadInfoReadMode"
+                          />	
+                        
+                        </div>				
+                    <div class="col-xxl-4 col-md-6">
+                        <label>Lead Status:</label>
+                          <select class="form-select" aria-label="Disabled select example" disabled="">
+                                                        <option selected="">New</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                        </div>
+                    <div class="col-xxl-4 col-md-6">
+                        <label>Nationality:</label>
+                          <select class="form-select" aria-label="Disabled select example" disabled="">
+                                                        <option selected="">Indian</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                        
+                        </div>							
+                    <div class="col-xxl-4 col-md-6">
+                        
+                    <label>Industry:</label>
+                          <input
+                            type="text" class="form-control form-control-sm"
+                            value="{{ leadsInformation.industry }}"
+                            [disabled]="leadInfoReadMode"
+                          />	
+                        </div>
+                    <div class="col-xxl-4 col-md-6">
+                        <label>Preferred time to call:</label>
+                          <input
+                            type="text" class="form-control form-control-sm"
+                            value="{{ leadsInformation.preferredTimeToCall }}"
+                            [disabled]="leadInfoReadMode"
+                          />
+                        
+                        </div>
+                    <div class="col-xxl-12 col-md-12">
+                        
+                        <h6 class="card-title mb-4">
+                        <u>Address Information</u
+                        ><a (click)="addressReadMode = !addressReadMode"
+                          ><i class="mdi mdi-file-edit-outline ml-10"></i
+                        ></a>
+                      </h6>
+                        </div>
+                    <div class="col-xxl-4 col-md-6">
+                        <label class="form-label" for="des-info-description-input">Address</label>
+                        <textarea class="form-control" placeholder="Please enter a Address" id="des-info-description-input" rows="3" required="" spellcheck="false"></textarea>
+                         <div class="invalid-feedback">Please enter a Address</div>
+                        </div>	
+                </div>
+                </div>
+            
+            
+                </div>
+            
+                        </div>-->
 
     <!--card end-->
   </div>
-</div>
-<!--row end-->
-<div class="clearfix"></div>
 
-<div class="row">
-  <div class="col-xxl-12 col-lg-12">
-    <div class="card">
+  <div class="col-xxl-1 col-lg-1">
+    <ul class="sticky_side_menu">
+      <li>
+        <a
+          (click)="gotoLead()"
+          class="js-anchor-link"
+          data-bs-toggle="tooltip"
+          data-bs-placement="left"
+          data-bs-original-title="Tooltip on left"
+          ><i class="las la-info-circle"></i
+        ></a>
+      </li>
+      <li>
+        <a (click)="gotToProperty()" class="js-anchor-link"
+          ><i class="las la-building"></i
+        ></a>
+      </li>
+      <li>
+        <a (click)="goToNote()" class="js-anchor-link"
+          ><i class="las la-map-marker"></i
+        ></a>
+      </li>
+      <li>
+        <a (click)="goToAttachment()" class="js-anchor-link"
+          ><i class="las la-comment"></i
+        ></a>
+      </li>
+      <li>
+        <a (click)="goToTimeline()" class="js-anchor-link"
+          ><i class="las la-paperclip"></i
+        ></a>
+      </li>
+      <li>
+        <a (click)="goToActivity()" class="js-anchor-link"
+          ><i class="las la-route"></i
+        ></a>
+      </li>
+      <!-- <li>
+          <a href="#section-7" class="js-anchor-link"
+            ><i class="las la-comment-alt"></i
+          ></a>
+        </li> -->
+    </ul>
+  </div>
+
+  <div class="col-xxl-11 col-lg-11">
+    <div id="section-2" class="card">
       <div class="card-body">
         <div class="row">
           <div class="col-xxl-12 col-lg-12">
@@ -456,6 +498,7 @@
                     ></a>
                   </h6>
                 </div>
+                <div #noteSection></div>
                 <div class="col-xxl-12 col-lg-12 margin_top">
                   <p *ngIf="descriptionReadMode">
                     Lorem Ipsum is simply dummy text of the printing and
@@ -473,7 +516,7 @@
                     style="width: 90% !important"
                     *ngIf="!descriptionReadMode"
                     value="Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry."
+                        typesetting industry."
                     rows="5"
                     cols="40"
                   ></textarea>
@@ -487,190 +530,188 @@
     </div>
 
     <!--<div class="card">
-        
-          <div class="card-body">
-          <div class="row">
+          
+            <div class="card-body">
+            <div class="row">
+              <div class="col-xxl-12 col-lg-12">
+               
+                    <div class="live-preview">
+                    <div class="row gy-4">
             <div class="col-xxl-12 col-lg-12">
-             
-                  <div class="live-preview">
-                  <div class="row gy-4">
-          <div class="col-xxl-12 col-lg-12">
-          <h6 class="card-title mb-4">
-                      <u>Property Prefference</u
-                      ><a (click)="leadInfoReadMode = !leadInfoReadMode"
-                        ><i class="mdi mdi-file-edit-outline ml-10"></i
-                      ></a>
-                    </h6>
-                      </div>
-                      
-                          <div class="col-xxl-2 col-lg-3">
-                          <div class="form-check">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          id="residential"
-                          value="residential"
-                          checked
-                        />
-                        <label class="form-check-label" for="residential"
-                          >Residential</label
-                        >
-                      </div>
-                          
-                          </div>	
-                      
-                          <div class="col-xxl-2 col-lg-3">
-                      <div class="form-check">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          id="commercial"
-                          value="commercial"
-                        />
-                        <label class="form-check-label" for="commercial"
-                          >Commercial</label
-                        >
-                      </div>
-                      </div>
-                      <div class="col-xxl-8 col-lg-6"></div>
-                      
-                      
-                      <div class="col-xxl-4 col-lg-6">
-                      <label>Desired Property Location :</label>
+            <h6 class="card-title mb-4">
+                        <u>Property Prefference</u
+                        ><a (click)="leadInfoReadMode = !leadInfoReadMode"
+                          ><i class="mdi mdi-file-edit-outline ml-10"></i
+                        ></a>
+                      </h6>
+                        </div>
+                        
+                            <div class="col-xxl-2 col-lg-3">
+                            <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="residential"
+                            value="residential"
+                            checked
+                          />
+                          <label class="form-check-label" for="residential"
+                            >Residential</label
+                          >
+                        </div>
+                            
+                            </div>	
+                        
+                            <div class="col-xxl-2 col-lg-3">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="commercial"
+                            value="commercial"
+                          />
+                          <label class="form-check-label" for="commercial"
+                            >Commercial</label
+                          >
+                        </div>
+                        </div>
+                        <div class="col-xxl-8 col-lg-6"></div>
+                        
+                        
+                        <div class="col-xxl-4 col-lg-6">
+                        <label>Desired Property Location :</label>
+                          <select class="form-select" aria-label="Disabled select example" disabled="">
+                                                        <option selected="">Doha</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                        
+                        </div>
+                        <div class="col-xxl-4 col-lg-6">
+                        <label>Preferred Neighbourhood:</label>
+                          <select class="form-select" aria-label="Disabled select example" disabled="">
+                                                        <option selected="">Doha</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                        
+                        </div>
+                        <div class="col-xxl-4 col-lg-6">
+                            <label>Number of Bedrooms:</label>
                         <select class="form-select" aria-label="Disabled select example" disabled="">
-                                                      <option selected="">Doha</option>
-                                                      <option value="1">One</option>
-                                                      <option value="2">Two</option>
-                                                      <option value="3">Three</option>
-                                                  </select>
-                      
-                      </div>
-                      <div class="col-xxl-4 col-lg-6">
-                      <label>Preferred Neighbourhood:</label>
+                                                        <option selected="">2</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                        </div>
+                        
+                        <div class="col-xxl-4 col-lg-6">
+                        <label>Number of Bathroom:</label>
                         <select class="form-select" aria-label="Disabled select example" disabled="">
-                                                      <option selected="">Doha</option>
-                                                      <option value="1">One</option>
-                                                      <option value="2">Two</option>
-                                                      <option value="3">Three</option>
-                                                  </select>
-                      
-                      </div>
-                      <div class="col-xxl-4 col-lg-6">
-                          <label>Number of Bedrooms:</label>
-                      <select class="form-select" aria-label="Disabled select example" disabled="">
-                                                      <option selected="">2</option>
-                                                      <option value="1">One</option>
-                                                      <option value="2">Two</option>
-                                                      <option value="3">Three</option>
-                                                  </select>
-                      </div>
-                      
-                      <div class="col-xxl-4 col-lg-6">
-                      <label>Number of Bathroom:</label>
-                      <select class="form-select" aria-label="Disabled select example" disabled="">
-                                                      <option selected="">2</option>
-                                                      <option value="1">One</option>
-                                                      <option value="2">Two</option>
-                                                      <option value="3">Three</option>
-                                                  </select>
-                      </div>
-                      <div class="col-xxl-4 col-lg-6">
-                      <label>Price Range:</label>
-                      <select class="form-select" aria-label="Disabled select example" disabled="">
-                                                      <option selected="">1000 - 2000 QAR</option>
-                                                      <option value="1">One</option>
-                                                      <option value="2">Two</option>
-                                                      <option value="3">Three</option>
-                                                  </select>
-                      </div>
-                      <div class="col-xxl-4 col-lg-6">
-                          <label>Building Type:</label>
-                      <select class="form-select" aria-label="Disabled select example" disabled="">
-                                                      <option selected="">Tower</option>
-                                                      <option value="1">One</option>
-                                                      <option value="2">Two</option>
-                                                      <option value="3">Three</option>
-                                                  </select>
-                      </div>
-                      
-                      <div class="col-xxl-4 col-lg-6">
-                      <label>Unit Type:</label>
-                      <select class="form-select" aria-label="Disabled select example" disabled="">
-                                                      <option selected="">2BHK</option>
-                                                      <option value="1">One</option>
-                                                      <option value="2">Two</option>
-                                                      <option value="3">Three</option>
-                                                  </select>
-                      </div>
-                      <div class="col-xxl-4 col-lg-6">
-                      <label>Floor Preference:</label>
-                      <select class="form-select" aria-label="Disabled select example" disabled="">
-                                                      <option selected="">Second Floor</option>
-                                                      <option value="1">One</option>
-                                                      <option value="2">Two</option>
-                                                      <option value="3">Three</option>
-                                                  </select>
-                      </div>
-                      <div class="col-xxl-4 col-lg-6">
-                      <label>View Preference:</label>
-                      <select class="form-select" aria-label="Disabled select example" disabled="">
-                                                      <option selected="">Sea View</option>
-                                                      <option value="1">One</option>
-                                                      <option value="2">Two</option>
-                                                      <option value="3">Three</option>
-                                                  </select>
-                      </div>
-                      
-                      <div class="col-xxl-12 col-lg-12"><h6 class="card-title mb-4 mt-4">
-                      <u>Description</u
-                      ><a (click)="descriptionReadMode = !descriptionReadMode"
-                        ><i class="mdi mdi-file-edit-outline ml-10"></i
-                      ></a>
-                    </h6></div>
-                      <div class="col-xxl-12 col-lg-12">
-                       <p *ngIf="descriptionReadMode">
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry. Lorem Ipsum has been the industry's
-                      standard dummy text ever since the 1500s, when an unknown
-                      printer took a galley of type and scrambled it to make a
-                      type specimen book. It has survived not only five centuries,
-                      but also the leap into electronic typesetting, remaining
-                      essentially unchanged. It was popularised in the 1960s with
-                      the release of Letraset sheets containing Lorem Ipsum
-                      passages, and more recently with desktop publishing software
-                      like Aldus PageMaker including versions of Lorem Ipsum.
-                    </p>
-                    <textarea
-                      style="width: 90% !important"
-                      *ngIf="!descriptionReadMode"
-                      value="Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry."
-                      rows="5"
-                      cols="40"
-                    ></textarea>
-                          
-                          
-                      </div>
-                      <div class="col-xxl-4 col-lg-6"></div>
-                      
-                      
-          
-          
-          </div>
-          </div>
-          </div>
-          </div>
-          </div>
-          
-          
-          
-          </div>-->
+                                                        <option selected="">2</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                        </div>
+                        <div class="col-xxl-4 col-lg-6">
+                        <label>Price Range:</label>
+                        <select class="form-select" aria-label="Disabled select example" disabled="">
+                                                        <option selected="">1000 - 2000 QAR</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                        </div>
+                        <div class="col-xxl-4 col-lg-6">
+                            <label>Building Type:</label>
+                        <select class="form-select" aria-label="Disabled select example" disabled="">
+                                                        <option selected="">Tower</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                        </div>
+                        
+                        <div class="col-xxl-4 col-lg-6">
+                        <label>Unit Type:</label>
+                        <select class="form-select" aria-label="Disabled select example" disabled="">
+                                                        <option selected="">2BHK</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                        </div>
+                        <div class="col-xxl-4 col-lg-6">
+                        <label>Floor Preference:</label>
+                        <select class="form-select" aria-label="Disabled select example" disabled="">
+                                                        <option selected="">Second Floor</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                        </div>
+                        <div class="col-xxl-4 col-lg-6">
+                        <label>View Preference:</label>
+                        <select class="form-select" aria-label="Disabled select example" disabled="">
+                                                        <option selected="">Sea View</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                        </div>
+                        
+                        <div class="col-xxl-12 col-lg-12"><h6 class="card-title mb-4 mt-4">
+                        <u>Description</u
+                        ><a (click)="descriptionReadMode = !descriptionReadMode"
+                          ><i class="mdi mdi-file-edit-outline ml-10"></i
+                        ></a>
+                      </h6></div>
+                        <div class="col-xxl-12 col-lg-12">
+                         <p *ngIf="descriptionReadMode">
+                        Lorem Ipsum is simply dummy text of the printing and
+                        typesetting industry. Lorem Ipsum has been the industry's
+                        standard dummy text ever since the 1500s, when an unknown
+                        printer took a galley of type and scrambled it to make a
+                        type specimen book. It has survived not only five centuries,
+                        but also the leap into electronic typesetting, remaining
+                        essentially unchanged. It was popularised in the 1960s with
+                        the release of Letraset sheets containing Lorem Ipsum
+                        passages, and more recently with desktop publishing software
+                        like Aldus PageMaker including versions of Lorem Ipsum.
+                      </p>
+                      <textarea
+                        style="width: 90% !important"
+                        *ngIf="!descriptionReadMode"
+                        value="Lorem Ipsum is simply dummy text of the printing and
+                        typesetting industry."
+                        rows="5"
+                        cols="40"
+                      ></textarea>
+                            
+                            
+                        </div>
+                        <div class="col-xxl-4 col-lg-6"></div>
+                        
+                        
+            
+            
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            
+            
+            
+            </div>-->
   </div>
-</div>
 
-<div class="row">
-  <div class="col-xl-12">
-    <div class="card">
+  <div class="col-xl-11">
+    <div id="section-3" class="card">
       <div class="card-header align-items-center d-flex">
         <h4 class="card-title mb-0 flex-grow-1">Notes</h4>
       </div>
@@ -748,6 +789,7 @@
                   <p class="list-text mb-0 fs-12">5 days Ago</p>
                 </div>
               </div>
+
               <p class="list-text mb-0">
                 Just like in the image where we talked about using multiple
                 fonts, you can see that the background in this graphic design is
@@ -757,6 +799,7 @@
               </p>
             </a>
             <br />
+            <div #attachmentSection></div>
             <textarea
               placeholder="Please enter your note"
               id=""
@@ -787,12 +830,9 @@
     </div>
     <!-- end card -->
   </div>
-  <!-- end col -->
-</div>
 
-<div class="row">
-  <div class="col-lg-12">
-    <div class="card">
+  <div class="col-lg-11">
+    <div id="section-4" class="card">
       <div class="card-header">
         <h4 class="card-title mb-0">Attachment</h4>
       </div>
@@ -806,6 +846,7 @@
             <div class="mb-3">
               <i class="display-4 text-muted ri-upload-cloud-2-fill"></i>
             </div>
+            <div #timeLineSection></div>
 
             <h4>Drop your files here or click to upload.</h4>
           </div>
@@ -818,11 +859,9 @@
     </div>
     <!-- end card -->
   </div>
-</div>
 
-<div class="row mt-4">
-  <div class="col-lg-12">
-    <div class="card">
+  <div class="col-lg-11">
+    <div id="section-5" class="card">
       <div class="card-header align-items-center d-flex">
         <h4 class="card-title mb-0 flex-grow-1">Left Timeline</h4>
       </div>
@@ -942,17 +981,15 @@
                 </div>
               </div>
             </div>
+            <!-- <div #activitySection></div> -->
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!--end col-->
-</div>
 
-<div class="row">
-  <div class="col-xxl-12">
-    <div class="card">
+  <div #activitySection class="col-xxl-11">
+    <div id="section-6" class="card">
       <div class="card-header align-items-center d-flex">
         <h4 class="card-title mb-0 flex-grow-1">Activities</h4>
         <button type="button" class="btn btn-primary waves-effect waves-light">
@@ -1074,3 +1111,13 @@
     <!-- end card -->
   </div>
 </div>
+<script type="text/javascript">
+  $(".js-anchor-link").click(function (e) {
+    e.preventDefault();
+    var target = $($(this).attr("href"));
+    if (target.length) {
+      var scrollTo = target.offset().top;
+      $("body, html").animate({ scrollTop: scrollTo + "px" }, 800);
+    }
+  });
+</script>

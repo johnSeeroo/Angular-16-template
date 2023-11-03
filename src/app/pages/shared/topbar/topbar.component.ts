@@ -14,12 +14,9 @@ import { CookieService } from "ngx-cookie-service";
 import { LanguageService } from "../../../core/services/language.service";
 import { TranslateService } from "@ngx-translate/core";
 
-import { CartModel } from "./topbar.model";
-import { cartData } from "./data";
-import { MenuItem } from "../sidebar/menu.model";
-import { SUBMENU } from "../sidebar/subMenu";
 import { CommonService } from "src/app/core/services/common.service";
-import { TOPBARMENU } from "./topbarMenu";
+import { MenuList } from "../menu/menuList.model";
+import { MENULIST } from "../menu/menuList";
 
 @Component({
   selector: "app-topbar",
@@ -31,16 +28,12 @@ export class TopbarComponent implements OnInit {
   mode: string | undefined;
   @Output() mobileMenuButtonClicked = new EventEmitter();
 
-  cartData!: CartModel[];
-  total = 0;
-  cart_length: any = 0;
-
   flagvalue: any;
   valueset: any;
   countryName: any;
   cookieValue: any;
   userData: any;
-  menuItems: MenuItem[] = TOPBARMENU;
+  menuItems: MenuList[] = MENULIST;
   hideToggleButton = true;
 
   constructor(
@@ -87,12 +80,6 @@ export class TopbarComponent implements OnInit {
     }
 
     //  Fetch Data
-    this.cartData = cartData;
-    this.cart_length = this.cartData.length;
-    this.cartData.forEach((item) => {
-      var item_price = item.quantity * item.price;
-      this.total += item_price;
-    });
   }
 
   /**
@@ -219,22 +206,6 @@ export class TopbarComponent implements OnInit {
         "none";
       document.getElementById("page-topbar")?.classList.remove("topbar-shadow");
     }
-  }
-
-  // Delete Item
-  deleteItem(event: any, id: any) {
-    var price = event.target
-      .closest(".dropdown-item")
-      .querySelector(".item_price").innerHTML;
-    var Total_price = this.total - price;
-    this.total = Total_price;
-    this.cart_length = this.cart_length - 1;
-    this.total > 1
-      ? ((document.getElementById("empty-cart") as HTMLElement).style.display =
-          "none")
-      : ((document.getElementById("empty-cart") as HTMLElement).style.display =
-          "block");
-    document.getElementById("item_" + id)?.remove();
   }
 
   // Search Topbar

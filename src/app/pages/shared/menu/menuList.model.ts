@@ -1,9 +1,9 @@
-export interface MenuItem {
+export interface MenuList {
   id: number;
   label?: any;
   icon?: string;
   link?: string;
-  subItems?: any;
+  subItems: any;
   isTitle?: boolean;
   badge?: any;
   parentId?: number;
