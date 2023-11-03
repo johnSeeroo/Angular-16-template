@@ -22,7 +22,7 @@ import { CommonService } from "src/app/core/services/common.service";
 export class SidebarComponent implements OnInit {
   menu: any;
   toggle: any = true;
-  menuItems: MenuItem[] = [];
+  menuItems: any[] = [];
   @ViewChild("sideMenu") sideMenu!: ElementRef;
   @Output() mobileMenuButtonClicked = new EventEmitter();
   selectedTopMenuId = 0;
@@ -36,12 +36,16 @@ export class SidebarComponent implements OnInit {
     translate.setDefaultLang("en");
     this.commonService.selectedTopMenuItemId.subscribe((data) => {
       this.selectedTopMenuId = data;
+      let value = SUBMENU.filter(
+        (data: any) => data.id === this.selectedTopMenuId
+      );
+      this.menuItems = value[0].subItems;
     });
   }
 
   ngOnInit(): void {
     // Menu Items
-    this.menuItems = SUBMENU;
+    // this.menuItems = SUBMENU;
     this.router.events.subscribe((event) => {
       if (document.documentElement.getAttribute("data-layout") != "twocolumn") {
         if (event instanceof NavigationEnd) {

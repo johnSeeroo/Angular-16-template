@@ -1,6 +1,6 @@
 import { MenuItem } from "./menu.model";
 
-export const SUBMENU: MenuItem[] = [
+export const SUBMENU: any = [
   //   {
   //     id: 1,
   //     label: "MENU",
