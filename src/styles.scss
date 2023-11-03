@@ -45,7 +45,7 @@ h1, h2, h3, h4, h5, h6 {color:#184568 !important; }
 .edit_icon {font-size: 18px; margin: 0 5px;}
 .top_menu_new { margin: 0; padding: 0; height: 70px;}
 .top_menu_new li {display: inline; float: left; padding: 5px 10px;}
-.top_menu_new li a {line-height: 70px; font-size: 14px;}
+.top_menu_new li a {line-height: 70px; font-size: 14px; position: relative;}
 .navbar-menu {background:#184568 !important; }
 .navbar-menu .navbar-nav .nav-link{color: #fff!important;}
 .page_head {background: #fff; padding: 5px 10px; border-bottom: 1px solid #e2e2e2; margin-bottom: 10px;}
@@ -100,4 +100,17 @@ p {margin-bottom: 0.5rem!important;}
 .timeline-2 .timeline-box {	margin: 8px 62px!important;padding: 10px!important;}
 .modified {font-size: 10px; width: 100%; color: #848484; display: block;}
 .topnav-hamburger {margin-top: 23px;}
+.navbar-header .btn-topbar {height: 42px!important;}
+.js-anchor-link {z-index: 9999; cursor: pointer;}
+.input-group .phone_btn {height: 37px!important;}
+-menu .navbar-nav .nav-link {
+	padding: 0.625rem 1rem !important;}
+/*.menu-dropdown ul li {
+    list-style: circle!important;
+    margin-left: 15px!important;}
+.nav-link:before {display: none!important;}
+.collapse ul .nav-item {list-style: inherit!important;}*/
+.top_menu_new li a {position: relative; padding-bottom:5px}
+.top_menu_new li .acitve_menu:before { width: 100%; height: 1px; background:#405189; position: absolute; top: 22px; display: block; content: "";}
+.acitve_menu {font-weight: 500;}
 

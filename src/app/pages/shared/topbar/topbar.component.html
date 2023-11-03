@@ -39,7 +39,7 @@
 
         <ul class="top_menu_new">
           <li *ngFor="let item of menuItems">
-            <a
+            <a 
               (click)="onClickTopMenu(item.id)"
               routerLink="{{
                 item.link
