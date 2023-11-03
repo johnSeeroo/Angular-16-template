@@ -89,4 +89,15 @@ h1, h2, h3, h4, h5, h6 {color:#184568 !important; }
 }
 .menu-dropdown ul li:hover, .nav-item:hover {background:#0c3250;}
 .navbar-menu .navbar-nav .nav-sm .nav-link {padding-left: 0!important;}
+.table > :not(caption) > * > *{padding: 0.4rem 0.6rem!important}
+button:not(:disabled), [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled) {height: 30px!important; padding: 2px 8px!important; }
+.page-content {
+    padding: calc(50px + 1.5rem) calc(1.5rem * 0.5) 60px calc(1.5rem * 0.5)!important;}
+p {margin-bottom: 0.5rem!important;}
+ .g-4, .gy-4 { --vz-gutter-y: .7rem !important;}
+.timeline-2 .timeline-date { margin: 5px 0 0 55px!important;	}
+.timeline-2 .timeline-date::after {top: 9px !important;}
+.timeline-2 .timeline-box {	margin: 8px 62px!important;padding: 10px!important;}
+.modified {font-size: 10px; width: 100%; color: #848484; display: block;}
+.topnav-hamburger {margin-top: 23px;}
 
