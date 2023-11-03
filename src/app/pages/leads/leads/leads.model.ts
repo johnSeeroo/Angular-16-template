@@ -30,4 +30,9 @@ export interface LeadStatus{
   name: string
 }
 
+export interface Nationality{
+  id: number,
+  name: string
+}
+
 

@@ -209,16 +209,11 @@
                           <a
                             class="edit-item-btn"
                             data-bs-toggle="modal"
-<<<<<<< HEAD
-                            routerLink="/leads/edit/{{ data.leadId }}"
-=======
                             [class.disabled]="!canWriteLeadsModule"
                             [routerLink]="
                               canWriteLeadsModule
                                 ? '/leads/edit/' + data.leadId
-                                : null
-                            "
->>>>>>> 9a2d05c52f9a3e0893501f1f60e307ef3e03d410
+                                : null"
                             ><i
                               class="ri-pencil-fill align-bottom text-muted"
                             ></i
@@ -232,15 +227,11 @@
                           <a
                             class="remove-item-btn"
                             data-bs-toggle="modal"
-<<<<<<< HEAD
-                            (click)="confirm(deleteModel, data.leadId)"
-=======
                             (click)="
                               canDeleteLeadsModule
                                 ? confirm(deleteModel, data.leadId)
                                 : null
                             "
->>>>>>> 9a2d05c52f9a3e0893501f1f60e307ef3e03d410
                           >
                             <i
                               class="ri-delete-bin-fill align-bottom text-muted"
@@ -931,12 +922,18 @@
                   </div>
                 <div class="col-xxl-4 col-md-6">
                   <label>Nationality:</label>
-                              <select class="form-select" aria-label="Disabled select example" >
-                                                            <option selected="">Indian</option>
-                                                            <option value="1">One</option>
-                                                            <option value="2">Two</option>
-                                                            <option value="3">Three</option>
+                              <select class="form-select" aria-label="Disabled select example" 
+                              formControlName="nationality"
+                              [ngClass]="{'is-invalid': submitted && form['nationality'].errors }"
+                              >
+                              <option [ngValue]="null" [disabled]="true" >--Select--</option>
+                              <option *ngFor="let c of nationalityArray" [ngValue]="c.id">{{ c.name }}</option>
+                                                            
                                                         </select>
+                                                        <div *ngIf="submitted && form['nationality'].errors" class="invalid-feedback">
+                                                          <div *ngIf="form['nationality'].errors['required']">Nationality is required</div>
+                                                        
+                                                        </div>
                   
                   </div>							
                 <div class="col-xxl-4 col-md-6">
@@ -945,17 +942,26 @@
                               <input
                                 type="text" class="form-control form-control-sm"
                                 value=""
-                              
+                               formControlName="industry"
+                               [ngClass]="{'is-invalid': submitted && form['industry'].errors }"
                               />	
+                              <div *ngIf="submitted && form['industry'].errors" class="invalid-feedback">
+                                <div *ngIf="form['industry'].errors['required']">Industry Name is required</div>
+                                <div *ngIf="form['industry'].errors['pattern']">Industry Name is invalid</div>
+                              </div>
                   </div>
                 <div class="col-xxl-4 col-md-6">
                   <label>Preferred time to call:</label>
                               <input
                                 type="text" class="form-control form-control-sm"
                                 value=""
-                               
+                                formControlName="preferredTimeToCall"
+                                [ngClass]="{'is-invalid': submitted && form['preferredTimeToCall'].errors }"
                               />
-                  
+                              <div *ngIf="submitted && form['preferredTimeToCall'].errors" class="invalid-feedback">
+                                <div *ngIf="form['preferredTimeToCall'].errors['required']">Preferred time to call is required</div>
+                                <div *ngIf="form['preferredTimeToCall'].errors['pattern']">Preferred time to call is invalid</div>
+                              </div>
                   </div>
                 <div class="col-xxl-12 col-md-12">
                   
@@ -965,9 +971,15 @@
                           </h6>
                   </div>
                 <div class="col-xxl-4 col-md-6">
-                  <label class="form-label" for="des-info-description-input">Address</label>
-                            <textarea class="form-control" placeholder="Please enter a Address" id="des-info-description-input" rows="3" required="" spellcheck="false"></textarea>
-                             <div class="invalid-feedback">Please enter a Address</div>
+                  <label class="form-label" for="des-info-description-input">Current address</label>
+                            <textarea class="form-control" placeholder="Please enter a Address" id="des-info-description-input" rows="3" required="" spellcheck="false"
+                            formControlName="currentAddress"
+                            [ngClass]="{'is-invalid': submitted && form['currentAddress'].errors }" 
+                            ></textarea>
+                            <div *ngIf="submitted && form['currentAddress'].errors" class="invalid-feedback">
+                              <div *ngIf="form['currentAddress'].errors['required']">Current address is required</div>
+                              <div *ngIf="form['currentAddress'].errors['pattern']">Current address is invalid</div>
+                            </div>
                   </div>	
               </div>
               </div>
@@ -995,10 +1007,13 @@
                   <div class="form-check">
                     <input
                       class="form-check-input"
-                      type="checkbox"
+                      type="radio"
                       id="residential"
+                      formControlName="propertyPreferences"
                       value="residential"
-                      checked
+                      [checked]="currentlyChecked === check_box_type.APPLY_FOR_RESIDENTIAL" 
+                      (click)="selectCheckBox(check_box_type.APPLY_FOR_RESIDENTIAL)"
+                      checked = "checked"
                     />
                     <label class="form-check-label" for="residential"
                       >Residential</label
@@ -1010,17 +1025,49 @@
                   <div class="form-check">
                     <input
                       class="form-check-input"
-                      type="checkbox"
+                      type="radio"
                       id="commercial"
+                      formControlName="propertyPreferences"
                       value="commercial"
+                      [checked]="currentlyChecked === check_box_type.APPLY_FOR_COMMERCIAL"
+                      (click)="selectCheckBox(check_box_type.APPLY_FOR_COMMERCIAL)"
                     />
                     <label class="form-check-label" for="commercial"
                       >Commercial</label
                     >
                   </div>
                 </div>
-                <div class="col-xxl-8 col-lg-6"></div>
 
+                 <div class="col-xxl-8 col-lg-6"></div>
+                 <div *ngIf="isCommercial" >
+                  <div class="col-xxl-4 col-lg-6">
+                    <label>Desired Property Location :</label>
+                    <select
+                      class="form-select"
+                      aria-label="Disabled select example"
+                     
+                    >
+                      <option selected="">Doha</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div>
+                  <div class="col-xxl-4 col-lg-6">
+                    <label>Preferred Neighbourhood:</label>
+                    <select
+                      class="form-select"
+                      aria-label="Disabled select example"
+                     
+                    >
+                      <option selected="">Doha</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div>
+                 </div>
+  <div *ngIf="isResidential" >
                 <div class="col-xxl-4 col-lg-6">
                   <label>Desired Property Location :</label>
                   <select
@@ -1149,20 +1196,9 @@
                     ></a>
                   </h6>
                 </div>
+              </div>
                 <div class="col-xxl-12 col-lg-12">
-                  <p >
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book. It has survived not only five centuries,
-                    but also the leap into electronic typesetting, remaining
-                    essentially unchanged. It was popularised in the 1960s with
-                    the release of Letraset sheets containing Lorem Ipsum
-                    passages, and more recently with desktop publishing software
-                    like Aldus PageMaker including versions of Lorem Ipsum.
-                  </p>
-                  <textarea
+                          <textarea
                     style="width: 90% !important"
                     
                     value="Lorem Ipsum is simply dummy text of the printing and

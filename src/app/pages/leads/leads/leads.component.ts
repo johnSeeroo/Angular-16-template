@@ -28,6 +28,7 @@ import {
   LeadSource,
   MaritalStatus,
   LeadStatus,
+  Nationality
 } from "./leads.model";
 import {
   Leads,
@@ -35,6 +36,8 @@ import {
   LEADSSOURCE,
   MARITALSTATUS,
   LEADSTATUS,
+  NATIONALITY,
+  CheckBoxType
 } from "./data";
 import { LeadsService } from "./leads.service";
 import {
@@ -76,6 +79,7 @@ export class LeadsComponent {
 
   maritalStatusArray: MaritalStatus[] = MARITALSTATUS;
   leadStatusArray: LeadStatus[] = LEADSTATUS;
+  nationalityArray: Nationality[]= NATIONALITY;
 
   // Table data
   invoiceList!: Observable<LeadsModel[]>;
@@ -85,6 +89,14 @@ export class LeadsComponent {
   closeResult: any;
   canWriteLeadsModule: boolean = false;
   canDeleteLeadsModule: boolean = false;
+
+  isResidential: boolean = true;
+  isCommercial: boolean = false;
+
+  check_box_type = CheckBoxType;
+
+  currentlyChecked: any;
+
 
   constructor(
     private modalService: NgbModal,
@@ -106,7 +118,7 @@ export class LeadsComponent {
      * BreadCrumb
      */
     this.breadCrumbItems = [{ label: "CRM" }, { label: "Leads", active: true }];
-    console.log(this.canDeleteLeadsModule);
+    this.currentlyChecked = CheckBoxType.APPLY_FOR_RESIDENTIAL;
 
     /**
      * Form Validation
@@ -114,7 +126,7 @@ export class LeadsComponent {
     this.leadsForm = this.formBuilder.group({
       leadOwner: ["", [Validators.required]],
       mobile: ["", [Validators.required]],
-      email: ["", [Validators.required, Validators.email]],
+      //email: ["", [Validators.required, Validators.email]],
       leadName: ["", [Validators.required, Validators.pattern("[a-zA-Z0-9]+")]],
       alternateNumber: [
         "",
@@ -125,7 +137,7 @@ export class LeadsComponent {
         "",
         [Validators.required, Validators.pattern("[a-zA-Z0-9]+")],
       ],
-      industry: ["", [Validators.required]],
+      industry: ["", [Validators.required,Validators.pattern("[a-zA-Z0-9]+")]],
       website: ["", [Validators.required]],
       leadSource: [null, [Validators.required]],
       leadStatus: [null, [Validators.required]],
@@ -135,19 +147,21 @@ export class LeadsComponent {
         [Validators.required, Validators.pattern("[a-zA-Z0-9]+")],
       ],
       preferredTimeToCall: ["", [Validators.required]],
-      nationality: ["", [Validators.required]],
+      nationality: [null, [Validators.required]],
       propertyPreferences: ["", Validators.required],
-      desiredPropertyLocation: ["", Validators.required],
-      area: ["", Validators.required],
-      desiredMoveIndate: ["", Validators.required],
-      description: ["", Validators.required],
-      currentAddress: ["", Validators.required],
+     // desiredPropertyLocation: ["", Validators.required],
+      //area: ["", [Validators.required]],
+     // desiredMoveIndate: ["", [Validators.required]],
+     // description: ["", [Validators.required]],
+      currentAddress: ["", [Validators.required]],
+      residential: this.formBuilder.array([]),
+      commercial: this.formBuilder.array([])
     });
 
     this.leadsForm.controls["leadOwner"].setValue(this.default, {
       onlySelf: true,
     });
-
+    this.subscribeToSelectionChanges();
     /**
      * fetches data
      */
@@ -159,6 +173,7 @@ export class LeadsComponent {
       document.getElementById("elmLoader")?.classList.add("d-none");
     }, 1200);
   }
+
 
   /**
    * Open modal
@@ -418,10 +433,24 @@ export class LeadsComponent {
       windowClass: "modal-holder",
     });
   }
+  /**
+   * Form Submit
+   * @param this.leadsform
+   * @returns 
+   */
   onSubmit() {
     console.log("Form submitted");
     this.submitted = true;
-    console.log(this.leadsForm.invalid, "Invalid");
+    console.log(this.leadsForm, "Invalid");
+
+    const partSubmitted = this.leadsForm.get('propertyPreferences')!.value;
+
+
+    if (partSubmitted === 'residential') {
+      this.removeResidentialValidation();
+    } else if (partSubmitted === 'commercial') {
+      this.removeCommercialValidation();
+    }
     if (this.leadsForm.invalid) {
       return;
     }
@@ -429,12 +458,111 @@ export class LeadsComponent {
     // display form values on success
     alert("SUCCESS!! :-)\n\n" + JSON.stringify(this.leadsForm.value, null, 4));
   }
-  onClick() {
-    console.log("Submit button was clicked!");
-  }
+
+  /**
+   *  USed to submit the form from modal
+   */
 
   submitForm() {
     // Perform any pre-submission actions or validation if needed
     this.onSubmit();
+  }
+ 
+  /**
+   * Residential and commercial checkbox 
+   * @param targetType 
+   * @returns 
+   */
+
+  selectCheckBox(targetType: CheckBoxType) {
+    // If the checkbox was already checked, clear the currentlyChecked variable
+    console.log(targetType,"Target type",this.currentlyChecked)
+
+    if(targetType === 0 ||  (targetType === 1 && this.currentlyChecked === 1 ))
+    {
+     this.isResidential = true;
+     this.isCommercial = false;
+    }else{
+     this.isResidential = false;
+     this.isCommercial = true;
+    }
+    if(this.currentlyChecked === targetType) {
+      this.currentlyChecked = CheckBoxType.APPLY_FOR_RESIDENTIAL;
+      return;
+    }
+    
+    this.currentlyChecked = targetType;
+  }
+
+  subscribeToSelectionChanges() {
+ 
+    this.leadsForm.get('propertyPreferences')!.valueChanges.subscribe(selectedValue => {
+      if (selectedValue === 'residential') {
+        this.addResidentialField();
+      } else if (selectedValue === 'commercial') {
+        this.addCommercialField();
+      }
+      // Add other conditions or logic based on the selected value
+    });
+  }
+  addResidentialField() {
+    const residentialArray = this.leadsForm.get('residential') as FormArray;
+    const newResidentialGroup = this.formBuilder.group({
+      // Add fields for the residential FormArray
+      // Example:
+      preferredNeighbourhood: ['', Validators.required],
+      desiredPropertyLocation: ["", Validators.required],
+      numberOfBedrooms: ["", [Validators.required]],
+      numberOfBathrooms: ["", [Validators.required]],
+      priceRange: ["", [Validators.required]],
+      buildingType: ["", [Validators.required]],
+      unitType: ["", [Validators.required]],
+      floorPreference: ["", [Validators.required]],
+      viewPreference: ["", [Validators.required]],
+      description: ["", [Validators.required]],
+      // other fields you want to add dynamically
+    });
+    residentialArray.push(newResidentialGroup);
+    console.log(this.leadsForm,"Leads form")
+  }
+
+  addCommercialField() {
+    const commercialArray = this.leadsForm.get('commercial') as FormArray;
+    const newCommercialGroup = this.formBuilder.group({
+      // Add fields for the commercial FormArray
+      // Example:
+      priceRange: ["", [Validators.required]],
+      buildingType: ["", [Validators.required]],
+      unitType: ["", [Validators.required]],
+      floorPreference: ["", [Validators.required]],
+      // other fields you want to add dynamically
+    });
+    commercialArray.push(newCommercialGroup);
+  }
+
+  removeResidentialValidation() {
+    // Example: Remove the 'type' field validation from the 'residential' FormArray
+    const residentialArray = this.leadsForm.get('residential') as FormArray;
+    if (residentialArray && residentialArray.length > 0) {
+      const firstResidentialGroup = residentialArray.at(0) as FormGroup;
+      if (firstResidentialGroup) {
+        firstResidentialGroup.get('preferredNeighbourhood')?.clearValidators();
+        firstResidentialGroup.get('preferredNeighbourhood')?.updateValueAndValidity();
+        // You might add similar logic for other fields in the residential FormArray
+      }
+    }
+  }
+
+  removeCommercialValidation() {
+    // Example: Remove the 'type' field validation from the 'commercial' FormArray
+    const commercialArray = this.leadsForm.get('commercial') as FormArray;
+    if (commercialArray && commercialArray.length > 0) {
+      const firstCommercialGroup = commercialArray.at(0) as FormGroup;
+      if (firstCommercialGroup) {
+        firstCommercialGroup.get('priceRange')?.clearValidators();
+        firstCommercialGroup.get('priceRange')?.updateValueAndValidity();
+        // You might add similar logic for other fields in the commercial FormArray
+      }
+    }
   }
 }
