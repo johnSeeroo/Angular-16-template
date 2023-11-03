@@ -7,8 +7,9 @@ const Timelinedata = [
          date:"12 Dec 2021",
          timelinedata:[{
             timeduration:"02:35AM to 04:30PM",
-            tasktitle:"Frank hook joined with our company",
-            taskdescription:"It makes a statement, it’s impressive graphic design. Increase or decrease the letter spacing depending on the situation and try, try again until it looks right, and each letter has the perfect spot of its own."
+            tasktitle:"Frank hook joined with our company",            
+            taskdescription:"It makes a statement, it’s impressive graphic design. Increase or decrease the letter spacing depending on the situation and try, try again until it looks right, and each letter has the perfect spot of its own.",
+            taskprofile:"assets/images/users/avatar-7.jpg"
          },
          {
             timeduration:"02:35AM to 04:30PM",
@@ -34,7 +35,7 @@ const Timelinedata = [
             {
                 timeduration:"9:20AM to 10:05PM",
                 tasktitle:"Designer & Developer Meeting",
-                taskdescription:"Last updates,Weekly planning,Work distribution"
+                taskdescription:"Last updates\nWeekly Planning\nWork Distribution",
              },
              
              

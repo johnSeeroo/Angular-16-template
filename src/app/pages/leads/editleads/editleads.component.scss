@@ -1,21 +1,13 @@
-.full-screen-modal .modal-dialog {
-    max-width: 100%;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .full-screen-modal .modal-content {
-    height: 100%;
-    border: none;
-  }
-  
-  .full-screen-modal .modal-body {
-    height: calc(100% - 120px); /* Adjust as needed to fit your content */
-  }
-  
-  .full-screen-modal .modal-header,
-  .full-screen-modal .modal-footer {
-    display: none; /* Remove header and footer if not needed */
-  }
+.modal-content-container {
+  max-height: 60vh; /* Adjust the max-height as needed */
+  overflow-y: auto;
+}
+
+.modal-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  background-color: #f9f9f9; /* Optional: Add a background color */
+}
