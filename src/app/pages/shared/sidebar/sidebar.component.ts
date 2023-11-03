@@ -9,10 +9,9 @@ import {
 import { NavigationEnd, Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
 
-import { MENU } from "./menu";
-import { MenuItem } from "./menu.model";
-import { SUBMENU } from "./subMenu";
 import { CommonService } from "src/app/core/services/common.service";
+import { MENULIST } from "../menu/menuList";
+import { MenuList } from "../menu/menuList.model";
 
 @Component({
   selector: "app-sidebar",
@@ -22,7 +21,7 @@ import { CommonService } from "src/app/core/services/common.service";
 export class SidebarComponent implements OnInit {
   menu: any;
   toggle: any = true;
-  menuItems: any[] = [];
+  menuItems: MenuList[] = [];
   @ViewChild("sideMenu") sideMenu!: ElementRef;
   @Output() mobileMenuButtonClicked = new EventEmitter();
   selectedTopMenuId = 0;
@@ -36,7 +35,7 @@ export class SidebarComponent implements OnInit {
     translate.setDefaultLang("en");
     this.commonService.selectedTopMenuItemId.subscribe((data) => {
       this.selectedTopMenuId = data;
-      let value = SUBMENU.filter(
+      let value = MENULIST.filter(
         (data: any) => data.id === this.selectedTopMenuId
       );
       this.menuItems = value[0].subItems;
@@ -44,8 +43,6 @@ export class SidebarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Menu Items
-    // this.menuItems = SUBMENU;
     this.router.events.subscribe((event) => {
       if (document.documentElement.getAttribute("data-layout") != "twocolumn") {
         if (event instanceof NavigationEnd) {
@@ -267,7 +264,7 @@ export class SidebarComponent implements OnInit {
    * Returns true or false if given menu item has child or not
    * @param item menuItem
    */
-  hasItems(item: MenuItem) {
+  hasItems(item: MenuList) {
     return item.subItems !== undefined ? item.subItems.length > 0 : false;
   }
 
