@@ -384,7 +384,7 @@
           ><i class="las la-building"></i
         ></a>
       </li>
-      <li>
+      <!-- <li>
         <a
           (click)="goToNote()"
           class="js-anchor-link"
@@ -394,16 +394,26 @@
           ngbTooltip="Note"
           ><i class="las la-map-marker"></i
         ></a>
+      </li> -->
+      <li>
+        <a
+          (click)="goToNote()"
+          class="js-anchor-link"
+          data-bs-toggle="tooltip"
+          data-bs-trigger="hover"
+          data-bs-placement="left"
+          ngbTooltip="Notes"
+          ><i class="las la-comment"></i
+        ></a>
       </li>
       <li>
         <a
           (click)="goToAttachment()"
           class="js-anchor-link"
-          data-bs-toggle="tooltip"
           data-bs-trigger="hover"
           data-bs-placement="left"
           ngbTooltip="Attachment"
-          ><i class="las la-comment"></i
+          ><i class="las la-paperclip"></i
         ></a>
       </li>
       <li>
@@ -413,17 +423,18 @@
           data-bs-trigger="hover"
           data-bs-placement="left"
           ngbTooltip="Timeline"
-          ><i class="las la-paperclip"></i
+          ><i class="las la-route"></i
         ></a>
       </li>
       <li>
         <a
           (click)="goToActivity()"
           class="js-anchor-link"
+          data-bs-toggle="tooltip"
           data-bs-trigger="hover"
           data-bs-placement="left"
-          ngbTooltip="Activity"
-          ><i class="las la-route"></i
+          ngbTooltip="Activities"
+          ><i class="las la-file-alt"></i
         ></a>
       </li>
       <!-- <li>
