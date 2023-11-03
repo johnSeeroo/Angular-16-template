@@ -20,6 +20,8 @@ export class LeadsViewComponent {
   @ViewChild("propertySection") propertySection!: ElementRef;
   @ViewChild("noteSection") noteSection!: ElementRef;
   @ViewChild("attachmentSection") attachmentSection!: ElementRef;
+  @ViewChild("timeLineSection") timeLineSection!: ElementRef;
+  @ViewChild("activitySection") activitySection!: ElementRef;
   constructor(private modalService: NgbModal) {
     /**
      * BreadCrumb
@@ -51,5 +53,13 @@ export class LeadsViewComponent {
 
   goToAttachment() {
     this.attachmentSection.nativeElement.scrollIntoView({ behavior: "smooth" });
+  }
+
+  goToTimeline() {
+    this.timeLineSection.nativeElement.scrollIntoView({ behavior: "smooth" });
+  }
+
+  goToActivity() {
+    this.activitySection.nativeElement.scrollIntoView({ behavior: "smooth" });
   }
 }
