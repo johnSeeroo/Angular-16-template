@@ -1,57 +1,216 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormBuilder, FormGroup,Validators } from '@angular/forms';
-import { LeadsInformation } from '../leads/data';
+import { FormArray, FormBuilder, FormGroup,Validators } from '@angular/forms';
+import { LeadsInformation,LEADSOWNER, LEADSSOURCE, MARITALSTATUS, LEADSTATUS, NATIONALITY, CheckBoxType } from '../leads/data';
+import { LeadSource, LeadStatus, LeadsOwner, MaritalStatus, Nationality } from '../leads/leads.model';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-editleads',
   templateUrl: './editleads.component.html',
   styleUrls: ['./editleads.component.scss']
 })
 export class EditleadsComponent {
+  leadOwnerArray: LeadsOwner[] = LEADSOWNER;
+  default: number = 1;
+
+  leadSourceArray: LeadSource[] = LEADSSOURCE;
+
+  maritalStatusArray: MaritalStatus[] = MARITALSTATUS;
+  leadStatusArray: LeadStatus[] = LEADSTATUS;
+  nationalityArray: Nationality[]= NATIONALITY;
+  isResidential: boolean = true;
+  isCommercial: boolean = false;
+
+  check_box_type = CheckBoxType;
+
+  currentlyChecked: any;
   editleadsform!: FormGroup;
   descriptionReadMode = true;
   LeadDetails=LeadsInformation[0].data[0]
   submitted = false;
+  propertyPreferences: string = 'residential';
+  residential!: FormArray;
+  commercial!: FormArray;
+  leadId!:string
+  isEdit: boolean=false;
+  title: string='add lead';
+  // currentlyChecked: string = 'residential'; 
 
 
+  constructor(public activeModal: NgbActiveModal,private formBuilder: FormBuilder,private route: ActivatedRoute,) {
+    
+    this.propertyPreferences = 'residential'; 
+  
+    
+    this.currentlyChecked = CheckBoxType.APPLY_FOR_RESIDENTIAL;
 
-  constructor(public activeModal: NgbActiveModal,private formBuilder: FormBuilder) {
+    /**
+     * Form Validation
+     */
     this.editleadsform = this.formBuilder.group({
-      leadOwner: ['', Validators.required],
-      mobile: ['', [Validators.required, Validators.pattern(/^[0-9]{10}$/)]],
-      alternateNumber: ['', [Validators.required, Validators.pattern(/^[0-9]+$/)]],
-      website: [''],
-      annualRevenue: [''],
-      createdBy: [''],
-      leadName: [''],
-      company: [''],
-      leadSource: [''],
-      maritalStatus: [''],
-      modifiedBy: [''],
-      designation: [''],
-      leadStatus: [''],
-      nationality: [''],
-      industry: [''],
-      preferredTimeToCall: [''],
-      address: ['', Validators.required],
-      residential:[false],
-      commercial:[false],
-      desiredpropertylocation:[''],
-      prefferedneighbourhood:[''],
-      numberofbedrooms:[''],
-      numberofbathrooms:[''],
-      pricerange:[''],
-      buildingtype:[''],
-      unittype:[''],
-      floorpreference:[''],
-      viewpreference:[''],
-      description:['Lorem Ipsum is simply dummy text of the printing and typesetting industry.',]
-      
+      leadOwner: ["", [Validators.required]],
+      mobile: ["", [Validators.required]],
+      //email: ["", [Validators.required, Validators.email]],
+      leadName: ["", [Validators.required]],
+      alternateNumber: [
+        "",
+        [Validators.required, Validators.pattern("[0-9 ]{11}")],
+      ],
+      company: ["", [Validators.required]],
+      designation: [
+        "",
+        [Validators.required, Validators.pattern("[a-zA-Z0-9]+")],
+      ],
+      industry: ["", [Validators.required,Validators.pattern("[a-zA-Z0-9]+")]],
+      website: ["", [Validators.required]],
+      leadSource: [null, [Validators.required]],
+      leadStatus: [null, [Validators.required]],
+      maritalStatus: [null, [Validators.required]],
+      annualRevenue: [
+        "",
+        [Validators.required, Validators.pattern("[a-zA-Z0-9]+")],
+      ],
+      preferredTimeToCall: ["", [Validators.required]],
+      nationality: [null, [Validators.required]],
+      propertyPreferences: ["", Validators.required],
+     // desiredPropertyLocation: ["", Validators.required],
+      //area: ["", [Validators.required]],
+     // desiredMoveIndate: ["", [Validators.required]],
+     // description: ["", [Validators.required]],
+      currentAddress: ["", [Validators.required]],
+      residential: this.formBuilder.array([]),
+      commercial: this.formBuilder.array([])
     });
-    console.log(this.LeadDetails)
+
+    this.editleadsform.controls["leadOwner"].setValue(this.default, {
+      onlySelf: true,
+    });
+  }
+  ngOnInit(): void {
+    /**
+     * BreadCrumb
+     */
+    // this.breadCrumbItems = [{ label: "CRM" }, { label: "Leads", active: true }];
+    this.currentlyChecked = CheckBoxType.APPLY_FOR_RESIDENTIAL;
+    this.route.params.subscribe((data: any) => {
+      debugger
+      if (data.id) {
+        debugger
+        // this.setBreadCrumb();
+        this.title = 'Edit Division';
+        this.leadId = data.id;
+        // this.getDivisionDetails();
+        this.isEdit = true;
+      }
+
+    });
+
     this.editformdetails();
+    this.onSelectedBlockChange();
+    // this.addResidentialField();
+    
     
   }
+
+ 
+
+  
+  onSelectedBlockChange() {
+    this.editleadsform.get('propertyPreferences')!.valueChanges.subscribe(selectedValue => {
+      if (selectedValue === 'residential') {
+        this.addResidentialField();
+        this.removeCommercialFieldValidators();
+        this.clearCommercialFields();
+      } else if (selectedValue === 'commercial') {
+        console.log("Check the details in commercial")
+        this.removeResidentialFieldValidators();
+        this.addCommercialField();
+       
+        this.clearResidentialFields();
+      }
+    });
+  }
+  
+
+  addResidentialField() {
+    const residentialArray = this.editleadsform.get('residential') as FormArray;
+    if (residentialArray.length === 0) {
+      const newResidentialGroup = this.formBuilder.group({
+        // Add fields for the residential FormArray
+        // Example:
+        preferredNeighbourhood: ['', Validators.required],
+        desiredPropertyLocation: ['', Validators.required],
+        numberOfBedrooms: ['', [Validators.required]],
+        numberOfBathrooms: ['', [Validators.required]],
+        priceRange: ['', [Validators.required]],
+        buildingType: ['', [Validators.required]],
+        unitType: ['', [Validators.required]],
+        floorPreference: ['', [Validators.required]],
+        // viewPreference: ['', [Validators.required]],
+        // description: ['', [Validators.required]],
+        // other fields you want to add dynamically
+      });
+      
+      residentialArray.push(newResidentialGroup);
+    }
+    // console.log(this.leadsForm,"Leads form")
+  }
+
+  addCommercialField() {
+    const commercialArray = this.editleadsform.get('commercial') as FormArray;
+    if(commercialArray.length ===0){
+      const newCommercialGroup = this.formBuilder.group({
+        // Add fields for the commercial FormArray
+        // Example:
+        preferredNeighbourhood: ['', Validators.required],
+        desiredPropertyLocation: ['', Validators.required],
+        numberOfBedrooms: ['', [Validators.required]],
+        numberOfBathrooms: ['', [Validators.required]],
+        priceRange: ['', [Validators.required]],
+        buildingType: ['', [Validators.required]],
+        unitType: ['', [Validators.required]],
+        floorPreference: ['', [Validators.required]],
+        // viewPreference: ['', [Validators.required]],
+        // description: ['', [Validators.required]],
+        // other fields you want to add dynamically
+      });
+      commercialArray.push(newCommercialGroup);
+
+    }
+    
+  }
+  removeResidentialFieldValidators() {
+    const residentialArray = this.editleadsform.get('residential') as FormArray;
+    residentialArray.controls.forEach(control => {
+      control.clearValidators();
+      control.updateValueAndValidity();
+    });
+  }
+  
+  removeCommercialFieldValidators() {
+    const commercialArray = this.editleadsform.get('commercial') as FormArray;
+    commercialArray.controls.forEach(control => {
+      control.clearValidators();
+      control.updateValueAndValidity();
+    });
+  }
+  
+  clearResidentialFields() {
+    const residentialArray = this.editleadsform.get('residential') as FormArray;
+    residentialArray.clear();
+  }
+  
+  clearCommercialFields() {
+    const commercialArray = this.editleadsform.get('commercial') as FormArray;
+    commercialArray.clear();
+  }
+
+
+// ...
+
+
+
+  
 
 close() {
     this.activeModal.close('Modal closed');
@@ -59,18 +218,63 @@ close() {
 get form() {
   return this.editleadsform.controls;
 }
+
 submitForm() {debugger
   this.submitted = true;
-
-  // Check if the form is valid
-  if (this.editleadsform.valid) {
+  
+ 
+  // // this.editleadsform.get('residential')?.setValue(null)
+  console.log(this.editleadsform)
+  // // Check if the form is valid
+  // if (this.editleadsform.valid) {
     
-    console.log('Form submitted with the following data:', this.editleadsform.value);
+  //   console.log('Form submitted with the following data:', this.editleadsform.value);
 
-    // After successful submission, you can close the modal or perform other actions
-    this.close();
+  //   // After successful submission, you can close the modal or perform other actions
+  //   this.close();
+  // }
+  if (!this.editleadsform.valid) {
+    return;
   }
+  let value = this.editleadsform.value;
+  if (!this.isEdit) {
+    // this.divisioncreateservice.DivisionCreate(value).subscribe(() => {
+    //   // this.modalService.showNotification("saved successfully")
+      this.close();
+      console.log(value,"Values")
+    // });
+  } else {
+    // this.divisioncreateservice
+    //   .updateDivision(value, this.leadId)
+    //   .subscribe(() => {
+    //     // this.modalService.showNotification("saved successfully")
+        this.close();
+        console.log(value,"Values")
+    //   });
+  }
+  
 }
+selectCheckBox(targetType: CheckBoxType) {
+  // If the checkbox was already checked, clear the currentlyChecked variable
+  console.log(targetType,"Target type",this.currentlyChecked)
+
+  if(targetType === 0 ||  (targetType === 1 && this.currentlyChecked === 1 ))
+  {
+   this.isResidential = true;
+   this.isCommercial = false;
+  }else{
+   this.isResidential = false;
+   this.isCommercial = true;
+  }
+  if(this.currentlyChecked === targetType) {
+    this.currentlyChecked = CheckBoxType.APPLY_FOR_RESIDENTIAL;
+    return;
+  }
+  
+  this.currentlyChecked = targetType;
+}
+
+
 
 
 editformdetails(){
@@ -79,7 +283,7 @@ editformdetails(){
     mobile: this.LeadDetails.phoneNumber,    
     alternateNumber: this.LeadDetails.alternateNumber,
     website: this.LeadDetails.website,
-    annualRevenue:this.LeadDetails.annualRevenue,
+    annualRevenue: this.LeadDetails.annualRevenue || 'none',
     createdBy:this.LeadDetails.createdBy,
     leadName:this.LeadDetails.leadName,
     company:this.LeadDetails.company,
@@ -97,4 +301,7 @@ editformdetails(){
   });
   
 }
+
+
+
 }
