@@ -488,12 +488,16 @@
       <div class="col-xxl-12 col-lg-12">
         <textarea
   style="width: 90% !important"
-  
+  formControlName="description"
+  [ngClass]="{'is-invalid': submitted && editleadsform.get('residential.' + i + '.description')?.errors }"
   value="Lorem Ipsum is simply dummy text of the printing and
   typesetting industry."
   rows="5"
   cols="40"
   ></textarea>
+  <div  *ngIf="submitted && editleadsform.get('residential.' + i + '.description')?.errors " class="invalid-feedback" >
+    <div *ngIf="editleadsform.get('residential.' + i + '.description')?.hasError('required')">Description is required</div>                                        
+  </div>
   </div>
 
                 </div>
@@ -677,12 +681,15 @@
         <div class="col-xxl-12 col-lg-12">
           <textarea
     style="width: 90% !important"
-    
+    [ngClass]="{'is-invalid': submitted && editleadsform.get('commercial.' + i + '.description')?.errors }"
     value="Lorem Ipsum is simply dummy text of the printing and
     typesetting industry."
     rows="5"
     cols="40"
     ></textarea>
+    <div  *ngIf="submitted && editleadsform.get('commercial.' + i + '.description')?.errors " class="invalid-feedback" >
+      <div *ngIf="editleadsform.get('commercial.' + i + '.description')?.hasError('required')">Description is required</div>                                        
+    </div>
     </div>
   
                   </div>

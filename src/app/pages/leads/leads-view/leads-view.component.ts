@@ -28,7 +28,9 @@ export class LeadsViewComponent {
      */
     // this.breadCrumbItems = [{ label: "CRM" }, { label: "Leads-Edit", active: true }];
   }
-  openEditLeadsModal(leadId:any) {
+  // Add leads//
+  
+  openEditLeadsModal(leadId?:any) {
     const modalRef = this.modalService.open(EditleadsComponent, {
       size: "fullscreen", // Set the size as per your requirements
       windowClass: "modal-holder",

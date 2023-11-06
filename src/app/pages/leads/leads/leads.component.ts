@@ -45,6 +45,7 @@ import {
   leadSortEvent,
 } from "./leads-sortable.directive";
 import { ActivatedRoute } from "@angular/router";
+import { EditleadsComponent } from "../editleads/editleads.component";
 
 @Component({
   selector: "app-leads",
@@ -189,6 +190,16 @@ export class LeadsComponent {
   openModal(content: any) {
     this.submitted = false;
     this.modalService.open(content, { size: "md", centered: true });
+  }
+  openEditLeadsModal(leadId?:any) {
+    const modalRef = this.modalService.open(EditleadsComponent, {
+      size: "fullscreen", // Set the size as per your requirements
+      windowClass: "modal-holder",
+      keyboard: false, // Prevent closing by pressing Esc key
+    });
+    // You can pass data to the modal component if needed
+    // modalRef.componentInstance.data = this.leadsInformation; // Replace with your actual data
+    modalRef.componentInstance.leadId = leadId;
   }
 
   /**
