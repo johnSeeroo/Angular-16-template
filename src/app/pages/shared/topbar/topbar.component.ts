@@ -35,7 +35,11 @@ export class TopbarComponent implements OnInit {
   userData: any;
   menuItems: MenuList[] = MENULIST;
   hideToggleButton = true;
-  activeMenuItem = 0;
+  localStorageMenuId = Number(localStorage.getItem("menuItemId"));
+  activeMenuItem =
+    localStorage.getItem("menuItemId") && this.router.url !== "/dashboard"
+      ? Number(localStorage.getItem("menuItemId"))
+      : 0;
 
   constructor(
     @Inject(DOCUMENT) private document: any,
@@ -67,6 +71,10 @@ export class TopbarComponent implements OnInit {
         }
       }
     });
+    const menuId = localStorage.getItem("menuItemId");
+    if (this.router.url !== "/dashboard") {
+      this.commonService.setTopMenuItemId(menuId ? parseInt(menuId) : 0);
+    }
     this.userData = this.TokenStorageService.getUser();
     this.element = document.documentElement;
 
@@ -283,6 +291,7 @@ export class TopbarComponent implements OnInit {
   }
 
   onClickTopMenu(id: number) {
+    localStorage.setItem("menuItemId", id.toString());
     this.commonService.setTopMenuItemId(id);
     this.activeMenuItem = id;
   }
