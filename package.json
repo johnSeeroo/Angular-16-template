@@ -45,6 +45,7 @@
     "browserslist": "^4.21.10",
     "chart.js": "^4.4.0",
     "echarts": "^5.4.3",
+    "element-resize-detector": "^1.1.14",
     "firebase": "^10.4.0",
     "flatpickr": "^4.6.13",
     "fuzzy-search": "^3.2.1",

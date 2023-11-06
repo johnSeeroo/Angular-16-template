@@ -5,7 +5,7 @@ import {
   LeadStatus,
   Nationality,
 } from "./leads.model";
-const Leads = [
+const Leads = 
   {
     statusCode: 200,
     message: "Leads list",
@@ -22,6 +22,7 @@ const Leads = [
         CreatedOn: "24 sep 2023 09:34 am",
         profile: "assets/images/users/avatar-1.jpg",
         state: false,
+        name: "Muhammed Al Jasser",
       },
       {
         leadId: 12913,
@@ -35,6 +36,7 @@ const Leads = [
         CreatedOn: "26 sep 2023 12:34 am",
         profile: "assets/images/users/avatar-2.jpg",
         state: false,
+        name: "Ahammed Munneb",
       },
       {
         leadId: 12913,
@@ -48,10 +50,11 @@ const Leads = [
         CreatedOn: "96 sep 2023 11:34 am",
         profile: "assets/images/users/avatar-3.jpg",
         state: false,
+        name: "Anaz Abdul lateef",
       },
     ],
-  },
-];
+  };
+
 
 const LeadsInformation = [
   {

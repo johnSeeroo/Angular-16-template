@@ -66,7 +66,7 @@ export class LeadsComponent {
 
   // Api Data
   content?: any;
-  leads = Leads[0].data;
+  leads : any;
   econtent?: any;
   user = data.data[0];
   // canWriteLeadsModule!: boolean| undefined;;
@@ -113,13 +113,16 @@ export class LeadsComponent {
     this.canDeleteLeadsModule = this.route.snapshot.data["permissions"]?.delete;
   }
 
-  ngOnInit(): void {
+ async ngOnInit(): Promise<void> {
     /**
      * BreadCrumb
      */
     this.breadCrumbItems = [{ label: "CRM" }, { label: "Leads", active: true }];
     this.currentlyChecked = CheckBoxType.APPLY_FOR_RESIDENTIAL;
-
+   await this.restApiService.getDataSample('?limit=10&skip=10&select=title,price').subscribe((data: any) => {
+      console.log(data,"API");
+    });;
+   
     /**
      * Form Validation
      */
@@ -165,11 +168,15 @@ export class LeadsComponent {
     /**
      * fetches data
      */
+    this.invoiceList.subscribe((x) => {
+        console.log(x,"hhhhhh")
+      });
+
     setTimeout(() => {
-      // this.invoiceList.subscribe((x) => {
-      //   this.content = this.leads;
-      //   this.leads = Object.assign([], x);
-      // });
+      this.invoiceList.subscribe((x) => {
+        this.content = this.leads;
+        this.leads = Object.assign([], x);
+      });
       document.getElementById("elmLoader")?.classList.add("d-none");
     }, 1200);
   }
@@ -190,6 +197,7 @@ export class LeadsComponent {
   get form() {
     return this.leadsForm.controls;
   }
+
 
   // File Upload
   imageURL: string | undefined;
@@ -338,43 +346,43 @@ export class LeadsComponent {
 
   // The master checkbox will check/ uncheck all items
   checkUncheckAll(ev: any) {
-    // this.leads.forEach((x: { state: any }) => (x.state = ev.target.checked));
-    // var checkedVal: any[] = [];
-    // var result;
-    // for (var i = 0; i < this.leads.length; i++) {
-    //   if (this.leads[i].state == true) {
-    //     result = this.leads[i];
-    //     checkedVal.push(result);
-    //   }
-    // }
-    // this.checkedValGet = checkedVal;
-    // checkedVal.length > 0
-    //   ? ((
-    //       document.getElementById("remove-actions") as HTMLElement
-    //     ).style.display = "block")
-    //   : ((
-    //       document.getElementById("remove-actions") as HTMLElement
-    //     ).style.display = "none");
+    this.leads.forEach((x: { state: any }) => (x.state = ev.target.checked));
+    var checkedVal: any[] = [];
+    var result;
+    for (var i = 0; i < this.leads.length; i++) {
+      if (this.leads[i].state == true) {
+        result = this.leads[i];
+        checkedVal.push(result);
+      }
+    }
+    this.checkedValGet = checkedVal;
+    checkedVal.length > 0
+      ? ((
+          document.getElementById("remove-actions") as HTMLElement
+        ).style.display = "block")
+      : ((
+          document.getElementById("remove-actions") as HTMLElement
+        ).style.display = "none");
   }
 
   // Select Checkbox value Get
   onCheckboxChange(e: any) {
-    // var checkedVal: any[] = [];
-    // var result;
-    // for (var i = 0; i < this.leads.length; i++) {
-    //   if (this.leads[i].state == true) {
-    //     result = this.leads[i];
-    //     checkedVal.push(result);
-    //   }
-    // }
-    // this.checkedValGet = checkedVal;
-    // checkedVal.length > 0
-    //   ? ((
-    //       document.getElementById("remove-actions") as HTMLElement
-    //     ).style.display = "block")
-    //   : ((
-    //       document.getElementById("remove-actions") as HTMLElement
-    //     ).style.display = "none");
+    var checkedVal: any[] = [];
+    var result;
+    for (var i = 0; i < this.leads.length; i++) {
+      if (this.leads[i].state == true) {
+        result = this.leads[i];
+        checkedVal.push(result);
+      }
+    }
+    this.checkedValGet = checkedVal;
+    checkedVal.length > 0
+      ? ((
+          document.getElementById("remove-actions") as HTMLElement
+        ).style.display = "block")
+      : ((
+          document.getElementById("remove-actions") as HTMLElement
+        ).style.display = "none");
   }
 
   /**

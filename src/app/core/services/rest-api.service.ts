@@ -24,6 +24,13 @@ export class restApiService {
     return this.http.get(GlobalComponent.API_URL + GlobalComponent.product, {  headers: headerToken, responseType: 'text' });
   }
 
+  getDataSample(param:any): Observable<any>{
+    var headerToken = {'Authorization': `Bearer `+ localStorage.getItem('token')};
+    var utl = GlobalComponent.productsample + param   
+    console.log(GlobalComponent.API_URL_SAMPLE + utl,"GOLABLE") 
+    return this.http.get(GlobalComponent.API_URL_SAMPLE + utl, {  headers: headerToken, responseType: 'json' });
+  }
+
   // Delete 
   deleteData(id:any): Observable<any> {
     return this.http.delete(GlobalComponent.API_URL + GlobalComponent.productDelete + id, { responseType: 'text' });
