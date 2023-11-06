@@ -289,11 +289,8 @@
                             class="edit-item-btn"
                             data-bs-toggle="modal"
                             [class.disabled]="!canWriteLeadsModule"
-                            [routerLink]="
-                              canWriteLeadsModule
-                                ? '/leads/edit/' + data.leadId
-                                : null
-                            "
+                            *ngIf="canWriteLeadsModule" 
+                            (click)="openEditLeadsModal(data.leadId)"
                             ><i
                               class="ri-pencil-fill align-bottom text-muted"
                             ></i

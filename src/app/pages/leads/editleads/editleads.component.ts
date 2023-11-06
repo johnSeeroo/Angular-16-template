@@ -76,7 +76,7 @@ export class EditleadsComponent {
      // desiredPropertyLocation: ["", Validators.required],
       //area: ["", [Validators.required]],
      // desiredMoveIndate: ["", [Validators.required]],
-     // description: ["", [Validators.required]],
+    //  description: ["", [Validators.required]],
       currentAddress: ["", [Validators.required]],
       residential: this.formBuilder.array([]),
       commercial: this.formBuilder.array([])
@@ -101,6 +101,7 @@ export class EditleadsComponent {
         this.leadId = data.id;
         // this.getDivisionDetails();
         this.isEdit = true;
+        this.editformdetails();
       }
 
     });
