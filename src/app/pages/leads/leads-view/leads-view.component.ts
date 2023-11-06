@@ -28,7 +28,7 @@ export class LeadsViewComponent {
      */
     // this.breadCrumbItems = [{ label: "CRM" }, { label: "Leads-Edit", active: true }];
   }
-  openEditLeadsModal() {
+  openEditLeadsModal(leadId:any) {
     const modalRef = this.modalService.open(EditleadsComponent, {
       size: "fullscreen", // Set the size as per your requirements
       windowClass: "modal-holder",
@@ -36,6 +36,7 @@ export class LeadsViewComponent {
     });
     // You can pass data to the modal component if needed
     modalRef.componentInstance.data = this.leadsInformation; // Replace with your actual data
+    modalRef.componentInstance.leadId = leadId;
   }
 
   gotoLead() {

@@ -1,1008 +1,722 @@
 <div class="modal-content">
+   
   <div class="modal-header">
-    <h5 class="modal-title" id="exampleModalFullscreenLabel">
-      Lead information edit
-    </h5>
-    <button
-      type="button"
-      class="btn-close"
-      data-bs-dismiss="modal"
-      aria-label="Close"
-      (click)="close()"
-    ></button>
+      <h5 class="modal-title" id="exampleModalFullscreenLabel">Lead Edit</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click)="close()"></button>
   </div>
   <div class="modal-body">
-    <form [formGroup]="editleadsform">
-      <div class="row">
-        <div class="col-xxl-12 col-lg-12">
-          <div class="card">
-            <div class="card-body">
-              <div class="live-preview">
-                <div class="row gy-4">
-                  <div class="col-xxl-12 col-md-12">
-                    <h6 class="card-title mb-4">
-                      <u>Lead Information</u>
-                    </h6>
-                  </div>
-                  <div class="col-xxl-4 col-md-6">
-                    <label>Lead Owner:</label>
-                    <select
-                      class="form-select"
-                      formControlName="leadOwner"
-                      [ngClass]="{
-                        'is-invalid': submitted && form['leadOwner'].errors
-                      }"
-                    >
-                      <option value="Mariana John">Mariana John</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
-                    <div
-                      *ngIf="submitted && form['leadOwner'].errors"
-                      class="invalid-feedback"
-                    >
-                      <div *ngIf="form['leadOwner'].errors['required']">
-                        valid Lead Owner name is required
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xxl-4 col-md-6">
-                    <label>Mobile:</label>
-                    <input
-                      type="number"
-                      class="form-control form-control-sm"
-                      id="mobile"
-                      formControlName="mobile"
-                      [ngClass]="{ 'is-invalid': form['mobile'].errors }"
-                    />
-                    <div *ngIf="form['mobile'].errors" class="invalid-feedback">
-                      <div *ngIf="form['mobile'].errors['required']">
-                        Mobile is required
-                      </div>
-                      <div *ngIf="form['mobile'].errors['pattern']">
-                        Mobile pattern is invalid
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xxl-4 col-md-6">
-                    <label>Alternate Number:</label>
-                    <input
-                      type="number"
-                      class="form-control form-control-sm"
-                      id="alternateNumber"
-                      formControlName="alternateNumber"
-                      [ngClass]="{
-                        'is-invalid': form['alternateNumber'].errors
-                      }"
-                    />
-                    <div
-                      *ngIf="form['alternateNumber'].errors"
-                      class="invalid-feedback"
-                    >
-                      <div *ngIf="form['alternateNumber'].errors['required']">
-                        Alternate Number is required
-                      </div>
-                      <div *ngIf="form['alternateNumber'].errors['pattern']">
-                        Alternate Number pattern is invalid
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xxl-4 col-md-6">
-                    <label>Website:</label>
-                    <input
-                      type="text"
-                      class="form-control form-control-sm"
-                      id="website"
-                      formControlName="website"
-                      [ngClass]="{ 'is-invalid': form['website'].errors }"
-                    />
-                    <div
-                      *ngIf="form['website'].errors"
-                      class="invalid-feedback"
-                    >
-                      <div *ngIf="form['website'].errors['required']">
-                        Website is required
-                      </div>
-                      <div *ngIf="form['website'].errors['pattern']">
-                        Website pattern is invalid
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xxl-4 col-md-6">
-                    <label>Annual Revenue:</label>
-                    <input
-                      type="text"
-                      class="form-control form-control-sm"
-                      id="annualRevenue"
-                      formControlName="annualRevenue"
-                    />
-                  </div>
-                  <div class="col-xxl-4 col-md-6">
-                    <label>Created By:</label>
-                    <select class="form-select" formControlName="createdBy">
-                      <option value="Mariana John">Mariana John</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
-                  </div>
-                  <div class="col-xxl-4 col-md-6">
-                    <label>Lead Name:</label>
-                    <input
-                      type="text"
-                      class="form-control form-control-sm"
-                      id="leadName"
-                      formControlName="leadName"
-                      [ngClass]="{
-                        'is-invalid': submitted && form['leadName'].errors
-                      }"
-                    />
-                    <div
-                      *ngIf="submitted && form['leadName'].errors"
-                      class="invalid-feedback"
-                    >
-                      <div *ngIf="form['leadName'].errors['required']">
-                        Lead Name is required
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xxl-4 col-md-6">
-                    <label>Company:</label>
-                    <input
-                      type="text"
-                      class="form-control form-control-sm"
-                      id="company"
-                      formControlName="company"
-                      [ngClass]="{
-                        'is-invalid': submitted && form['company'].errors
-                      }"
-                    />
-                    <div
-                      *ngIf="submitted && form['company'].errors"
-                      class="invalid-feedback"
-                    >
-                      <div *ngIf="form['company'].errors['required']">
-                        Lead Name is required
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xxl-4 col-md-6">
-                    <label>Lead Source:</label>
-                    <select
-                      class="form-select"
-                      formControlName="leadSource"
-                      [ngClass]="{
-                        'is-invalid': submitted && form['leadSource'].errors
-                      }"
-                    >
-                      <option value="Facebook">Facebook</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
-                    <div
-                      *ngIf="submitted && form['leadSource'].errors"
-                      class="invalid-feedback"
-                    >
-                      <div *ngIf="form['leadSource'].errors['required']">
-                        valid Lead Owner name is required
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xxl-4 col-md-6">
-                    <label>Marital Status:</label>
-                    <select class="form-select" formControlName="maritalStatus">
-                      <option value="Married">Married</option>
-                      <option value="1">Single</option>
-                      <option value="2">Divorced</option>
-                      <option value="3">Seperated</option>
-                    </select>
-                  </div>
-                  <div class="col-xxl-4 col-md-6">
-                    <label>Modified By:</label>
-                    <select class="form-select" formControlName="modifiedBy">
-                      <option value="Mariana John">Mariana John</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
-                  </div>
-                  <div class="col-xxl-4 col-md-6">
-                    <label>Designation:</label>
-                    <input
-                      type="text"
-                      class="form-control form-control-sm"
-                      id="designation"
-                      formControlName="designation"
-                      [ngClass]="{
-                        'is-invalid': submitted && form['designation'].errors
-                      }"
-                    />
-                    <div
-                      *ngIf="submitted && form['designation'].errors"
-                      class="invalid-feedback"
-                    >
-                      <div *ngIf="form['designation'].errors['required']">
-                        Designation is required
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xxl-4 col-md-6">
-                    <label>Lead Status:</label>
-                    <select
-                      class="form-select"
-                      formControlName="leadStatus"
-                      [ngClass]="{
-                        'is-invalid': submitted && form['leadStatus'].errors
-                      }"
-                    >
-                      <option value="1">New</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
-                    <div
-                      *ngIf="submitted && form['leadStatus'].errors"
-                      class="invalid-feedback"
-                    >
-                      <div *ngIf="form['leadStatus'].errors['required']">
-                        Lead Status is required
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xxl-4 col-md-6">
-                    <label>Nationality:</label>
-                    <select class="form-select" formControlName="nationality">
-                      <option value="Qatar">Qatar</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
-                  </div>
-                  <div class="col-xxl-4 col-md-6">
-                    <label>Industry:</label>
-                    <input
-                      type="text"
-                      class="form-control form-control-sm"
-                      id="industry"
-                      formControlName="industry"
-                      [ngClass]="{
-                        'is-invalid': submitted && form['industry'].errors
-                      }"
-                    />
-                    <div
-                      *ngIf="submitted && form['industry'].errors"
-                      class="invalid-feedback"
-                    >
-                      <div *ngIf="form['industry'].errors['required']">
-                        Industry is required
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xxl-4 col-md-6">
-                    <label>Preferred time to call:</label>
-                    <input
-                      type="text"
-                      class="form-control form-control-sm"
-                      id="preferredTimeToCall"
-                      formControlName="preferredTimeToCall"
-                      [ngClass]="{
-                        'is-invalid':
-                          submitted &&
-                          form['preferredTimeToCall'].errors &&
-                          form['preferredTimeToCall'].value !== ''
-                      }"
-                    />
-                    <div
-                      *ngIf="
-                        submitted &&
-                        form['preferredTimeToCall'].errors &&
-                        form['preferredTimeToCall'].value !== ''
-                      "
-                      class="invalid-feedback"
-                    >
-                      <div
-                        *ngIf="form['preferredTimeToCall'].errors['required']"
-                      >
-                        Preferred Time to Call is required
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xxl-12 col-md-12">
-                    <h6 class="card-title mb-4">
-                      <u>Address Information</u>
-                    </h6>
-                  </div>
-                  <div class="col-xxl-4 col-md-6">
-                    <label class="form-label" for="des-info-description-input"
-                      >Address</label
-                    >
-                    <textarea
-                      class="form-control"
-                      id="des-info-description-input"
-                      rows="3"
-                      formControlName="address"
-                      spellcheck="false"
-                      [ngClass]="{
-                        'is-invalid': submitted && form['address'].errors
-                      }"
-                    ></textarea>
-                    <!-- <div class="invalid-feedback">
-  Please enter an Address
-  </div> -->
-                    <div
-                      *ngIf="submitted && form['address'].errors"
-                      class="invalid-feedback"
-                    >
-                      <div *ngIf="form['address'].errors['required']">
-                        Address is required
-                      </div>
-                    </div>
-                  </div>
-                </div>
+    <div class="row">
+      <div class="col-xxl-12 col-lg-12">
+        <form [formGroup]="editleadsform"  (ngSubmit)="submitForm()">
+        <div class="card">
+          
+          <div class="card-body">
+           
+        <div class="live-preview">
+            <div class="row gy-4">
+            <div class="col-xxl-12 col-md-12"><h6 class="card-title mb-4">
+                        <u>Lead Information</u
+                        >
+                      </h6></div>
+            <div class="col-xxl-3 col-md-6">
+               <label>Lead Owner:  </label>
+              <select class="form-select" 
+              aria-label="select example" 
+              formControlName="leadOwner"
+              [ngClass]="{'is-invalid': submitted && form['leadOwner'].errors }" >
+              <option [ngValue]="null" [disabled]="true" >--Select--</option>
+                <option *ngFor="let c of leadOwnerArray" [ngValue]="c.id">{{ c.name }}</option>
+                                                    </select>
+                                                    <div *ngIf="submitted && form['leadOwner'].errors" class="invalid-feedback">
+                                                      <div *ngIf="form['leadOwner'].errors['required']">Mobile is required</div>
+                                                      <div *ngIf="form['leadOwner'].errors['pattern']">Mobile pattern is invalid</div>
+                                                    </div>
+                                                  
+              </div>	
+            <div class="col-xxl-3 col-md-6">
+             <label>Phone Number :</label>
+                        
+                          <div class="input-group" data-input-flag>
+                            <button class="btn btn-light border" type="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="assets/images/flags/qa.svg" alt="flag img" height="20" class="country-flagimg rounded"><span class="ms-2 country-codeno">+ 974</span></button>
+                            <input type="text" class="form-control rounded-end flag-input" value="" placeholder="Enter number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"   formControlName="mobile"
+                            [ngClass]="{'is-invalid': submitted && form['mobile'].errors }"/>
+                            <div class="dropdown-menu w-100">
+                                <div class="p-2 px-3 pt-1 searchlist-input">
+                                    <input type="text" class="form-control form-control-sm border search-countryList" placeholder="Search country name or country code..." />
+                                </div>
+                                <ul class="list-unstyled dropdown-menu-list mb-0"></ul>
+                            </div>
+                        </div>
+                          <div *ngIf="submitted && form['mobile'].errors" class="invalid-feedback">
+                            <div *ngIf="form['mobile'].errors['required']">Phone Number  is required</div>
+                            <div *ngIf="form['mobile'].errors['pattern']">Phone Number  is invalid</div>
+                          </div>
+                        
               </div>
-            </div>
-            <!--card body end-->
-          </div>
-          <!--card end-->
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xxl-12 col-lg-12">
-          <div class="card">
-            <div class="card-body">
-              <div class="row">
-                <div class="col-xxl-12 col-lg-12">
-                  <div class="live-preview">
-                    <div class="row gy-4">
-                      <div class="col-xxl-12 col-lg-12">
-                        <h6 class="card-title mb-4">
-                          <u>Property Prefference</u>
-                        </h6>
-                      </div>
-                      <div class="col-xxl-2 col-lg-3">
-                        <div class="form-check">
-                          <input
-                            type="radio"
-                            formControlName="selectedBlock"
-                            [value]="'residential'"
-                            [(ngModel)]="selectedBlock"
-                            (change)="onSelectedBlockChange()"
-                          />
-                          <label class="form-check-label" for="residential"
-                            >Residential</label
-                          >
-                        </div>
-                      </div>
-                      <div class="col-xxl-2 col-lg-3">
-                        <div class="form-check">
-                          <input
-                            type="radio"
-                            formControlName="selectedBlock"
-                            [value]="'commercial'"
-                            [(ngModel)]="selectedBlock"
-                            (change)="onSelectedBlockChange()"
-                          />
-                          <label class="form-check-label" for="commercial"
-                            >Commercial</label
-                          >
-                        </div>
-                      </div>
-                      <div
-                        *ngIf="selectedBlock === 'residential'"
-                        class="residential"
-                      >
-                        <div class="row gy-4">
-                          <h6>residential</h6>
-                          <div class="col-xxl-4 col-lg-6">
-                            <label>Desired Property Location :</label>
-                            <select
-                              class="form-select"
-                              formControlName="desiredpropertylocation"
-                              [ngClass]="{
-                                'is-invalid':
-                                  submitted &&
-                                  form['desiredpropertylocation'].errors
-                              }"
-                            >
-                              <option value="doha">Doha</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
-                            </select>
-                            <div
-                              *ngIf="
-                                submitted &&
-                                form['desiredpropertylocation'].errors
-                              "
-                              class="invalid-feedback"
-                            >
-                              <div
-                                *ngIf="
-                                  form['desiredpropertylocation'].errors[
-                                    'required'
-                                  ]
-                                "
-                              >
-                                Desired property Location is required
+            <div class="col-xxl-3 col-md-6">
+              
+                          <label class="form-label">Alternate contact number:</label>
+                          <div class="input-group" data-input-flag>
+                              <button class="btn btn-light border" type="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="assets/images/flags/qa.svg" alt="flag img" height="20" class="country-flagimg rounded"><span class="ms-2 country-codeno">+ 974</span></button>
+                              <input type="text" class="form-control rounded-end flag-input" value="" placeholder="Enter number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"   formControlName="alternateNumber"
+                              [ngClass]="{'is-invalid': submitted && form['alternateNumber'].errors}"/>
+                              <div class="dropdown-menu w-100">
+                                  <div class="p-2 px-3 pt-1 searchlist-input">
+                                      <input type="text" class="form-control form-control-sm border search-countryList" placeholder="Search country name or country code..." />
+                                  </div>
+                                  <ul class="list-unstyled dropdown-menu-list mb-0"></ul>
                               </div>
-                            </div>
                           </div>
-                          <div class="col-xxl-3 col-lg-6">
-                            <label>Preferred Neighbourhood:</label>
-                            <select
-                              class="form-select"
-                              formControlName="prefferedneighbourhood"
-                              [ngClass]="{
-                                'is-invalid':
-                                  submitted &&
-                                  form['prefferedneighbourhood'].errors
-                              }"
-                            >
-                              <option value="doha">Doha</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
-                            </select>
-                            <div
-                              *ngIf="
-                                submitted &&
-                                form['prefferedneighbourhood'].errors
-                              "
-                              class="invalid-feedback"
-                            >
-                              <div
-                                *ngIf="
-                                  form['prefferedneighbourhood'].errors[
-                                    'required'
-                                  ]
-                                "
-                              >
-                                Preffered Neighbourhood is required
-                              </div>
-                            </div>
+                          <div *ngIf="submitted && form['alternateNumber'].errors" class="invalid-feedback">
+                            <div *ngIf="form['alternateNumber'].errors['required']">Alternate is required</div>
+                            <div *ngIf="form['alternateNumber'].errors['pattern']">Alternate number is invalid</div>
                           </div>
-                          <div class="col-xxl-3 col-lg-6">
-                            <label>Number of Bedrooms:</label>
-                            <select
-                              class="form-select"
-                              formControlName="numberofbedrooms"
-                              [ngClass]="{
-                                'is-invalid':
-                                  submitted && form['numberofbedrooms'].errors
-                              }"
-                            >
-                              <option value="2">2</option>
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                            </select>
-                            <div
-                              *ngIf="
-                                submitted && form['numberofbedrooms'].errors
-                              "
-                              class="invalid-feedback"
-                            >
-                              <div
-                                *ngIf="
-                                  form['numberofbedrooms'].errors['required']
-                                "
-                              >
-                                Number of Bedrooms is required
-                              </div>
-                            </div>
+                         
+              </div>	
+            <div class="col-xxl-3 col-md-6">
+            
+                          <label for="basic-url" class="form-label">Website Url:</label>
+                          <div class="input-group">
+                              <span class="input-group-text" id="basic-addon3">www.example.com</span>
+                              <input type="text" class="form-control" id="basic-url"
+                                  aria-describedby="basic-addon3"
+                                  formControlName="website"
+                                  [ngClass]="{'is-invalid': submitted && form['website'].errors}"
+                                  >
                           </div>
-                          <div class="col-xxl-4 col-lg-6">
-                            <label>Number of Bathroom:</label>
-                            <select
-                              class="form-select"
-                              formControlName="numberofbathrooms"
-                              [ngClass]="{
-                                'is-invalid':
-                                  submitted && form['numberofbathrooms'].errors
-                              }"
-                            >
-                              <option value="2">2</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
-                            </select>
-                            <div
-                              *ngIf="
-                                submitted && form['numberofbathrooms'].errors
-                              "
-                              class="invalid-feedback"
-                            >
-                              <div
-                                *ngIf="
-                                  form['numberofbathrooms'].errors['required']
-                                "
-                              >
-                                Number of Bathrooms is required
-                              </div>
-                            </div>
+                          <div *ngIf="submitted && form['website'].errors" class="invalid-feedback">
+                            <div *ngIf="form['website'].errors['required']">Website Url is required</div>
+                            <div *ngIf="form['website'].errors['pattern']">Website Url is invalid</div>
                           </div>
-                          <div class="col-xxl-3 col-lg-6">
-                            <label>Price Range:</label>
-                            <select
-                              class="form-select"
-                              formControlName="pricerange"
-                              [ngClass]="{
-                                'is-invalid':
-                                  submitted && form['pricerange'].errors
-                              }"
-                            >
-                              <option value="">1000 - 2000 QAR</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
-                            </select>
-                            <div
-                              *ngIf="submitted && form['pricerange'].errors"
-                              class="invalid-feedback"
-                            >
-                              <div
-                                *ngIf="form['pricerange'].errors['required']"
-                              >
-                                Price Range is required
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-xxl-3 col-lg-6">
-                            <label>Building Type:</label>
-                            <select
-                              class="form-select"
-                              formControlName="buildingtype"
-                              [ngClass]="{
-                                'is-invalid':
-                                  submitted && form['buildingtype'].errors
-                              }"
-                            >
-                              <option value="">Tower</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
-                            </select>
-                            <div
-                              *ngIf="submitted && form['buildingtype'].errors"
-                              class="invalid-feedback"
-                            >
-                              <div
-                                *ngIf="form['buildingtype'].errors['required']"
-                              >
-                                Building Type is required
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-xxl-4 col-lg-6">
-                            <label>Unit Type:</label>
-                            <select
-                              class="form-select"
-                              formControlName="unittype"
-                              [ngClass]="{
-                                'is-invalid':
-                                  submitted && form['unittype'].errors
-                              }"
-                            >
-                              <option value="">2BHK</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
-                            </select>
-                            <div
-                              *ngIf="submitted && form['unittype'].errors"
-                              class="invalid-feedback"
-                            >
-                              <div *ngIf="form['unittype'].errors['required']">
-                                Unit Type is required
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-xxl-3 col-lg-6">
-                            <label>Floor Preference:</label>
-                            <select
-                              class="form-select"
-                              formControlName="floorpreference"
-                              [ngClass]="{
-                                'is-invalid':
-                                  submitted && form['floorpreference'].errors
-                              }"
-                            >
-                              <option value="">Second Floor</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
-                            </select>
-                            <div
-                              *ngIf="
-                                submitted && form['floorpreference'].errors
-                              "
-                              class="invalid-feedback"
-                            >
-                              <div
-                                *ngIf="
-                                  form['floorpreference'].errors['required']
-                                "
-                              >
-                                Floor Preference is required
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-xxl-3 col-lg-6">
-                            <label>View Preference:</label>
-                            <select
-                              class="form-select"
-                              formControlName="viewpreference"
-                              [ngClass]="{
-                                'is-invalid':
-                                  submitted && form['viewpreference'].errors
-                              }"
-                            >
-                              <option value="">Sea View</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
-                            </select>
-                            <div
-                              *ngIf="submitted && form['viewpreference'].errors"
-                              class="invalid-feedback"
-                            >
-                              <div
-                                *ngIf="
-                                  form['viewpreference'].errors['required']
-                                "
-                              >
-                                View Preference is required
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-xxl-12 col-lg-12">
-                            <h6 class="card-title mb-4 mt-4">
-                              <u>Description</u>
-                            </h6>
-                          </div>
-                          <div class="col-xxl-12 col-lg-12">
-                            <textarea
-                              style="width: 90% !important"
-                              formControlName="description"
-                              [ngClass]="{
-                                'is-invalid':
-                                  submitted && form['description'].errors
-                              }"
-                              rows="5"
-                              cols="40"
-                            ></textarea>
-                            <div
-                              *ngIf="submitted && form['description'].errors"
-                              class="invalid-feedback"
-                            >
-                              <div
-                                *ngIf="form['description'].errors['required']"
-                              >
-                                Description is required
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        *ngIf="selectedBlock === 'commercial'"
-                        class="commercial"
-                      >
-                        <div class="row gy-4">
-                          <h6>commercial</h6>
-                          <div class="col-xxl-4 col-lg-6">
-                            <label>Desired Property Location :</label>
-                            <select
-                              class="form-select"
-                              formControlName="desiredpropertylocationcom"
-                              [ngClass]="{
-                                'is-invalid':
-                                  submitted &&
-                                  form['desiredpropertylocationcom'].errors
-                              }"
-                            >
-                              <option value="">Doha</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
-                            </select>
-                            <div
-                              *ngIf="
-                                submitted &&
-                                form['desiredpropertylocationcom'].errors
-                              "
-                              class="invalid-feedback"
-                            >
-                              <div
-                                *ngIf="
-                                  form['desiredpropertylocationcom'].errors[
-                                    'required'
-                                  ]
-                                "
-                              >
-                                Desired property location is required
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-xxl-4 col-lg-6">
-                            <label>Preferred Neighbourhood:</label>
-                            <select
-                              class="form-select"
-                              formControlName="prefferedneighbourhoodcom"
-                              [ngClass]="{
-                                'is-invalid':
-                                  submitted &&
-                                  form['prefferedneighbourhoodcom'].errors
-                              }"
-                            >
-                              <option value="">Doha</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
-                            </select>
-                            <div
-                              *ngIf="
-                                submitted &&
-                                form['prefferedneighbourhoodcom'].errors
-                              "
-                              class="invalid-feedback"
-                            >
-                              <div
-                                *ngIf="
-                                  form['prefferedneighbourhoodcom'].errors[
-                                    'required'
-                                  ]
-                                "
-                              >
-                                Prefferd Neighbourhood is required
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-xxl-4 col-lg-6">
-                            <label>Number of Bedrooms:</label>
-                            <select
-                              class="form-select"
-                              formControlName="numberofbedrooms"
-                              [ngClass]="{
-                                'is-invalid':
-                                  submitted &&
-                                  form['numberofbedroomscom'].errors
-                              }"
-                            >
-                              <option value="2">2</option>
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                            </select>
-                            <div
-                              *ngIf="
-                                submitted && form['numberofbedroomscom'].errors
-                              "
-                              class="invalid-feedback"
-                            >
-                              <div
-                                *ngIf="
-                                  form['numberofbedroomscom'].errors['required']
-                                "
-                              >
-                                Number of Bedrooms is required
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-xxl-4 col-lg-6">
-                            <label>Number of Bathroom:</label>
-                            <select
-                              class="form-select"
-                              formControlName="numberofbathroomscom"
-                              [ngClass]="{
-                                'is-invalid':
-                                  submitted &&
-                                  form['numberofbathroomscom'].errors
-                              }"
-                            >
-                              <option value="">2</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
-                            </select>
-                            <div
-                              *ngIf="
-                                submitted && form['numberofbathroomscom'].errors
-                              "
-                              class="invalid-feedback"
-                            >
-                              <div
-                                *ngIf="
-                                  form['numberofbathroomscom'].errors[
-                                    'required'
-                                  ]
-                                "
-                              >
-                                Number of Bathrooms is required
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-xxl-4 col-lg-6">
-                            <label>Price Range:</label>
-                            <select
-                              class="form-select"
-                              formControlName="pricerangecom"
-                              [ngClass]="{
-                                'is-invalid':
-                                  submitted && form['pricerangecom'].errors
-                              }"
-                            >
-                              <option value="">1000 - 2000 QAR</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
-                            </select>
-                            <div
-                              *ngIf="submitted && form['pricerangecom'].errors"
-                              class="invalid-feedback"
-                            >
-                              <div
-                                *ngIf="form['pricerangecom'].errors['required']"
-                              >
-                                Price Range is required
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-xxl-4 col-lg-6">
-                            <label>Building Type:</label>
-                            <select
-                              class="form-select"
-                              formControlName="buildingtypecom"
-                              [ngClass]="{
-                                'is-invalid':
-                                  submitted && form['buildingtypecom'].errors
-                              }"
-                            >
-                              <option value="">Tower</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
-                            </select>
-                            <div
-                              *ngIf="submitted && form['buildingtype'].errors"
-                              class="invalid-feedback"
-                            >
-                              <div
-                                *ngIf="form['buildingtype'].errors['required']"
-                              >
-                                Building type is required
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-xxl-4 col-lg-6">
-                            <label>Unit Type:</label>
-                            <select
-                              class="form-select"
-                              formControlName="unittypecom"
-                              [ngClass]="{
-                                'is-invalid':
-                                  submitted && form['unittypecom'].errors
-                              }"
-                            >
-                              <option value="">2BHK</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
-                            </select>
-                            <div
-                              *ngIf="submitted && form['unittypecom'].errors"
-                              class="invalid-feedback"
-                            >
-                              <div
-                                *ngIf="form['unittypecom'].errors['required']"
-                              >
-                                Unit type is required
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-xxl-4 col-lg-6">
-                            <label>Floor Preference:</label>
-                            <select
-                              class="form-select"
-                              formControlName="floorpreferencecom"
-                              [ngClass]="{
-                                'is-invalid':
-                                  submitted && form['floorpreferencecom'].errors
-                              }"
-                            >
-                              <option value="">Second Floor</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
-                            </select>
-                            <div
-                              *ngIf="
-                                submitted && form['floorpreferencecom'].errors
-                              "
-                              class="invalid-feedback"
-                            >
-                              <div
-                                *ngIf="
-                                  form['floorpreferencecom'].errors['required']
-                                "
-                              >
-                                Floor Preference is required
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-xxl-4 col-lg-6">
-                            <label>View Preference:</label>
-                            <select
-                              class="form-select"
-                              formControlName="viewpreferencecom"
-                              [ngClass]="{
-                                'is-invalid':
-                                  submitted && form['viewpreferencecom'].errors
-                              }"
-                            >
-                              <option value="">Sea View</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
-                            </select>
-                            <div
-                              *ngIf="
-                                submitted && form['viewpreferencecom'].errors
-                              "
-                              class="invalid-feedback"
-                            >
-                              <div
-                                *ngIf="
-                                  form['viewpreferencecom'].errors['required']
-                                "
-                              >
-                                View Preference is required
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-xxl-12 col-lg-12">
-                            <h6 class="card-title mb-4 mt-4">
-                              <u>Description</u>
-                            </h6>
-                          </div>
-                          <div class="col-xxl-12 col-lg-12">
-                            <textarea
-                              style="width: 90% !important"
-                              formControlName="descriptioncom"
-                              rows="5"
-                              cols="40"
-                            ></textarea>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-xxl-8 col-lg-6"></div>
-                      <div class="col-xxl-4 col-lg-6"></div>
-                    </div>
-                  </div>
-                </div>
+              
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
-  >
+            <div class="col-xxl-3 col-md-6">
+              <label>Annual Revenue:</label>
+                          <input
+                            type="text" class="form-control form-control-sm"
+                            value=""
+                            formControlName="annualRevenue"
+                            [ngClass]="{'is-invalid': submitted && form['annualRevenue'].errors}"
+                           
+                          />
+                          
+                          <div *ngIf="submitted && form['annualRevenue'].errors" class="invalid-feedback">
+                            <div *ngIf="form['annualRevenue'].errors['required']">Annual Revenue is required</div>
+                            <div *ngIf="form['annualRevenue'].errors['pattern']">Annual Revenue is invalid</div>
+                          </div>
+                         
+              </div>
+              
+            <div class="col-xxl-3 col-md-6">
+              <label>Lead Name:</label>
+                          <input  type="text" class="form-control form-control-sm"
+                            value=""
+                            formControlName="leadName"
+                            [ngClass]="{'is-invalid': submitted && form['leadName'].errors}"
+                          />
+                          <div *ngIf="submitted && form['leadName'].errors" class="invalid-feedback">
+                            <div *ngIf="form['leadName'].errors['required']">Lead Name is required</div>
+                            <div *ngIf="form['leadName'].errors['pattern']">Lead Name is invalid</div>
+                          </div>
+              </div>					
+            <div class="col-xxl-3 col-md-6">
+              <label>Company:</label>
+                          <input
+                            type="text" class="form-control form-control-sm"
+                            value=""
+                            formControlName="company"
+                            [ngClass]="{'is-invalid': submitted && form['company'].errors}"
+                          />
+                          <div *ngIf="submitted && form['company'].errors" class="invalid-feedback">
+                            <div *ngIf="form['company'].errors['required']">Company Name is required</div>
+                            <div *ngIf="form['company'].errors['pattern']">Company Name is invalid</div>
+                          </div>
+              </div>
+            <div class="col-xxl-3 col-md-6">
+              
+              <label>Lead Source:</label>
+                          <select class="form-select" aria-label="select example"
+                          formControlName="leadSource" 
+                          [ngClass]="{'is-invalid': submitted && form['leadSource'].errors }" >
+                          <option [ngValue]="null" [disabled]="true" >--Select--</option>
+                          <option *ngFor="let c of leadSourceArray" [ngValue]="c.id">{{ c.name }}</option>
+                                                    </select>
 
-  <div class="modal-footer">
-    <a
-      href="javascript:void(0);"
-      class="btn btn-link link-success fw-medium"
-      data-bs-dismiss="modal"
-      (click)="close()"
-      ><i class="ri-close-line me-1 align-middle"></i> Close</a
-    >
-    <button type="button" (click)="submitForm()" class="btn btn-primary">
-      Save changes
-    </button>
+                                                    <div *ngIf="submitted && form['leadSource'].errors" class="invalid-feedback">
+                                                      <div *ngIf="form['leadSource'].errors['required']">Lead Source is required</div>
+                                                    
+                                                    </div>
+              
+              </div>
+            <div class="col-xxl-3 col-md-6">
+            <label>Marital Status:</label>
+                          <select class="form-select" aria-label="Disabled select example"
+                          formControlName="maritalStatus"
+                          [ngClass]="{'is-invalid': submitted && form['maritalStatus'].errors }"
+                           >
+                           <option [ngValue]="null" [disabled]="true" >--Select--</option>
+                           <option *ngFor="let c of maritalStatusArray" [ngValue]="c.id">{{ c.name }}</option>
+                                                    </select>
+                                                    <div *ngIf="submitted && form['maritalStatus'].errors" class="invalid-feedback">
+                                                      <div *ngIf="form['maritalStatus'].errors['required']">Marital Status is required</div>
+                                                    
+                                                    </div>
+              </div>
+            <div class="col-xxl-3 col-md-6">
+
+             <label>Workplace and designation :</label>
+                          <input 
+                            type="text" class="form-control form-control-sm"
+                            value=""
+                            formControlName="designation"
+                            [ngClass]="{'is-invalid': submitted && form['designation'].errors }"
+                          />	
+                          <div *ngIf="submitted && form['designation'].errors" class="invalid-feedback">
+                            <div *ngIf="form['designation'].errors['required']">Workplace and designation is required</div>
+                            <div *ngIf="form['designation'].errors['pattern']">Workplace and designation is invalid</div>
+                          </div>
+              </div>				
+            <div class="col-xxl-3 col-md-6">
+              <label>Lead Status:</label>
+                          <select class="form-select" aria-label="Disabled select example"
+                          formControlName="leadStatus"
+                          [ngClass]="{'is-invalid': submitted && form['leadStatus'].errors }"
+                           >
+                           <option [ngValue]="null" [disabled]="true" >--Select--</option>
+                           <option *ngFor="let c of leadStatusArray" [ngValue]="c.id">{{ c.name }}</option>
+                                                    </select>
+                                                    <div *ngIf="submitted && form['maritalStatus'].errors" class="invalid-feedback">
+                                                      <div *ngIf="form['maritalStatus'].errors['required']">Lead Status is required</div>
+                                                    
+                                                    </div>
+              </div>
+            <div class="col-xxl-3 col-md-6">
+              <label>Nationality:</label>
+                          <select class="form-select" aria-label="Disabled select example" 
+                          formControlName="nationality"
+                          [ngClass]="{'is-invalid': submitted && form['nationality'].errors }"
+                          >
+                          <option [ngValue]="null" [disabled]="true" >--Select--</option>
+                          <option *ngFor="let c of nationalityArray" [ngValue]="c.id">{{ c.name }}</option>
+                                                        
+                                                    </select>
+                                                    <div *ngIf="submitted && form['nationality'].errors" class="invalid-feedback">
+                                                      <div *ngIf="form['nationality'].errors['required']">Nationality is required</div>
+                                                    
+                                                    </div>
+              
+              </div>							
+            <div class="col-xxl-3 col-md-6">
+              
+            <label>Industry:</label>
+                          <input
+                            type="text" class="form-control form-control-sm"
+                            value=""
+                           formControlName="industry"
+                           [ngClass]="{'is-invalid': submitted && form['industry'].errors }"
+                          />	
+                          <div *ngIf="submitted && form['industry'].errors" class="invalid-feedback">
+                            <div *ngIf="form['industry'].errors['required']">Industry Name is required</div>
+                            <div *ngIf="form['industry'].errors['pattern']">Industry Name is invalid</div>
+                          </div>
+              </div>
+            <div class="col-xxl-3 col-md-6">
+              <label>Preferred time to call:</label>
+                          <input
+                            type="text" class="form-control form-control-sm"
+                            value=""
+                            formControlName="preferredTimeToCall"
+                            [ngClass]="{'is-invalid': submitted && form['preferredTimeToCall'].errors }"
+                          />
+                          <div *ngIf="submitted && form['preferredTimeToCall'].errors" class="invalid-feedback">
+                            <div *ngIf="form['preferredTimeToCall'].errors['required']">Preferred time to call is required</div>
+                            <div *ngIf="form['preferredTimeToCall'].errors['pattern']">Preferred time to call is invalid</div>
+                          </div>
+              </div>
+            <div class="col-xxl-12 col-md-12">
+              
+              <h6 class="card-title mb-4">
+                        <u>Address Information</u
+                        >
+                      </h6>
+              </div>
+            <div class="col-xxl-4 col-md-6">
+              <label class="form-label" for="des-info-description-input">Current address</label>
+                        <textarea class="form-control" placeholder="Please enter a Address" id="des-info-description-input" rows="3" required="" spellcheck="false"
+                        formControlName="currentAddress"
+                        [ngClass]="{'is-invalid': submitted && form['currentAddress'].errors }" 
+                        ></textarea>
+                        <div *ngIf="submitted && form['currentAddress'].errors" class="invalid-feedback">
+                          <div *ngIf="form['currentAddress'].errors['required']">Current address is required</div>
+                          <div *ngIf="form['currentAddress'].errors['pattern']">Current address is invalid</div>
+                        </div>
+              </div>	
+          </div>
+          </div>
+  
+    </div></div>
+          <div class="clearfix"></div>
+
+
+<div class="card">
+  <div class="card-body">
+   <div class="live-preview">
+            <div class="row gy-4">
+      <div class="col-xxl-12 col-lg-12">
+        <div class="live-preview">
+          <div class="row gy-4">
+            <div class="col-xxl-12 col-lg-12">
+              <h6 class="card-title mb-4">
+                <u>Property Prefference</u
+                ><a 
+                  ><i class="mdi mdi-file-edit-outline ml-10"></i
+                ></a>
+              </h6>
+            </div>
+
+            <div class="col-xxl-2 col-lg-3">
+              <div class="form-check">
+                <input class="form-check-input" type="radio"
+                  id="residential" formControlName="propertyPreferences"
+                  value="residential'" [(ngModel)]="propertyPreferences" 
+                  [value]="'residential'"
+                  [(ngModel)]="propertyPreferences"
+                  (change)="onSelectedBlockChange()"
+                  
+                  
+                />
+                <label class="form-check-label" for="residential"
+                  >Residential</label
+                >
+              </div>
+            </div>
+
+            <div class="col-xxl-2 col-lg-3">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  id="commercial"
+                  formControlName="propertyPreferences"
+                  value="commercial"
+                  [(ngModel)]="propertyPreferences"
+                  (change)="onSelectedBlockChange()"
+                  
+                />
+                <label class="form-check-label" for="commercial"
+                  >Commercial</label
+                >
+              </div>
+            </div>
+
+             <div class="col-xxl-8 col-lg-6"></div>
+      
+      
+             <div class="row gy-4" formArrayName="residential"*ngIf="propertyPreferences === 'residential'" >
+              <div *ngFor="let residentialGroup of editleadsform.get('residential')?.value; let i = index">
+                <div [formGroupName]="i">
+                  <div class="col-xxl-3 col-lg-6">
+                    <label>Desired Property Location :</label>
+                    <select
+                      class="form-select"
+                      aria-label="Disabled select example"
+                      formControlName="desiredPropertyLocation"
+                      [ngClass]="{'is-invalid': submitted && editleadsform.get('residential.' + i + '.desiredPropertyLocation')?.errors }" 
+                                               
+                    >
+                      <option selected="">Doha</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    <div *ngIf="submitted && editleadsform.get('residential.' + i + '.desiredPropertyLocation')?.errors " class="invalid-feedback">
+                      <div *ngIf="editleadsform.get('residential.' + i + '.desiredPropertyLocation')?.hasError('required')">Desired Property Location is required</div>
+                    </div>
+    
+                  </div>
+                  <div class="col-xxl-3 col-lg-6">
+                    <label>Preferred Neighbourhood:</label>
+                    <select
+                      class="form-select"
+                      aria-label="Disabled select example"
+                      formControlName="preferredNeighbourhood"
+                      [ngClass]="{'is-invalid': submitted && editleadsform.get('residential.' + i + '.preferredNeighbourhood')?.errors }"
+                     
+                    >
+                      <option selected="">Doha</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    <div *ngIf="submitted && editleadsform.get('residential.' + i + '.preferredNeighbourhood')?.errors " class="invalid-feedback">
+                      <div *ngIf="editleadsform.get('residential.' + i + '.preferredNeighbourhood')?.hasError('required')">Preffered Neighbourhood Location is required</div>
+                    </div>
+                  </div>
+                  <div class="col-xxl-3 col-lg-6">
+                    <label>Number of Bedrooms:</label>
+                    <select class="form-select"
+                      aria-label="Disabled select example"
+                      formControlName="numberOfBedrooms"
+                      [ngClass]="{'is-invalid': submitted && editleadsform.get('residential.' + i + '.numberOfBedrooms')?.errors }"
+                    >
+                      <option selected="">2</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    <div *ngIf="submitted && editleadsform.get('residential.' + i + '.numberOfBedrooms')?.errors " class="invalid-feedback">
+                      <div *ngIf="editleadsform.get('residential.' + i + '.numberOfBedrooms')?.hasError('required')">Number of Bedrooms is required</div>
+                    </div>
+                  </div>
+      
+                  <div class="col-xxl-3 col-lg-6">
+                    <label>Number of Bathroom:</label>
+                    <select
+                      class="form-select"
+                      aria-label="Disabled select example"
+                      formControlName="numberOfBathrooms"
+                      [ngClass]="{'is-invalid': submitted && editleadsform.get('residential.' + i + '.numberOfBathrooms')?.errors }"
+                    >
+                      <option selected="">2</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    <div *ngIf="submitted && editleadsform.get('residential.' + i + '. umberOfBathrooms')?.errors " class="invalid-feedback">
+                      <div *ngIf="editleadsform.get('residential.' + i + '.numberOfBathrooms')?.hasError('required')">Number Of Bathrooms is required</div>
+                     
+                    </div>
+                  </div>
+                  <div class="col-xxl-3 col-lg-6">
+                    <label>Price Range:</label>
+                    <select
+                      class="form-select"
+                      aria-label="Disabled select example"
+                      formControlName="priceRange"
+                      [ngClass]="{'is-invalid': submitted && editleadsform.get('residential.' + i + '.priceRange')?.errors }"
+                    >
+                      <option selected="">1000 - 2000 QAR</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    <div *ngIf="submitted && editleadsform.get('residential.' + i + '.priceRange')?.errors " class="invalid-feedback">
+                      <div *ngIf="editleadsform.get('residential.' + i + '.priceRange')?.hasError('required')">Price Range is required</div>                  
+                    </div>
+                  </div>
+                  <div class="col-xxl-3 col-lg-6">
+                    <label>Building Type:</label>
+                    <select
+                      class="form-select"
+                      aria-label="Disabled select example"
+                      formControlName="buildingType"
+                      [ngClass]="{'is-invalid': submitted && editleadsform.get('residential.' + i + '.buildingType')?.errors }"
+                    >
+                      <option selected="">Tower</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    <div *ngIf="submitted && editleadsform.get('residential.' + i + '.buildingType')?.errors " class="invalid-feedback">
+                      <div *ngIf="editleadsform.get('residential.' + i + '.buildingType')?.hasError('required')">Building type is required</div>                     
+                    </div>
+                  </div>
+      
+                  <div class="col-xxl-3 col-lg-6">
+                    <label>Unit Type:</label>
+                    <select
+                      class="form-select"
+                      aria-label="Disabled select example"
+                      formControlName="unitType"
+                      [ngClass]="{'is-invalid': submitted && editleadsform.get('residential.' + i + '.unitType')?.errors }"
+                    >
+                      <option selected="">2BHK</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    <div *ngIf="submitted && editleadsform.get('residential.' + i + '.unitType')?.errors " class="invalid-feedback">
+                      <div *ngIf="editleadsform.get('residential.' + i + '.unitType')?.hasError('required')">Unit type is required</div>                                      
+                    </div>
+                  </div>
+                  <div class="col-xxl-3 col-lg-6">
+                    <label>Floor Preference:</label>
+                    <select
+                      class="form-select"
+                      aria-label="Disabled select example"
+                      formControlName="floorPreference"
+                      [ngClass]="{'is-invalid': submitted && editleadsform.get('residential.' + i + '.floorPreference')?.errors }"
+                    >
+                      <option selected="">Second Floor</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    <div  *ngIf="submitted && editleadsform.get('residential.' + i + '.floorPreference')?.errors " class="invalid-feedback" >
+                      <div *ngIf="editleadsform.get('residential.' + i + '.floorPreference')?.hasError('required')">Floor preference is required</div>                                        
+                    </div>
+                  </div>
+                  <!-- <div class="col-xxl-3 col-lg-6">
+                    <label>View Preference:</label>
+                    <select
+                      class="form-select"
+                      aria-label="Disabled select example"
+                      formControlName="viewPreference"
+                      [ngClass]="{'is-invalid': submitted && form['viewPreference'].errors }"
+                    >
+                      <option selected="">Sea View</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    <div *ngIf="submitted && form['viewPreference'].errors" class="invalid-feedback">
+                      <div *ngIf="form['viewPreference'].errors['required']">View Preference is required</div>
+                    
+                    </div>
+                  </div>
+       -->
+       <div class="col-xxl-12 col-lg-12">
+        <h6 class="card-title mb-4 mt-4">
+          <u>Description</u
+          ><a 
+            ><i class="mdi mdi-file-edit-outline ml-10"></i
+          ></a>
+        </h6>
+      </div>
+      <div class="col-xxl-12 col-lg-12">
+        <textarea
+  style="width: 90% !important"
+  
+  value="Lorem Ipsum is simply dummy text of the printing and
+  typesetting industry."
+  rows="5"
+  cols="40"
+  ></textarea>
   </div>
+
+                </div>
+              </div>
+              
+                
+               
+         
+              </div>
+              <div class="row gy-4" formArrayName="commercial"*ngIf="propertyPreferences === 'commercial'" >
+                <div *ngFor="let commercialGroup of editleadsform.get('commercial')?.value; let i = index">
+                  <div [formGroupName]="i">
+                    <div class="col-xxl-3 col-lg-6">
+                      <label>Desired Property Location :</label>
+                      <select
+                        class="form-select"
+                        aria-label="Disabled select example"
+                        formControlName="desiredPropertyLocation"
+                        [ngClass]="{'is-invalid': submitted && editleadsform.get('commercial.' + i + '.desiredPropertyLocation')?.errors }" 
+                                                 
+                      >
+                        <option selected="">Doha</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                      <div *ngIf="submitted && editleadsform.get('commercial.' + i + '.desiredPropertyLocation')?.errors " class="invalid-feedback">
+                        <div *ngIf="editleadsform.get('commercial.' + i + '.desiredPropertyLocation')?.hasError('required')">Desired Property Location is required</div>
+                      </div>
+      
+                    </div>
+                    <div class="col-xxl-3 col-lg-6">
+                      <label>Preferred Neighbourhood:</label>
+                      <select
+                        class="form-select"
+                        aria-label="Disabled select example"
+                        formControlName="preferredNeighbourhood"
+                        [ngClass]="{'is-invalid': submitted && editleadsform.get('commercial.' + i + '.preferredNeighbourhood')?.errors }"
+                       
+                      >
+                        <option selected="">Doha</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                      <div *ngIf="submitted && editleadsform.get('commercial.' + i + '.preferredNeighbourhood')?.errors " class="invalid-feedback">
+                        <div *ngIf="editleadsform.get('commercial.' + i + '.preferredNeighbourhood')?.hasError('required')">Preffered Neighbourhood Location is required</div>
+                      </div>
+                    </div>
+                    <div class="col-xxl-3 col-lg-6">
+                      <label>Number of Bedrooms:</label>
+                      <select class="form-select"
+                        aria-label="Disabled select example"
+                        formControlName="numberOfBedrooms"
+                        [ngClass]="{'is-invalid': submitted && editleadsform.get('commercial.' + i + '.numberOfBedrooms')?.errors }"
+                      >
+                        <option selected="">2</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                      <div *ngIf="submitted && editleadsform.get('commercial.' + i + '.numberOfBedrooms')?.errors " class="invalid-feedback">
+                        <div *ngIf="editleadsform.get('commercial.' + i + '.numberOfBedrooms')?.hasError('required')">Number of Bedrooms is required</div>
+                      </div>
+                    </div>
+        
+                    <div class="col-xxl-3 col-lg-6">
+                      <label>Number of Bathroom:</label>
+                      <select
+                        class="form-select"
+                        aria-label="Disabled select example"
+                        formControlName="numberOfBathrooms"
+                        [ngClass]="{'is-invalid': submitted && editleadsform.get('commercial.' + i + '.numberOfBathrooms')?.errors }"
+                      >
+                        <option selected="">2</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                      <div *ngIf="submitted && editleadsform.get('commercial.' + i + '. umberOfBathrooms')?.errors " class="invalid-feedback">
+                        <div *ngIf="editleadsform.get('commercial.' + i + '.numberOfBathrooms')?.hasError('required')">Number Of Bathrooms is required</div>
+                       
+                      </div>
+                    </div>
+                    <div class="col-xxl-3 col-lg-6">
+                      <label>Price Range:</label>
+                      <select
+                        class="form-select"
+                        aria-label="Disabled select example"
+                        formControlName="priceRange"
+                        [ngClass]="{'is-invalid': submitted && editleadsform.get('commercial.' + i + '.priceRange')?.errors }"
+                      >
+                        <option selected="">1000 - 2000 QAR</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                      <div *ngIf="submitted && editleadsform.get('commercial.' + i + '.priceRange')?.errors " class="invalid-feedback">
+                        <div *ngIf="editleadsform.get('commercial.' + i + '.priceRange')?.hasError('required')">Price Range is required</div>                  
+                      </div>
+                    </div>
+                    <div class="col-xxl-3 col-lg-6">
+                      <label>Building Type:</label>
+                      <select
+                        class="form-select"
+                        aria-label="Disabled select example"
+                        formControlName="buildingType"
+                        [ngClass]="{'is-invalid': submitted && editleadsform.get('commercial.' + i + '.buildingType')?.errors }"
+                      >
+                        <option selected="">Tower</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                      <div *ngIf="submitted && editleadsform.get('commercial.' + i + '.buildingType')?.errors " class="invalid-feedback">
+                        <div *ngIf="editleadsform.get('commercial.' + i + '.buildingType')?.hasError('required')">Building type is required</div>                     
+                      </div>
+                    </div>
+        
+                    <div class="col-xxl-3 col-lg-6">
+                      <label>Unit Type:</label>
+                      <select
+                        class="form-select"
+                        aria-label="Disabled select example"
+                        formControlName="unitType"
+                        [ngClass]="{'is-invalid': submitted && editleadsform.get('commercial.' + i + '.unitType')?.errors }"
+                      >
+                        <option selected="">2BHK</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                      <div *ngIf="submitted && editleadsform.get('commercial.' + i + '.unitType')?.errors " class="invalid-feedback">
+                        <div *ngIf="editleadsform.get('commercial.' + i + '.unitType')?.hasError('required')">Unit type is required</div>                                      
+                      </div>
+                    </div>
+                    <div class="col-xxl-3 col-lg-6">
+                      <label>Floor Preference:</label>
+                      <select
+                        class="form-select"
+                        aria-label="Disabled select example"
+                        formControlName="floorPreference"
+                        [ngClass]="{'is-invalid': submitted && editleadsform.get('commercial.' + i + '.floorPreference')?.errors }"
+                      >
+                        <option selected="">Second Floor</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                      <div  *ngIf="submitted && editleadsform.get('commercial.' + i + '.floorPreference')?.errors " class="invalid-feedback" >
+                        <div *ngIf="editleadsform.get('commercial.' + i + '.floorPreference')?.hasError('required')">Floor preference is required</div>                                        
+                      </div>
+                    </div>
+                    <!-- <div class="col-xxl-3 col-lg-6">
+                      <label>View Preference:</label>
+                      <select
+                        class="form-select"
+                        aria-label="Disabled select example"
+                        formControlName="viewPreference"
+                        [ngClass]="{'is-invalid': submitted && form['viewPreference'].errors }"
+                      >
+                        <option selected="">Sea View</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                      <div *ngIf="submitted && form['viewPreference'].errors" class="invalid-feedback">
+                        <div *ngIf="form['viewPreference'].errors['required']">View Preference is required</div>
+                      
+                      </div>
+                    </div>
+         -->
+         <div class="col-xxl-12 col-lg-12">
+          <h6 class="card-title mb-4 mt-4">
+            <u>Description</u
+            ><a 
+              ><i class="mdi mdi-file-edit-outline ml-10"></i
+            ></a>
+          </h6>
+        </div>
+        <div class="col-xxl-12 col-lg-12">
+          <textarea
+    style="width: 90% !important"
+    
+    value="Lorem Ipsum is simply dummy text of the printing and
+    typesetting industry."
+    rows="5"
+    cols="40"
+    ></textarea>
+    </div>
+  
+                  </div>
+                </div>
+                
+                  
+                 
+           
+                </div>
+              
+       
+              
+
+      
+           
+            <div class="col-xxl-4 col-lg-6"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+
+
+        
 </div>
-<!-- /.modal-content -->
-<!-- /.modal-dialog -->
+        
+         </form> 
+        </div>
+      </div>
+  </div>
+  <div class="modal-footer">
+      <a href="javascript:void(0);" class="btn btn-link link-success fw-medium" data-bs-dismiss="modal"
+          (click)="close()"><i class="ri-close-line me-1 align-middle"></i> Close</a>
+     
+      <button type="button"  (click)="submitForm()" class="btn btn-primary ">Save changes</button>
+  </div>
+
+</div><!-- /.modal-content -->

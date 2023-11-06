@@ -68,7 +68,7 @@
           _ngcontent-ng-c797134160=""
           type="button"
           class="btn btn-primary waves-effect waves-light margin_btn"
-          (click)="openEditLeadsModal()"
+          (click)="openEditLeadsModal(leadId)"
         >
           Edit
         </button>
@@ -739,7 +739,7 @@
             
             </div>-->
   </div>
-
+  <!-- <app-notes [leadId]="leadId"></app-notes> -->
   <div class="col-xl-11">
     <div id="section-3" class="card">
       <div class="card-header align-items-center d-flex">
@@ -779,7 +779,7 @@
               href="javascript:void(0);"
               class="list-group-item list-group-item-action"
             >
-              <!-- <div class="float-end">Rejected</div> -->
+              <div class="float-end">Rejected</div>
               <div class="d-flex mb-2 align-items-center">
                 <div class="flex-shrink-0">
                   <img
@@ -856,9 +856,9 @@
           </div>
         </div>
       </div>
-      <!-- end card-body -->
+      
     </div>
-    <!-- end card -->
+    
   </div>
 
   <div class="col-lg-11">
@@ -889,7 +889,7 @@
     </div>
     <!-- end card -->
   </div>
-
+  <!-- <app-timeline [leadId]="leadId"></app-timeline> -->
   <div class="col-lg-11">
     <div id="section-5" class="card">
       <div class="card-header align-items-center d-flex">
@@ -1017,7 +1017,7 @@
       </div>
     </div>
   </div>
-
+  <app-activities [leadId]="leadId"></app-activities>
   <div #activitySection class="col-xxl-11">
     <div id="section-6" class="card">
       <div class="card-header align-items-center d-flex">
