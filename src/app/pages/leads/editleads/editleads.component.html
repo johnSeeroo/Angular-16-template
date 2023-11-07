@@ -314,9 +314,9 @@
              <div class="col-xxl-8 col-lg-6"></div>
       
       
-             <div class="row gy-4" formArrayName="residential"*ngIf="propertyPreferences === 'residential'" >
+             <div  formArrayName="residential"*ngIf="propertyPreferences === 'residential'" >
               <div *ngFor="let residentialGroup of editleadsform.get('residential')?.value; let i = index">
-                <div [formGroupName]="i">
+                <div  class="row gy-4" [formGroupName]="i">
                   <div class="col-xxl-3 col-lg-6">
                     <label>Desired Property Location :</label>
                     <select
@@ -507,9 +507,9 @@
                
          
               </div>
-              <div class="row gy-4" formArrayName="commercial"*ngIf="propertyPreferences === 'commercial'" >
+              <div  formArrayName="commercial"*ngIf="propertyPreferences === 'commercial'" >
                 <div *ngFor="let commercialGroup of editleadsform.get('commercial')?.value; let i = index">
-                  <div [formGroupName]="i">
+                  <div class="row gy-4" [formGroupName]="i">
                     <div class="col-xxl-3 col-lg-6">
                       <label>Desired Property Location :</label>
                       <select
