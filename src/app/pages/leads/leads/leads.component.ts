@@ -45,8 +45,8 @@ import {
   leadSortEvent,
 } from "./leads-sortable.directive";
 import { ActivatedRoute } from "@angular/router";
-import { EditleadsComponent } from "../editleads/editleads.component";
 import { AttachmentsComponent } from "../../shared/common/attachments/attachments.component";
+import { EditaddleadsComponent } from "../edit-addleads/edit-addleads.component";
 
 @Component({
   selector: "app-leads",
@@ -171,7 +171,7 @@ export class LeadsComponent {
      * fetches data
      */
     this.invoiceList.subscribe((x) => {
-        console.log(x,"hhhhhh")
+        // console.log(x,"hhhhhh")
       });
 
     setTimeout(() => {
@@ -192,8 +192,8 @@ export class LeadsComponent {
     this.submitted = false;
     this.modalService.open(content, { size: "md", centered: true });
   }
-  openEditLeadsModal(leadId?:any) {
-    const modalRef = this.modalService.open(EditleadsComponent, {
+  openEditLeadsModal(leadId?:any) {debugger
+    const modalRef = this.modalService.open(EditaddleadsComponent, {
       size: "fullscreen", // Set the size as per your requirements
       windowClass: "modal-holder",
       keyboard: false, // Prevent closing by pressing Esc key

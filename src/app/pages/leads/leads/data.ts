@@ -126,6 +126,24 @@ const LeadsInformation = [
         modifiedBy: "Mariana John",
         modifiedOn: "24 sep 2023 09:34 am",
         address: "Al Wakra Main St, Doha, Qatar",
+        propertyPreferences:"residential",
+        residential:[{
+          preferredNeighbourhood:"Doha",
+        desiredPropertyLocation: "Doha",
+        numberOfBedrooms:"2",
+        numberOfBathrooms:"2" ,
+        priceRange:"1000-2000 QAD",
+        propertyType:"Tower",
+        unitType: "2BHK",
+        floorPreference:"3",
+        viewPreference:"Sea View",
+        corporateEnquiry:"true",
+        numberOfUnits:"5",
+        desiredmoveindate:"22-10-2023"
+        }         
+
+        ]
+        
       },
     ],
   },

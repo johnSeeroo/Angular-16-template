@@ -74,7 +74,7 @@ export class LeadsService {
       delay(200),
       tap(() => this._loading$.next(false))
     ).subscribe(result => {
-      console.log(result,"result")
+      // console.log(result,"result")
       this._leads$.next(result.leads);
       this._total$.next(result.total);
     });
