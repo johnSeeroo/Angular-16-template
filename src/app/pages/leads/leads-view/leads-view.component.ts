@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild } from "@angular/core";
 import { LeadsInformation } from "../leads/data";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
-import { EditleadsComponent } from "../editleads/editleads.component";
+import { EditaddleadsComponent } from "../edit-addleads/edit-addleads.component";
 
 @Component({
   selector: "app-leads-view",
@@ -31,7 +31,7 @@ export class LeadsViewComponent {
   // Add leads//
   
   openEditLeadsModal(leadId?:any) {
-    const modalRef = this.modalService.open(EditleadsComponent, {
+    const modalRef = this.modalService.open(EditaddleadsComponent, {
       size: "fullscreen", // Set the size as per your requirements
       windowClass: "modal-holder",
       keyboard: false, // Prevent closing by pressing Esc key

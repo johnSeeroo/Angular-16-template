@@ -321,7 +321,7 @@
                     <label>Desired Property Location :</label>
                     <select
                       class="form-select"
-                      aria-label="Disabled select example"
+                      
                       formControlName="desiredPropertyLocation"
                       [ngClass]="{'is-invalid': submitted && editleadsform.get('residential.' + i + '.desiredPropertyLocation')?.errors }" 
                                                
@@ -407,20 +407,20 @@
                     </div>
                   </div>
                   <div class="col-xxl-3 col-lg-6">
-                    <label>Building Type:</label>
+                    <label>Property Type:</label>
                     <select
                       class="form-select"
                       aria-label="Disabled select example"
-                      formControlName="buildingType"
-                      [ngClass]="{'is-invalid': submitted && editleadsform.get('residential.' + i + '.buildingType')?.errors }"
+                      formControlName="propertyType"
+                      [ngClass]="{'is-invalid': submitted && editleadsform.get('residential.' + i + '.propertyType')?.errors }"
                     >
                       <option selected="">Tower</option>
                       <option value="1">One</option>
                       <option value="2">Two</option>
                       <option value="3">Three</option>
                     </select>
-                    <div *ngIf="submitted && editleadsform.get('residential.' + i + '.buildingType')?.errors " class="invalid-feedback">
-                      <div *ngIf="editleadsform.get('residential.' + i + '.buildingType')?.hasError('required')">Building type is required</div>                     
+                    <div *ngIf="submitted && editleadsform.get('residential.' + i + '.propertyType')?.errors " class="invalid-feedback">
+                      <div *ngIf="editleadsform.get('residential.' + i + '.propertyType')?.hasError('required')">Building type is required</div>                     
                     </div>
                   </div>
       
@@ -458,25 +458,70 @@
                       <div *ngIf="editleadsform.get('residential.' + i + '.floorPreference')?.hasError('required')">Floor preference is required</div>                                        
                     </div>
                   </div>
-                  <!-- <div class="col-xxl-3 col-lg-6">
+                  <div class="col-xxl-3 col-lg-6">
                     <label>View Preference:</label>
                     <select
                       class="form-select"
                       aria-label="Disabled select example"
                       formControlName="viewPreference"
-                      [ngClass]="{'is-invalid': submitted && form['viewPreference'].errors }"
+                      [ngClass]="{'is-invalid': submitted && editleadsform.get('residential.' + i + '.viewPreference')?.errors }"
                     >
                       <option selected="">Sea View</option>
                       <option value="1">One</option>
                       <option value="2">Two</option>
                       <option value="3">Three</option>
                     </select>
-                    <div *ngIf="submitted && form['viewPreference'].errors" class="invalid-feedback">
-                      <div *ngIf="form['viewPreference'].errors['required']">View Preference is required</div>
-                    
+                    <div  *ngIf="submitted && editleadsform.get('residential.' + i + '.viewPreference')?.errors " class="invalid-feedback" >
+                      <div *ngIf="editleadsform.get('residential.' + i + '.viewPreference')?.hasError('required')">Floor preference is required</div>                                        
                     </div>
                   </div>
-       -->
+                  <div class="col-xxl-2 col-lg-3">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        id="corporateEnquiry"
+                        formControlName="corporateEnquiry"
+                        [value]="true"                        
+                      />
+                      <label class="form-check-label" for="corporateEnquiry">Corporate Enquiry</label>
+                    </div>
+                  </div>
+                  
+                  <div class="col-xxl-3 col-lg-6">
+                    <label>Number of Units:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="numberOfUnits"
+                      formControlName="numberOfUnits"
+                      [ngClass]="{'is-invalid': submitted && editleadsform.get('residential.' + i + '.numberOfUnits')?.errors }"
+                      
+                    />
+                    <div *ngIf="submitted && editleadsform.get('residential.' + i + '.numberOfUnits')?.errors" class="invalid-feedback">
+                      <div *ngIf="editleadsform.get('residential.' + i + '.numberOfUnits')?.hasError('required')">Number of units is required</div>
+                    </div>
+                  </div>              
+                  
+                  <div class="col-xxl-3 col-lg-6">
+                    <label>Desired Move in DAte:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="desiredmoveindate"
+                      formControlName="desiredmoveindate"
+                      [ngClass]="{'is-invalid': submitted && editleadsform.get('residential.' + i + '.desiredmoveindate')?.errors }"
+                      
+                    />
+                    <div *ngIf="submitted && editleadsform.get('residential.' + i + '.desiredmoveindate')?.errors" class="invalid-feedback">
+                      <div *ngIf="editleadsform.get('residential.' + i + '.desiredmoveindate')?.hasError('required')">Number of units is required</div>
+                    </div>
+                  </div>                                        
+                                 
+                                    
+                                    
+                                    
+                  
        <div class="col-xxl-12 col-lg-12">
         <h6 class="card-title mb-4 mt-4">
           <u>Description</u
@@ -600,24 +645,24 @@
                       </div>
                     </div>
                     <div class="col-xxl-3 col-lg-6">
-                      <label>Building Type:</label>
+                      <label>Property Type:</label>
                       <select
                         class="form-select"
                         aria-label="Disabled select example"
-                        formControlName="buildingType"
-                        [ngClass]="{'is-invalid': submitted && editleadsform.get('commercial.' + i + '.buildingType')?.errors }"
+                        formControlName="propertyType"
+                        [ngClass]="{'is-invalid': submitted && editleadsform.get('commercial.' + i + '.propertyType')?.errors }"
                       >
                         <option selected="">Tower</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                       </select>
-                      <div *ngIf="submitted && editleadsform.get('commercial.' + i + '.buildingType')?.errors " class="invalid-feedback">
-                        <div *ngIf="editleadsform.get('commercial.' + i + '.buildingType')?.hasError('required')">Building type is required</div>                     
+                      <div *ngIf="submitted && editleadsform.get('commercial.' + i + '.propertyType')?.errors " class="invalid-feedback">
+                        <div *ngIf="editleadsform.get('commercial.' + i + '.propertyType')?.hasError('required')">Building type is required</div>                     
                       </div>
                     </div>
         
-                    <!-- <div class="col-xxl-3 col-lg-6">
+                    <div class="col-xxl-3 col-lg-6">
                       <label>Unit Type:</label>
                       <select
                         class="form-select"
@@ -633,8 +678,8 @@
                       <div *ngIf="submitted && editleadsform.get('commercial.' + i + '.unitType')?.errors " class="invalid-feedback">
                         <div *ngIf="editleadsform.get('commercial.' + i + '.unitType')?.hasError('required')">Unit type is required</div>                                      
                       </div>
-                    </div> -->
-                    <!-- <div class="col-xxl-3 col-lg-6">
+                    </div>
+                    <div class="col-xxl-3 col-lg-6">
                       <label>Floor Preference:</label>
                       <select
                         class="form-select"
@@ -650,26 +695,67 @@
                       <div  *ngIf="submitted && editleadsform.get('commercial.' + i + '.floorPreference')?.errors " class="invalid-feedback" >
                         <div *ngIf="editleadsform.get('commercial.' + i + '.floorPreference')?.hasError('required')">Floor preference is required</div>                                        
                       </div>
-                    </div> -->
-                    <!-- <div class="col-xxl-3 col-lg-6">
+                    </div>
+                    <div class="col-xxl-3 col-lg-6">
                       <label>View Preference:</label>
                       <select
                         class="form-select"
                         aria-label="Disabled select example"
                         formControlName="viewPreference"
-                        [ngClass]="{'is-invalid': submitted && form['viewPreference'].errors }"
+                        [ngClass]="{'is-invalid': submitted && editleadsform.get('commercial.' + i + '.viewPreference')?.errors }"
                       >
                         <option selected="">Sea View</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                       </select>
-                      <div *ngIf="submitted && form['viewPreference'].errors" class="invalid-feedback">
-                        <div *ngIf="form['viewPreference'].errors['required']">View Preference is required</div>
-                      
+                      <div  *ngIf="submitted && editleadsform.get('commercial.' + i + '.viewPreference')?.errors " class="invalid-feedback" >
+                        <div *ngIf="editleadsform.get('residential.' + i + '.viewPreference')?.hasError('required')">Floor preference is required</div>                                        
                       </div>
                     </div>
-         -->
+                    <div class="col-xxl-2 col-lg-3">
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          id="corporateEnquiry"
+                          formControlName="corporateEnquiry"
+                          [value]="true"                        
+                        />
+                        <label class="form-check-label" for="corporateEnquiry">Corporate Enquiry</label>
+                      </div>
+                    </div>
+                    
+                    <div class="col-xxl-3 col-lg-6">
+                      <label>Number of Units:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="numberOfUnits"
+                        formControlName="numberOfUnits"
+                        [ngClass]="{'is-invalid': submitted && editleadsform.get('commercial.' + i + '.numberOfUnits')?.errors }"
+                        
+                      />
+                      <div *ngIf="submitted && editleadsform.get('commercial' + i + '.numberOfUnits')?.errors" class="invalid-feedback">
+                        <div *ngIf="editleadsform.get('commercial.' + i + '.numberOfUnits')?.hasError('required')">Number of units is required</div>
+                      </div>
+                    </div>              
+                    
+                    <div class="col-xxl-3 col-lg-6">
+                      <label>Desired Move in DAte:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="desiredmoveindate"
+                        formControlName="desiredmoveindate"
+                        [ngClass]="{'is-invalid': submitted && editleadsform.get('commercial.' + i + '.desiredmoveindate')?.errors }"
+                        
+                      />
+                      <div *ngIf="submitted && editleadsform.get('commercial.' + i + '.desiredmoveindate')?.errors" class="invalid-feedback">
+                        <div *ngIf="editleadsform.get('commercial.' + i + '.desiredmoveindate')?.hasError('required')">Number of units is required</div>
+                      </div>
+                    </div>                                       
+        
          <div class="col-xxl-12 col-lg-12">
           <h6 class="card-title mb-4 mt-4">
             <u>Description</u

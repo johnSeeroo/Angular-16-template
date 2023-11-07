@@ -6,10 +6,10 @@ import { LeadSource, LeadStatus, LeadsOwner, MaritalStatus, Nationality } from '
 import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-editleads',
-  templateUrl: './editleads.component.html',
-  styleUrls: ['./editleads.component.scss']
+  templateUrl: './edit-addleads.component.html',
+  styleUrls: ['./edit-addleads.component.scss']
 })
-export class EditleadsComponent {
+export class EditaddleadsComponent {
   leadOwnerArray: LeadsOwner[] = LEADSOWNER;
   default: number = 1;
 
@@ -26,7 +26,7 @@ export class EditleadsComponent {
   currentlyChecked: any;
   editleadsform!: FormGroup;
   descriptionReadMode = true;
-  LeadDetails=LeadsInformation[0].data[0]
+  LeadDetails:any;
   submitted = false;
   propertyPreferences: string = 'residential';
   residential!: FormArray;
@@ -49,8 +49,8 @@ export class EditleadsComponent {
      */
     this.editleadsform = this.formBuilder.group({
       leadOwner: ["", [Validators.required]],
-      mobile: ["", [Validators.required]],
-      //email: ["", [Validators.required, Validators.email]],
+      mobile: ["", [Validators.required,Validators.pattern("[a-zA-Z0-9]+")]],
+      
       leadName: ["", [Validators.required]],
       alternateNumber: [
         "",
@@ -72,11 +72,7 @@ export class EditleadsComponent {
       ],
       preferredTimeToCall: ["", [Validators.required]],
       nationality: [null, [Validators.required]],
-      propertyPreferences: ["", Validators.required],
-     // desiredPropertyLocation: ["", Validators.required],
-      //area: ["", [Validators.required]],
-     // desiredMoveIndate: ["", [Validators.required]],
-    //  description: ["", [Validators.required]],
+      propertyPreferences: ["", Validators.required],     
       currentAddress: ["", [Validators.required]],
       residential: this.formBuilder.array([]),
       commercial: this.formBuilder.array([])
@@ -91,13 +87,16 @@ export class EditleadsComponent {
      * BreadCrumb
      */
     // this.breadCrumbItems = [{ label: "CRM" }, { label: "Leads", active: true }];
+    if (LeadsInformation && LeadsInformation.length > 0 && LeadsInformation[0].data && LeadsInformation[0].data.length > 0) {
+      this.LeadDetails = LeadsInformation[0].data[0];
+    }
     this.currentlyChecked = CheckBoxType.APPLY_FOR_RESIDENTIAL;
     this.route.params.subscribe((data: any) => {
       debugger
-      if (data.id) {
-        debugger
+      if (data.id) {        
+        debugger        
         // this.setBreadCrumb();
-        this.title = 'Edit Division';
+        this.title = 'Leads Edit';
         this.leadId = data.id;
         // this.getDivisionDetails();
         this.isEdit = true;
@@ -106,8 +105,9 @@ export class EditleadsComponent {
 
     });
 
-    this.editformdetails();
+    
     this.onSelectedBlockChange();
+    console.log(this.LeadDetails)
     // this.addResidentialField();
     
     
@@ -144,11 +144,14 @@ export class EditleadsComponent {
         numberOfBedrooms: ['', [Validators.required]],
         numberOfBathrooms: ['', [Validators.required]],
         priceRange: ['', [Validators.required]],
-        buildingType: ['', [Validators.required]],
+        propertyType: ['', [Validators.required]],
         unitType: ['', [Validators.required]],
         floorPreference: ['', [Validators.required]],
-        // viewPreference: ['', [Validators.required]],
-        // description: ['', [Validators.required]],
+        viewPreference: ['', [Validators.required]],
+        description: ['', [Validators.required]],        
+        corporateEnquiry:[''],
+        numberOfUnits:['',[Validators.required]],
+        desiredmoveindate:['',[Validators.required]]
         // other fields you want to add dynamically
       });
       
@@ -168,12 +171,16 @@ export class EditleadsComponent {
         numberOfBedrooms: ['', [Validators.required]],
         numberOfBathrooms: ['', [Validators.required]],
         priceRange: ['', [Validators.required]],
-        buildingType: ['', [Validators.required]],
+        propertyType: ['', [Validators.required]],
         unitType: ['', [Validators.required]],
         floorPreference: ['', [Validators.required]],
-        // viewPreference: ['', [Validators.required]],
-        // description: ['', [Validators.required]],
+        viewPreference: ['', [Validators.required]],
+        description: ['', [Validators.required]],        
+        corporateEnquiry:[''],
+        numberOfUnits:['',[Validators.required]],
+        desiredmoveindate:['',[Validators.required]]
         // other fields you want to add dynamically
+       
       });
       commercialArray.push(newCommercialGroup);
 
@@ -278,31 +285,28 @@ selectCheckBox(targetType: CheckBoxType) {
 
 
 
-editformdetails(){
-  this.editleadsform.patchValue({
-    leadOwner: this.LeadDetails.leadOwner,
-    mobile: this.LeadDetails.phoneNumber,    
-    alternateNumber: this.LeadDetails.alternateNumber,
-    website: this.LeadDetails.website,
-    annualRevenue: this.LeadDetails.annualRevenue || 'none',
-    createdBy:this.LeadDetails.createdBy,
-    leadName:this.LeadDetails.leadName,
-    company:this.LeadDetails.company,
-    leadSource:this.LeadDetails.leadSource,
-    maritalStatus:this.LeadDetails.martialStatus,
-    modifiedBy:this.LeadDetails.modifiedBy,
-    designation:this.LeadDetails.designation,
-    leadStatus:this.LeadDetails.leadStatus,
-    nationality:this.LeadDetails.nationality,
-    industry:this.LeadDetails.industry,
-    preferredTimeToCall:this.LeadDetails.preferredTimeToCall,
-    address:this.LeadDetails.address, 
-   
-   
-  });
+editformdetails() {debugger
+    this.editleadsform.patchValue({
+      leadOwner: this.LeadDetails.leadOwner,
+      mobile: this.LeadDetails.phoneNumber,
+      alternateNumber: this.LeadDetails.alternateNumber,
+      website: this.LeadDetails.website,
+      annualRevenue: this.LeadDetails.annualRevenue || 'none',
+      createdBy: this.LeadDetails.createdBy,
+      leadName: this.LeadDetails.leadName,
+      company: this.LeadDetails.company,
+      leadSource: this.LeadDetails.leadSource,
+      maritalStatus: this.LeadDetails.martialStatus,
+      modifiedBy: this.LeadDetails.modifiedBy,
+      designation: this.LeadDetails.designation,
+      leadStatus: this.LeadDetails.leadStatus,
+      nationality: this.LeadDetails.nationality,
+      industry: this.LeadDetails.industry,
+      preferredTimeToCall: this.LeadDetails.preferredTimeToCall,
+      address: this.LeadDetails.address,
+    });
   
 }
-
 
 
 }
