@@ -30,7 +30,6 @@ import { SlickCarouselModule } from "ngx-slick-carousel";
 import { DROPZONE_CONFIG, DropzoneConfigInterface } from "ngx-dropzone-wrapper";
 
 import { LeadsRoutingModule } from "./leads-routing.module";
-import { AddleadsComponent } from "./addleads/addleads.component";
 import { ListleadsComponent } from "./listleads/listleads.component";
 import { DatePipe } from "@angular/common";
 import { LeadsListComponent } from "./leads-list/leads-list.component";
@@ -43,7 +42,7 @@ import { NgSelectModule } from "@ng-select/ng-select";
 import { NgbdLeadsSortableHeader } from "./leads/leads-sortable.directive";
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 import { LeadsViewComponent } from "./leads-view/leads-view.component";
-import { EditleadsComponent } from './editleads/editleads.component';
+import { EditaddleadsComponent } from './edit-addleads/edit-addleads.component';
 import { DropzoneModule } from 'ngx-dropzone-wrapper';
 
  
@@ -55,14 +54,13 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
 };
 
 @NgModule({
-  declarations: [
-    AddleadsComponent,
+  declarations: [    
     ListleadsComponent,
     LeadsListComponent,
     LeadsComponent,
     NgbdLeadsSortableHeader,
     LeadsViewComponent,
-    EditleadsComponent,
+    EditaddleadsComponent,
     
   ],
   imports: [

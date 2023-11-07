@@ -20,6 +20,10 @@ import { SidebarComponent } from "./sidebar/sidebar.component";
 import { NotesComponent } from './common/notes/notes.component';
 import { TimelineComponent } from './common/timeline/timeline.component';
 import { ActivitiesComponent } from './common/activities/activities.component';
+import { AttachmentsComponent } from './common/attachments/attachments.component';
+
+import { DropzoneModule } from 'ngx-dropzone-wrapper';
+
 
 @NgModule({
   declarations: [
@@ -31,6 +35,7 @@ import { ActivitiesComponent } from './common/activities/activities.component';
     NotesComponent,
     TimelineComponent,
     ActivitiesComponent,
+    AttachmentsComponent,
   ],
   imports: [
     CommonModule,
@@ -43,6 +48,7 @@ import { ActivitiesComponent } from './common/activities/activities.component';
     NgxSliderModule,
     NgbAccordionModule,
     FormsModule,
+    DropzoneModule
   ],
   exports: [
     TopbarComponent,
@@ -52,7 +58,8 @@ import { ActivitiesComponent } from './common/activities/activities.component';
     SidebarComponent,
     NotesComponent,
     TimelineComponent,
-    ActivitiesComponent
+    ActivitiesComponent,
+    AttachmentsComponent
   ],
   providers: [LanguageService],
 })

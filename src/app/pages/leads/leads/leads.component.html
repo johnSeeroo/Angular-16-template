@@ -40,9 +40,10 @@
           </ul>
         </div>
         <button
-          _ngcontent-ng-c797134160=""
+          
           type="button"
           class="btn btn-soft-primary waves-effect waves-light margin_btn"
+          (click)="ImportLeads()"
         >
           Import Leads
         </button>
@@ -124,7 +125,7 @@
                 data-bs-toggle="modal"
                 id="create-btn"
                 data-bs-target=".exampleModalFullscreen"
-                (click)="fullModal(fullDataModal)"
+                (click)="openEditLeadsModal()"
               >
                 <i class="ri-add-line align-bottom me-1"></i> Add Leads
               </button>
@@ -289,11 +290,8 @@
                             class="edit-item-btn"
                             data-bs-toggle="modal"
                             [class.disabled]="!canWriteLeadsModule"
-                            [routerLink]="
-                              canWriteLeadsModule
-                                ? '/leads/edit/' + data.leadId
-                                : null
-                            "
+                            *ngIf="canWriteLeadsModule" 
+                            (click)="openEditLeadsModal(data.leadId)"
                             ><i
                               class="ri-pencil-fill align-bottom text-muted"
                             ></i

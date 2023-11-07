@@ -1,7 +1,8 @@
 import { Component, ElementRef, ViewChild } from "@angular/core";
 import { LeadsInformation } from "../leads/data";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
-import { EditleadsComponent } from "../editleads/editleads.component";
+import { EditaddleadsComponent } from "../edit-addleads/edit-addleads.component";
+
 
 @Component({
   selector: "app-leads-view",
@@ -14,6 +15,7 @@ export class LeadsViewComponent {
   leadInfoReadMode = true;
   addressReadMode = true;
   descriptionReadMode = true;
+  config = {};
   leadsInformation = LeadsInformation[0].data[0];
   leadId = LeadsInformation[0].data[0].leadId;
   @ViewChild("leadSection") leadSection!: ElementRef;
@@ -27,9 +29,12 @@ export class LeadsViewComponent {
      * BreadCrumb
      */
     // this.breadCrumbItems = [{ label: "CRM" }, { label: "Leads-Edit", active: true }];
+    
   }
-  openEditLeadsModal(leadId:any) {
-    const modalRef = this.modalService.open(EditleadsComponent, {
+  // Add leads//
+  
+  openEditLeadsModal(leadId?:any) {
+    const modalRef = this.modalService.open(EditaddleadsComponent, {
       size: "fullscreen", // Set the size as per your requirements
       windowClass: "modal-holder",
       keyboard: false, // Prevent closing by pressing Esc key
@@ -39,7 +44,10 @@ export class LeadsViewComponent {
     modalRef.componentInstance.leadId = leadId;
   }
     
+  onFileRemoved(event: Event)
+  {
 
+  }
  
 
   gotoLead() {
