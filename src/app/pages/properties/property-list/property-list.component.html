@@ -1,0 +1,530 @@
+<div class="page_head head_sticky">
+  <div class="row">
+    <div class="col-xxl-4 col-lg-4">
+      <h3 class="page_titile">Properties</h3>
+    </div>
+    <div class="col-xxl-8 col-lg-8">
+      <div class="btn_direction">
+        <div class="btn-group group_height" ngbDropdown>
+          <button
+            class="btn btn-light dropdown-toggle"
+            type="button"
+            id="dropdownMenuClickableInside"
+            data-bs-toggle="dropdown"
+            data-bs-auto-close="outside"
+            aria-expanded="false"
+            ngbDropdownToggle
+          >
+            ...
+          </button>
+          <ul
+            class="dropdown-menu"
+            ngbDropdownMenu
+            aria-labelledby="dropdownMenuClickableInside"
+          >
+            <li>
+              <a class="dropdown-item" href="javascript:void(0);">Menu item</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="javascript:void(0);">Menu item</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="javascript:void(0);">Menu item</a>
+            </li>
+          </ul>
+        </div>
+        <button
+          _ngcontent-ng-c797134160=""
+          type="button"
+          class="btn btn-soft-primary waves-effect waves-light margin_btn"
+        >
+          Import Properties
+        </button>
+
+        <button
+          _ngcontent-ng-c797134160=""
+          type="button"
+          class="btn btn-soft-primary waves-effect waves-light margin_btn"
+        >
+          Renew Property
+        </button>
+        <button
+          _ngcontent-ng-c797134160=""
+          type="button"
+          class="btn btn-soft-primary waves-effect waves-light margin_btn"
+        >
+          Convert
+        </button>
+        <!-- <button
+            _ngcontent-ng-c797134160=""
+            type="button"
+            class="btn btn-primary waves-effect waves-light margin_btn"
+            (click)="fullModal(fullDataModal)"
+          >
+            Add New Lead
+          </button> -->
+        <!-- <button
+            _ngcontent-ng-c797134160=""
+            type="button"
+            class="btn btn-primary waves-effect waves-light margin_btn"
+            
+          >
+            Edit
+          </button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card" id="leadsList">
+      <div class="card-header border-0">
+        <div class="row g-4 align-items-center">
+          <div class="col-sm-3">
+            <!-- <div class="search-box">
+                <input
+                  type="text"
+                  name="searchTerm"
+                  class="form-control"
+                  placeholder="Search for..."
+                  [(ngModel)]="service.searchTerm"
+                />
+                <i class="ri-search-line search-icon"></i>
+              </div> -->
+          </div>
+          <div class="col-sm-auto ms-auto">
+            <div class="hstack gap-2">
+              <button
+                class="btn btn-soft-danger"
+                id="remove-actions"
+                style="display: none"
+                (click)="deleteMultiple(deleteModel)"
+              >
+                <i class="ri-delete-bin-2-line"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-info"
+                data-bs-toggle="offcanvas"
+                href="javascript:void(0);"
+                (click)="openEnd(filtetcontent)"
+              >
+                <i class="ri-filter-3-line align-bottom me-1"></i> Filters
+              </button>
+              <button
+                type="button"
+                class="btn btn-success add-btn"
+                data-bs-toggle="modal"
+                id="create-btn"
+                data-bs-target=".exampleModalFullscreen"
+                (click)="fullModal()"
+              >
+                <i class="ri-add-line align-bottom me-1"></i> Add Property
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div>
+          <div class="table-responsive table-card">
+            <table class="table">
+              <thead>
+                <tr class="bg-light text-muted">
+                  <th scope="col" style="width: 50px">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="checkAll"
+                        value="option"
+                        [(ngModel)]="masterSelected"
+                        (change)="checkUncheckAll($event)"
+                      />
+                    </div>
+                  </th>
+                  <th
+                    class="sort"
+                    leadsortable="name"
+                    (leadsort)="onSort($event)"
+                  >
+                    Name
+                  </th>
+                  <th
+                    class="sort"
+                    leadsortable="name"
+                    (leadsort)="onSort($event)"
+                  >
+                    Email
+                  </th>
+                  <th
+                    class="sort"
+                    leadsortable="score"
+                    (leadsort)="onSort($event)"
+                  >
+                    Lead Owner
+                  </th>
+                  <th
+                    class="sort"
+                    leadsortable="phone"
+                    (leadsort)="onSort($event)"
+                  >
+                    Phone
+                  </th>
+                  <th
+                    class="sort"
+                    leadsortable="location"
+                    (leadsort)="onSort($event)"
+                  >
+                    Lead Source
+                  </th>
+                  <th
+                    class="sort"
+                    leadsortable="tags"
+                    (leadsort)="onSort($event)"
+                  >
+                    Type
+                  </th>
+                  <th
+                    class="sort"
+                    leadsortable="date"
+                    (leadsort)="onSort($event)"
+                  >
+                    Create Date
+                  </th>
+                  <th class="sort">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngIf="leads.length > 0">
+                  <tr *ngFor="let data of leads" id="l_{{ data.leadId }}">
+                    <th scope="row">
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          name="checkAll"
+                          value="{{ data.leadId }}"
+                          [(ngModel)]="data.state"
+                          (change)="onCheckboxChange($event)"
+                        />
+                      </div>
+                    </th>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0">
+                          <img
+                            src="{{ data.profile }}"
+                            alt=""
+                            class="avatar-xxs rounded-circle image_src object-fit-cover"
+                          />
+                        </div>
+                        <div class="flex-grow-1 ms-2 name">
+                          {{ data.leadName }}
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <!-- <ngb-highlight
+                          [result]="data.company"
+                          [term]="service.searchTerm"
+                        >
+                        </ngb-highlight> -->
+                      {{ data.email }}
+                    </td>
+                    <td>
+                      {{ data.leadOwner }}
+                    </td>
+                    <td>
+                      {{ data.phoneNumber }}
+                    </td>
+                    <td>
+                      {{ data.leadSource }}
+                    </td>
+                    <td>
+                      {{ data.type }}
+                    </td>
+                    <td>
+                      <!-- <ngb-highlight
+                            [result]="data.date | date : 'longDate'"
+                            [term]="service.searchTerm"
+                          ></ngb-highlight> -->
+                      {{ data.CreatedOn }}
+                    </td>
+                    <!-- <td class="tags">
+                        <div class="d-flex gap-1">
+                          <span
+                            class="badge bg-primary-subtle text-primary"
+                            *ngFor="let tag of data.tags"
+                            >{{ tag }}</span
+                          >
+                        </div>
+                      </td> -->
+
+                    <td>
+                      <ul class="list-inline hstack gap-2 mb-0">
+                        <li
+                          class="list-inline-item"
+                          ngbTooltip="View"
+                          placement="top"
+                        >
+                          <a [routerLink]="'/leads/view/' + data.leadId"
+                            ><i class="ri-eye-fill align-bottom text-muted"></i
+                          ></a>
+                        </li>
+                        <li
+                          class="list-inline-item"
+                          ngbTooltip="Edit"
+                          placement="top"
+                        >
+                          <a
+                            class="edit-item-btn"
+                            data-bs-toggle="modal"
+                            [class.disabled]="!canWriteLeadsModule"
+                            [routerLink]="
+                              canWriteLeadsModule
+                                ? '/leads/edit/' + data.leadId
+                                : null
+                            "
+                            ><i
+                              class="ri-pencil-fill align-bottom text-muted"
+                            ></i
+                          ></a>
+                        </li>
+                        <li
+                          class="list-inline-item me-0"
+                          ngbTooltip="Delete"
+                          placement="top"
+                        >
+                          <a
+                            class="remove-item-btn"
+                            data-bs-toggle="modal"
+                            (click)="
+                              canDeleteLeadsModule
+                                ? confirm(deleteModel, data.leadId)
+                                : null
+                            "
+                          >
+                            <i
+                              class="ri-delete-bin-fill align-bottom text-muted"
+                            ></i>
+                          </a>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </ng-container>
+                <ng-container *ngIf="leads?.length === 0">
+                  <tr>
+                    <td colspan="9">
+                      <ngx-skeleton-loader
+                        count="10"
+                        appearance="line"
+                        animation="pulse"
+                      >
+                      </ngx-skeleton-loader>
+                    </td>
+                  </tr>
+                </ng-container>
+              </tbody>
+            </table>
+          </div>
+          <div
+            class="row justify-content-md-between align-items-md-center mt-3"
+          >
+            <div class="col col-sm-6">
+              <div
+                class="dataTables_info mb-2"
+                id="tickets-table_info"
+                role="status"
+                aria-live="polite"
+              >
+                <!-- Showing
+                {{ service.startIndex }} to {{ service.endIndex }} of
+                {{ service.totalRecords }}
+                entries -->
+                Showing 10 to 20 of 20
+              </div>
+            </div>
+            <!-- Pagination -->
+            <div class="col col-sm-6">
+              <div class="text-sm-right float-sm-end listjs-pagination">
+                <!-- <ngb-pagination
+                  [collectionSize]="(total | async)!"
+                  [(page)]="service.page"
+                  [pageSize]="service.pageSize"
+                >
+                </ngb-pagination> -->
+                <ngb-pagination [collectionSize]="20" [pageSize]="10">
+                </ngb-pagination>
+              </div>
+            </div>
+            <!-- End Pagination -->
+          </div>
+          <div id="elmLoader">
+            <!-- <div class="spinner-border text-primary avatar-sm" role="status">
+                              <span class="visually-hidden">Loading...</span>
+                          </div> -->
+          </div>
+        </div>
+
+        <!--end offcanvas-->
+      </div>
+    </div>
+  </div>
+  <!--end col-->
+</div>
+<!--end row-->
+
+<ng-template #deleteModel let-modal>
+  <div class="modal-content">
+    <div class="modal-header">
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+        id="btn-close"
+        (click)="modal.dismiss('Cross click')"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <div class="mt-2 text-center">
+        <lord-icon
+          src="https://cdn.lordicon.com/gsqxdxog.json"
+          trigger="loop"
+          colors="primary:#405189,secondary:#f06548"
+          style="width: 90px; height: 90px"
+        ></lord-icon>
+        <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
+          <h4>You are about to delete a lead ?</h4>
+          <p class="text-muted mx-4 mb-0">
+            Deleting your lead will remove all of your information from our
+            database.
+          </p>
+        </div>
+      </div>
+      <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
+        <button
+          class="btn btn-link link-success fw-medium text-decoration-none"
+          data-bs-dismiss="modal"
+          id="deleteRecord-close"
+          (click)="modal.close('Close click')"
+        >
+          <i class="ri-close-line me-1 align-middle"></i> Close
+        </button>
+        <button
+          type="button"
+          class="btn w-sm btn-danger"
+          id="delete-product"
+          (click)="deleteData(deleteId)"
+          (click)="modal.close('Close click')"
+        >
+          Yes, Delete It!
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- /.modal-content -->
+</ng-template>
+
+<ng-template #filtetcontent let-offcanvas>
+  <div class="offcanvas-header bg-light">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Leads Fliters</h5>
+    <button
+      type="button"
+      class="btn-close text-reset"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+      (click)="offcanvas.dismiss('Cross click')"
+    ></button>
+  </div>
+  <!--end offcanvas-header-->
+  <form action="" class="d-flex flex-column justify-content-end h-100">
+    <div class="offcanvas-body">
+      <div class="mb-4">
+        <label
+          for="datepicker-range"
+          class="form-label text-muted text-uppercase fw-semibold mb-3"
+          >Date</label
+        >
+        <input
+          class="form-control flatpickr-input"
+          type="text"
+          placeholder="Select Date"
+          mwlFlatpickr
+          [altInput]="true"
+          id="isDate"
+        />
+      </div>
+      <div class="mb-4">
+        <label
+          for="country-select"
+          class="form-label text-muted text-uppercase fw-semibold mb-3"
+          >Country</label
+        >
+        <select
+          class="form-control"
+          data-choices
+          data-choices-multiple-remove="true"
+          name="country-select"
+          id="country-select"
+        >
+          <option value="" selected>Select country</option>
+          <option value="Argentina">Argentina</option>
+          <option value="Belgium">Belgium</option>
+          <option value="Brazil">Brazil</option>
+          <option value="Colombia">Colombia</option>
+          <option value="Denmark">Denmark</option>
+          <option value="France">France</option>
+          <option value="Germany">Germany</option>
+          <option value="Mexico">Mexico</option>
+          <option value="Russia">Russia</option>
+          <option value="Spain">Spain</option>
+          <option value="Syria">Syria</option>
+          <option value="United Kingdom">United Kingdom</option>
+          <option value="United States of America">
+            United States of America
+          </option>
+        </select>
+      </div>
+      <div class="mb-4">
+        <label
+          for="status-select"
+          class="form-label text-muted text-uppercase fw-semibold mb-3"
+          >Type</label
+        >
+        <div class="row g-2">
+          <div class="col-lg-6">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="residential"
+                value="residential"
+              />
+              <label class="form-check-label" for="residential"
+                >Residential</label
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end offcanvas-body-->
+    <div class="offcanvas-footer border-top p-3 text-center hstack gap-2">
+      <button class="btn btn-light w-100">Clear Filter</button>
+      <button
+        type="submit"
+        class="btn btn-success w-100"
+        (click)="SearchData()"
+      >
+        Filters
+      </button>
+    </div>
+    <!--end offcanvas-footer-->
+  </form>
+</ng-template>
+<!--end offcanvas-->
