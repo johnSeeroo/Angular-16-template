@@ -40,7 +40,7 @@
              <label>Phone Number :</label>
                         
                           <div class="input-group" data-input-flag>
-                            <button class="btn btn-light border" type="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="assets/images/flags/qa.svg" alt="flag img" height="20" class="country-flagimg rounded"><span class="ms-2 country-codeno">+ 974</span></button>
+                            <button class="btn btn-light border phone_btn" type="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="assets/images/flags/qa.svg" alt="flag img" height="20" class="country-flagimg rounded"><span class="ms-2 country-codeno">+ 974</span></button>
                             <input type="text" class="form-control rounded-end flag-input" value="" placeholder="Enter number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"   formControlName="mobile"
                             [ngClass]="{'is-invalid': submitted && form['mobile'].errors }"/>
                             <div class="dropdown-menu w-100">
@@ -60,7 +60,7 @@
               
                           <label class="form-label">Alternate contact number:</label>
                           <div class="input-group" data-input-flag>
-                              <button class="btn btn-light border" type="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="assets/images/flags/qa.svg" alt="flag img" height="20" class="country-flagimg rounded"><span class="ms-2 country-codeno">+ 974</span></button>
+                              <button class="btn btn-light border phone_btn" type="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="assets/images/flags/qa.svg" alt="flag img" height="20" class="country-flagimg rounded"><span class="ms-2 country-codeno">+ 974</span></button>
                               <input type="text" class="form-control rounded-end flag-input" value="" placeholder="Enter number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"   formControlName="alternateNumber"
                               [ngClass]="{'is-invalid': submitted && form['alternateNumber'].errors}"/>
                               <div class="dropdown-menu w-100">
@@ -315,7 +315,7 @@
              <div class="col-xxl-8 col-lg-6"></div>
       
       
-             <div  formArrayName="residential"*ngIf="propertyPreferences === 'residential'" >
+             <div formArrayName="residential" *ngIf="propertyPreferences === 'residential'">
               <div *ngFor="let residentialGroup of editleadsform.get('residential')?.value; let i = index">
                 <div  class="row gy-4" [formGroupName]="i">
                   <div class="col-xxl-3 col-lg-6">
@@ -476,8 +476,9 @@
                       <div *ngIf="editleadsform.get('residential.' + i + '.viewPreference')?.hasError('required')">Floor preference is required</div>                                        
                     </div>
                   </div>
-                  <div class="col-xxl-2 col-lg-3">
+                  <div class="col-xxl-3 col-lg-6">
                     <div class="form-check">
+						<br><br>
                       <input
                         class="form-check-input"
                         type="radio"
@@ -485,6 +486,7 @@
                         formControlName="corporateEnquiry"
                         [value]="true"                        
                       />
+						
                       <label class="form-check-label" for="corporateEnquiry">Corporate Enquiry</label>
                     </div>
                   </div>
@@ -719,7 +721,7 @@
                         <input
                           class="form-check-input"
                           type="radio"
-                          id="corporateEnquiry"
+                          id="corporateEnquiry_1"
                           formControlName="corporateEnquiry"
                           [value]="true"                        
                         />
@@ -732,7 +734,7 @@
                       <input
                         type="text"
                         class="form-control"
-                        id="numberOfUnits"
+                        id="numberOfUnits_1"
                         formControlName="numberOfUnits"
                         [ngClass]="{'is-invalid': submitted && editleadsform.get('commercial.' + i + '.numberOfUnits')?.errors }"
                         
@@ -747,7 +749,7 @@
                       <input
                         type="text"
                         class="form-control"
-                        id="desiredmoveindate"
+                        id="desiredmoveindate_1"
                         formControlName="desiredmoveindate"
                         [ngClass]="{'is-invalid': submitted && editleadsform.get('commercial.' + i + '.desiredmoveindate')?.errors }"
                         
@@ -766,8 +768,8 @@
           </h6>
         </div>
         <div class="col-xxl-12 col-lg-12">
-          <textarea
-    style="width: 90% !important"
+          <textarea class="form-control ng-pristine ng-invalid ng-touched border_1"
+    style="width: 90% !important; border: 1px solid #ced4da!important;"
     [ngClass]="{'is-invalid': submitted && editleadsform.get('commercial.' + i + '.description')?.errors }"
     value="Lorem Ipsum is simply dummy text of the printing and
     typesetting industry."
@@ -807,11 +809,15 @@
         </div>
       </div>
   </div>
-  <div class="modal-footer">
+  <div class="modal-footer footer_fix">
+	  <div class="row">
+		  <div class="col-xxl-12 col-lg-12">
       <a href="javascript:void(0);" class="btn btn-link link-success fw-medium" data-bs-dismiss="modal"
           (click)="close()"><i class="ri-close-line me-1 align-middle"></i> Close</a>
      
       <button type="button"  (click)="submitForm()" class="btn btn-primary ">Save changes</button>
+		  </div>
+	  </div>
   </div>
 
 </div><!-- /.modal-content -->
