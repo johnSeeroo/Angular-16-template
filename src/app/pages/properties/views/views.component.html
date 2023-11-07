@@ -1,0 +1,347 @@
+<div class="page_head head_sticky">
+  <div class="row">
+    <div class="col-xxl-4 col-lg-4">
+      <h3 class="page_titile">Views</h3>
+    </div>
+    <div class="col-xxl-8 col-lg-8">
+      <div class="btn_direction">
+        <div class="btn-group group_height" ngbDropdown>
+          <button
+            class="btn btn-light dropdown-toggle"
+            type="button"
+            id="dropdownMenuClickableInside"
+            data-bs-toggle="dropdown"
+            data-bs-auto-close="outside"
+            aria-expanded="false"
+            ngbDropdownToggle
+          >
+            ...
+          </button>
+          <ul
+            class="dropdown-menu"
+            ngbDropdownMenu
+            aria-labelledby="dropdownMenuClickableInside"
+          >
+            <li>
+              <a class="dropdown-item" href="javascript:void(0);">Menu item</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="javascript:void(0);">Menu item</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="javascript:void(0);">Menu item</a>
+            </li>
+          </ul>
+        </div>
+        <button
+          _ngcontent-ng-c797134160=""
+          type="button"
+          class="btn btn-soft-primary waves-effect waves-light margin_btn"
+        >
+          Import Views
+        </button>
+
+        <button
+          _ngcontent-ng-c797134160=""
+          type="button"
+          class="btn btn-soft-primary waves-effect waves-light margin_btn"
+        >
+          Renew Views
+        </button>
+        <button
+          _ngcontent-ng-c797134160=""
+          type="button"
+          class="btn btn-soft-primary waves-effect waves-light margin_btn"
+        >
+          Convert
+        </button>
+        <!-- <button
+          _ngcontent-ng-c797134160=""
+          type="button"
+          class="btn btn-primary waves-effect waves-light margin_btn"
+          (click)="LaunchViewModel(null)"
+        >
+          Add View
+        </button> -->
+        <!-- <button
+              _ngcontent-ng-c797134160=""
+              type="button"
+              class="btn btn-primary waves-effect waves-light margin_btn"
+              
+            >
+              Edit
+            </button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card" id="ViewsList">
+      <div class="card-header border-0">
+        <div class="row g-4 align-items-center">
+          <div class="col-sm-3">
+            <!-- <div class="search-box">
+            <input
+              type="text"
+              name="searchTerm"
+              class="form-control"
+              placeholder="Search for..."
+              [(ngModel)]="service.searchTerm"
+            />
+            <i class="ri-search-line search-icon"></i>
+          </div> -->
+          </div>
+          <div class="col-sm-auto ms-auto">
+            <div class="hstack gap-2">
+              <button
+                type="button"
+                class="btn btn-success add-btn"
+                data-bs-toggle="modal"
+                id="create-btn"
+                data-bs-target=".exampleModalFullscreen"
+                (click)="LaunchViewModel(addEditView)"
+              >
+                <i class="ri-add-line align-bottom me-1"></i> Add Leads
+              </button>
+              <button
+                type="button"
+                id="create-btn"
+                class="btn btn-success add-btn"
+                (click)="LaunchViewModel(addEditView)"
+              >
+                <i class="ri-add-line align-bottom me-1"></i> Add Views
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div>
+          <div class="table-responsive table-card">
+            <table class="table">
+              <thead>
+                <tr class="bg-light text-muted">
+                  <th scope="col" style="width: 50px">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="checkAll"
+                        value="option"
+                        [(ngModel)]="masterSelected"
+                        (change)="checkUncheckAll($event)"
+                      />
+                    </div>
+                  </th>
+                  <th
+                    class="sort"
+                    leadsortable="id"
+                    (leadsort)="onSort($event)"
+                  >
+                    ID
+                  </th>
+                  <th
+                    class="sort"
+                    leadsortable="name"
+                    (leadsort)="onSort($event)"
+                  >
+                    Name
+                  </th>
+                  <th class="sort">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngIf="views.length > 0">
+                  <tr *ngFor="let data of views" id="l_{{ data.id }}">
+                    <th scope="row">
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          name="checkAll"
+                          value="{{ data.id }}"
+                          (change)="onCheckboxChange($event)"
+                        />
+                      </div>
+                    </th>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <!-- <div class="flex-shrink-0">
+                    <img
+                      src="{{ data.profile }}"
+                      alt=""
+                      class="avatar-xxs rounded-circle image_src object-fit-cover"
+                    />
+                  </div> -->
+                        <div class="flex-grow-1 ms-2 name">
+                          {{ data.id }}
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <div class="flex-grow-1 ms-2 name">
+                          {{ data.name }}
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <ul class="list-inline hstack gap-2 mb-0">
+                        <li
+                          class="list-inline-item"
+                          ngbTooltip="View"
+                          placement="top"
+                        >
+                          <a [routerLink]="'/leads/view/' + data.id"
+                            ><i class="ri-eye-fill align-bottom text-muted"></i
+                          ></a>
+                        </li>
+                        <li
+                          class="list-inline-item"
+                          ngbTooltip="Edit"
+                          placement="top"
+                        >
+                          <a
+                            class="edit-item-btn"
+                            data-bs-toggle="modal"
+                            [class.disabled]="!canWriteViewsModule"
+                            [routerLink]="
+                              canWriteViewsModule
+                                ? '/leads/edit/' + data.id
+                                : null
+                            "
+                            ><i
+                              class="ri-pencil-fill align-bottom text-muted"
+                            ></i
+                          ></a>
+                        </li>
+                        <li
+                          class="list-inline-item me-0"
+                          ngbTooltip="Delete"
+                          placement="top"
+                        >
+                          <a
+                            class="remove-item-btn"
+                            data-bs-toggle="modal"
+                            (click)="(canDeleteViewsModule ? null : null)"
+                          >
+                            <i
+                              class="ri-delete-bin-fill align-bottom text-muted"
+                            ></i>
+                          </a>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </ng-container>
+                <ng-container *ngIf="views?.length === 0">
+                  <tr>
+                    <td colspan="9">
+                      <ngx-skeleton-loader
+                        count="10"
+                        appearance="line"
+                        animation="pulse"
+                      >
+                      </ngx-skeleton-loader>
+                    </td>
+                  </tr>
+                </ng-container>
+              </tbody>
+            </table>
+          </div>
+          <div
+            class="row justify-content-md-between align-items-md-center mt-3"
+          >
+            <div class="col col-sm-6">
+              <div
+                class="dataTables_info mb-2"
+                id="tickets-table_info"
+                role="status"
+                aria-live="polite"
+              >
+                <!-- Showing
+            {{ service.startIndex }} to {{ service.endIndex }} of
+            {{ service.totalRecords }}
+            entries -->
+                Showing 10 to 20 of 20
+              </div>
+            </div>
+            <!-- Pagination -->
+            <div class="col col-sm-6">
+              <div class="text-sm-right float-sm-end listjs-pagination">
+                <!-- <ngb-pagination
+              [collectionSize]="(total | async)!"
+              [(page)]="service.page"
+              [pageSize]="service.pageSize"
+            >
+            </ngb-pagination> -->
+                <ngb-pagination [collectionSize]="20" [pageSize]="10">
+                </ngb-pagination>
+              </div>
+            </div>
+            <!-- End Pagination -->
+          </div>
+          <div id="elmLoader">
+            <!-- <div class="spinner-border text-primary avatar-sm" role="status">
+                          <span class="visually-hidden">Loading...</span>
+                      </div> -->
+          </div>
+        </div>
+
+        <!--end offcanvas-->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Default Modals -->
+<button
+  type="button"
+  class="btn btn-primary"
+  (click)="LaunchViewModel(addEditView)"
+>
+  Standard Modal
+</button>
+
+<ng-template #addEditView let-modal>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="myModalLabel">Modal Heading</h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <h5 class="fs-15">Overflowing text to show scroll behavior</h5>
+      <p class="text-muted">
+        One morning, when Gregor Samsa woke from troubled dreams, he found
+        himself transformed in his bed into a horrible vermin. He lay on his
+        armour-like back, and if he lifted his head a little he could see his
+        brown belly, slightly domed and divided by arches into stiff sections.
+      </p>
+      <p class="text-muted">
+        The bedding was hardly able to cover it and seemed ready to slide off
+        any moment. His many legs, pitifully thin compared with the size of the
+        rest of him, waved about helplessly as he looked. "What's happened to
+        me?" he thought.
+      </p>
+      <p class="text-muted">
+        It wasn't a dream. His room, a proper human room although a little too
+        small, lay peacefully between its four familiar walls.
+      </p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" data-bs-dismiss="modal">
+        Close
+      </button>
+      <button type="button" class="btn btn-primary">Save Changes</button>
+    </div>
+  </div>
+  <!-- /.modal-content -->
+</ng-template>

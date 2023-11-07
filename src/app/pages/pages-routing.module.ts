@@ -21,8 +21,13 @@ const routes: Routes = [
     path: "leads",
     loadChildren: () =>
       import("./leads/leads.module").then((m) => m.LeadsModule),
-    canActivate:[AuthGuard]  
-
+    canActivate: [AuthGuard],
+  },
+  {
+    path: "property",
+    loadChildren: () =>
+      import("./properties/property.module").then((m) => m.PropertyModule),
+    canActivate: [AuthGuard],
   },
   { path: "", redirectTo: "/dashboard", pathMatch: "full" },
 ];

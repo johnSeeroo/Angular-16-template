@@ -227,6 +227,18 @@ export const MENULIST: MenuList[] = [
         icon: "ri-building-line",
         subItems: [
           {
+            id: 41118,
+            label: "All Properties",
+            link: "/property",
+            parentId: 411,
+          },
+          {
+            id: 41119,
+            label: "Views",
+            link: "/property/views",
+            parentId: 411,
+          },
+          {
             id: 41110,
             label: "Company codes",
             link: "/configurations /sweetalerts",
