@@ -46,6 +46,7 @@ import {
 } from "./leads-sortable.directive";
 import { ActivatedRoute } from "@angular/router";
 import { EditleadsComponent } from "../editleads/editleads.component";
+import { AttachmentsComponent } from "../../shared/common/attachments/attachments.component";
 
 @Component({
   selector: "app-leads",
@@ -583,5 +584,15 @@ export class LeadsComponent {
         // You might add similar logic for other fields in the commercial FormArray
       }
     }
+  }
+
+  ImportLeads()
+  {
+    
+    this.modalService.open(AttachmentsComponent, {
+      size: "fullscreen",
+      windowClass: "modal-holder",
+     
+    });
   }
 }

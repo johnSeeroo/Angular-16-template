@@ -3,6 +3,7 @@ import { LeadsInformation } from "../leads/data";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { EditleadsComponent } from "../editleads/editleads.component";
 
+
 @Component({
   selector: "app-leads-view",
   templateUrl: "./leads-view.component.html",
@@ -14,6 +15,7 @@ export class LeadsViewComponent {
   leadInfoReadMode = true;
   addressReadMode = true;
   descriptionReadMode = true;
+  config = {};
   leadsInformation = LeadsInformation[0].data[0];
   leadId = LeadsInformation[0].data[0].leadId;
   @ViewChild("leadSection") leadSection!: ElementRef;
@@ -27,6 +29,7 @@ export class LeadsViewComponent {
      * BreadCrumb
      */
     // this.breadCrumbItems = [{ label: "CRM" }, { label: "Leads-Edit", active: true }];
+    
   }
   // Add leads//
   
@@ -41,7 +44,10 @@ export class LeadsViewComponent {
     modalRef.componentInstance.leadId = leadId;
   }
     
+  onFileRemoved(event: Event)
+  {
 
+  }
  
 
   gotoLead() {

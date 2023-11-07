@@ -21,7 +21,7 @@ export const MENULIST: MenuList[] = [
           {
             id: 30110,
             label: "Accounts",
-            link: "/pages/coming-soon",
+            link: "/leads/accounts",
             parentId: 301,
           },
           {
@@ -33,13 +33,13 @@ export const MENULIST: MenuList[] = [
           {
             id: 30112,
             label: "Opportunities",
-            link: "/leads/accounts",
+            link: "/leads/oppertunities",
             parentId: 301,
           },
           {
             id: 30113,
             label: "Quotations",
-            link: "/leads/accounts",
+            link: "/leads/quotations",
             parentId: 301,
           },
         ],
