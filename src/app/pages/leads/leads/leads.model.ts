@@ -1,6 +1,6 @@
 export interface LeadsModel {
   profile: string;
-  name: string;
+  leadName: string;
   company: string;
   score: string;
   phone: string;
@@ -8,6 +8,7 @@ export interface LeadsModel {
   date: string;
   tags: Array<{}>;
   isSelected?:any;
+  name: string
 }
 
 export interface LeadsOwner {

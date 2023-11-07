@@ -19,4 +19,8 @@ export const GlobalComponent = {
 
     // Customers Api
     customer:'apps/customer',
+
+    API_URL_SAMPLE: 'https://dummyjson.com/',
+
+    productsample: 'products'
 }

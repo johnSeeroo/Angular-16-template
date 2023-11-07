@@ -68,7 +68,7 @@
           _ngcontent-ng-c797134160=""
           type="button"
           class="btn btn-primary waves-effect waves-light margin_btn"
-          (click)="openEditLeadsModal()"
+          (click)="openEditLeadsModal(leadId)"
         >
           Edit
         </button>
@@ -869,21 +869,13 @@
       <!-- end card header -->
 
       <div class="card-body">
-        <p class="text-muted"></p>
+      
+      <div class="card-body">
+       
 
-        <div class="dropzone dz-clickable">
-          <div class="dz-message needsclick">
-            <div class="mb-3">
-              <i class="display-4 text-muted ri-upload-cloud-2-fill"></i>
-            </div>
-            <div #timeLineSection></div>
-
-            <h4>Drop your files here or click to upload.</h4>
-          </div>
-        </div>
-
-        <ul class="list-unstyled mb-0" id="dropzone-preview"></ul>
-        <!-- end dropzon-preview -->
+          <dropzone class="dropzone_sec"></dropzone>
+          <!-- end dropzon-preview -->
+      </div>
       </div>
       <!-- end card body -->
     </div>

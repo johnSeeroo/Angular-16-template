@@ -32,6 +32,7 @@ import { PagesComponent } from "./pages.component";
 import { PageSharedModule } from "./shared/shared.module";
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 
+
 @NgModule({
   declarations: [DashboardComponent, PagesComponent],
   imports: [
@@ -53,6 +54,7 @@ import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
     EcommerceModule,
     PageSharedModule,
     NgxSkeletonLoaderModule,
+ 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

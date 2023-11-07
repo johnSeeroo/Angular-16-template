@@ -1324,7 +1324,7 @@
                                 class="form-check-input"
                                 type="radio"
                                 id="residential"
-                                ormControlName="propertyPreferences"
+                                formControlName="propertyPreferences"
                                 value="residential"
                                 [checked]="
                                   currentlyChecked ===
@@ -1371,10 +1371,13 @@
 
                           <div class="row gy-4" *ngIf="isCommercial">
                             <div class="col-xxl-3 col-lg-6">
-                              <label>Desired Property Location :</label>
+                              <label>Desired Property Location : </label>
                               <select
                                 class="form-select"
                                 aria-label="Disabled select example"
+                                [ngClass]="{
+                                  'is-invalid': submitted && form['leadStatus'].errors
+                                }"
                               >
                                 <option selected="">Doha</option>
                                 <option value="1">One</option>

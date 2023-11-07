@@ -44,6 +44,7 @@ import { NgbdLeadsSortableHeader } from "./leads/leads-sortable.directive";
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 import { LeadsViewComponent } from "./leads-view/leads-view.component";
 import { EditleadsComponent } from './editleads/editleads.component';
+import { DropzoneModule } from 'ngx-dropzone-wrapper';
 
  
 
@@ -87,6 +88,7 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     FlatpickrModule,
     NgSelectModule,
     NgxSkeletonLoaderModule,
+    DropzoneModule
   ],
   providers: [
     provideNgxMask(),
